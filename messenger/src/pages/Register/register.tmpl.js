@@ -17,19 +17,19 @@ export const template = `
                 </label>
                 <label class="{{className}}__form_label">
                     <span class="{{className}}__form_label-text">Фамилия</span>
-                    <input class="{{className}}__form_input" name='last_name'></input>
+                    <input class="{{className}}__form_input" name='second_name'></input>
                 </label>
                 <label class="{{className}}__form_label">
                     <span class="{{className}}__form_label-text">Телефон</span>
-                    <input class="{{className}}__form_input" name="phone_number" type="phone"></input>
+                    <input class="{{className}}__form_input" name="phone" type="phone"></input>
                 </label>
                 <label class="{{className}}__form_label">
                     <span class="{{className}}__form_label-text">Пароль</span>
                     <input class="{{className}}__form_input" name='password' type="password"></input>
                 </label>
                 <label class="{{className}}__form_label">
-                <span class="{{className}}__form_label-text">Пароль (ещё раз)</span>
-                <input class="{{className}}__form_input" name='password' type="password"></input>
+                <span class="{{className}}__form_label-text">Подтвердите пароль</span>
+                <input class="{{className}}__form_input" name='password_confirm' type="password"></input>
                 </label>           
             </div>
             <button class="{{className}}__button {{className}}__button_primary">

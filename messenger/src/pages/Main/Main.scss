@@ -7,7 +7,7 @@
         &__aside {
             width: 35%;
             height: 100vh;
-            border: 3px solid black;
+            border: 2px solid black;
 
         }
 
@@ -17,29 +17,40 @@
             align-items: flex-start;
             justify-content: flex-start;
             list-style-type: none;
+            width: 100%;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         &__chat {
-            display: table-cell;
-            width: auto;
-            height: 32px;
-            font-weight: 600;
-            line-height: 1em;
-            text-align: center;
-            vertical-align: middle;
-            margin: 0;
-            padding: 10px;
-            border: 1px solid black;
-        }
-
-        &__chat_window {
-            width: 100%;
             display: flex;
+            width: 100%;
+            height: 40px;
+            font-weight: 600;
+            margin: 0;
             align-items: center;
             justify-content: center;
-            font-weight: 600;
-        }
-    
+            border: 1px solid black;
+
+            &_window {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                font-weight: 600;
+            }
+
+            &_feed {
+                display: flex;
+                padding: 30px;
+                justify-content: center;
+            }
+
+            &_message {
+                width: 100%;
+                height: 24px;
+            }
+        }   
 }

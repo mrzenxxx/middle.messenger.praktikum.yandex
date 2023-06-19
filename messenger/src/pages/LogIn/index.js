@@ -5,6 +5,6 @@ import { template } from "./login.tmpl";
 export const LogIn = () => Handlebars.compile(template)({
     title: 'Вход', 
     className: 'login',
-    primary_label: 'Авторизоваться',
-    secondary_label: 'Нет аккаунта?'
+    primary_label: 'Войти',
+    secondary_label: 'Ещё не зарегестрированы?'
 });

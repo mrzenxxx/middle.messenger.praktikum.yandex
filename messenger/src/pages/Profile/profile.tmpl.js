@@ -22,15 +22,15 @@ export const template = `
                 </label>
                 <label class="{{className}}__form_label">
                     <span class="{{className}}__form_label-text">Фамилия</span>
-                    <input class="{{className}}__form_input" name='last_name' value='Пупкин'></input>
+                    <input class="{{className}}__form_input" name='second_name' value='Пупкин'></input>
                 </label>
                 <label class="{{className}}__form_label">
                     <span class="{{className}}__form_label-text">Имя в чате</span>
-                    <input class="{{className}}__form_input" name='nickname' value='Mr.BIG'></input>
+                    <input class="{{className}}__form_input" name='display_name' value='Mr.BIG'></input>
                 </label>
                 <label class="{{className}}__form_label {{className}}__form_label_last">
                     <span class="{{className}}__form_label-text">Телефон</span>
-                    <input class="{{className}}__form_input" name="phone_number" type="phone" value='+7 911 111 11 11'></input>
+                    <input class="{{className}}__form_input" name="phone" type="phone" value='+7 911 111 11 11'></input>
                 </label>
             </div>
             <div class="{{className}}__buttons_wrapper">
