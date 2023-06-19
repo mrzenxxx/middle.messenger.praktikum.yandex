@@ -14,6 +14,7 @@
     "express": "^4.18.2",
     "handlebars": "^4.7.7",
     "path": "^0.12.7",
+    "sass": "^1.63.4",
     "scss": "^0.2.4",
     "vite-plugin-handlebars": "^1.6.0"
   }

@@ -1,0 +1,45 @@
+.main_page {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+
+        &__aside {
+            width: 35%;
+            height: 100vh;
+            border: 3px solid black;
+
+        }
+
+        &__chat_list {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        &__chat {
+            display: table-cell;
+            width: auto;
+            height: 32px;
+            font-weight: 600;
+            line-height: 1em;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0;
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        &__chat_window {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+    
+}

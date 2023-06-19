@@ -1,7 +1,13 @@
 export const template = `
-    <div>
-        <p1>
-            404 page
-        </p>
-    </div>
+    <main class="{{className}}">
+        <h1 class="{{className}}__title">
+            {{title}}
+        </h1>    
+        <p1 class="{{className}}__text">
+            {{text}}
+        </p1>
+        <button class="{{className}}__button">
+            <a href="/">{{button}}</a>
+        </button>
+    </main>
 `
