@@ -4,7 +4,11 @@ const app = express();
 
 app.use(express.static(__dirname + '/dist'));
 
+app.get('*', (req, res) => {
+  res.sendFile('./dist/index.html', { root : __dirname });
+})
+
 app.listen(PORT, () => {
   console.log(`Сервер запущен на порту ${PORT}!`);
-  console.log(`Открыть приложение: http://localhost:${PORT}`);
+  console.log(`ОТКРЫТЬ ПРИЛОЖЕНИЕ: >>> http://localhost:${PORT} <<<`);
 });
