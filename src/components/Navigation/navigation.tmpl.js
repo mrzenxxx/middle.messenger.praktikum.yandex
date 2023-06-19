@@ -1,7 +1,7 @@
 export const template = `
+    <nav class="{{className}}">
     <strong>APP PAGES:</strong>
-    <nav>
-        <ul>
+        <ul class="{{className}}__list">
             <li>
                 <a href='/main'>Main</a>
             </li>
