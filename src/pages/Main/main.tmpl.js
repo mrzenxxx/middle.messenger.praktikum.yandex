@@ -16,4 +16,3 @@ export const template =
         <input class="{{className}}__chat_message" placeholder='Введите сообщение...'></input>
       </section>
     </main>`
-

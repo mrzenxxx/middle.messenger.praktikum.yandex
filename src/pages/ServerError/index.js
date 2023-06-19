@@ -4,7 +4,7 @@ import './serverError.scss';
 
 export const ServerError = () => Handlebars.compile(template)({
     className: 'server_error',
-    title: '505',
+    title: '500',
     text: 'Ошибка на сервере',
     button: 'Назад к чатам'
 });
