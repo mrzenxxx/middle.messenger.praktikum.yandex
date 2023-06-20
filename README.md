@@ -5,7 +5,6 @@ Study project for Yandex.Praktikum
 https://www.figma.com/file/Ngoxofva1QKyJFUqdvRVEc/MyChat?type=design&node-id=1-498&t=xK1y8sIdlFcMmOKD-0
 
 **Команды для запуска приложения**  
-
 npm run dev     - запуск проекта локально  
 npm run start   - сборка и запуск проекта на express-сервере  
 
