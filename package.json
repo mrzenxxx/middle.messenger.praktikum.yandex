@@ -1,0 +1,22 @@
+{
+  "name": "messenger",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "npm run build && node server.js"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "handlebars": "^4.7.7",
+    "path": "^0.12.7",
+    "sass": "^1.63.4",
+    "scss": "^0.2.4",
+    "vite-plugin-handlebars": "^1.6.0"
+  }
+}

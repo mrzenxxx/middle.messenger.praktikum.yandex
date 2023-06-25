@@ -1,0 +1,35 @@
+@import "../../../static/color-scheme.scss";
+@import "../../../static/default-main.scss";
+
+.not_found {
+    
+    @include default-main;
+
+    &__title {
+        font-size: 40px;
+        color: $base-text;
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        font-size: 20px;
+        color: $base-text;
+        margin-bottom: 20px;
+    }
+
+    &__button {
+        margin-top: 40px;
+        background-color: $button-accent-background;
+        color: $accent-text;
+        font-size: 12px;
+        border: none;
+
+        & * {
+            text-decoration: none;
+        }
+
+        & *:visited {
+            color: $button-accent-text;
+        }
+    }
+}
