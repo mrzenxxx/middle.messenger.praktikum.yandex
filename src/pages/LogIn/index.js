@@ -6,5 +6,5 @@ export const LogIn = () => Handlebars.compile(template)({
     title: 'Вход', 
     className: 'login',
     primary_label: 'Войти',
-    secondary_label: 'Ещё не зарегестрированы?'
+    secondary_label: 'Ещё не зарегистрированы?'
 });

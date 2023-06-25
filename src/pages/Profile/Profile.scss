@@ -1,9 +1,11 @@
+@import "../../../static/color-scheme.scss";
+
 .profile {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #e5e5e5;
+    background-color: $base-background;
     height: 100vh;
     width: 100vw;
 
@@ -13,7 +15,7 @@
         height: 130px;
         border-radius: 65px;
         cursor: pointer;
-        background: #efefef;
+        background: $secondary-background;
         overflow: hidden;
 
         &_image {
@@ -68,20 +70,20 @@
             line-height: 1.2;
             position: absolute;
             top: 6px;
-            color: black;
+            color: $base-text;
         }
         
         &_input {
             padding: 6px 0;
             box-sizing: border-box;
             border-style: none;
-            border-bottom: 1px solid grey;
+            border-bottom: 1px solid $secondary-lines;
             font-weight: 400;
             font-size: 14px;
             line-height: 1.21;
             text-align: right;
-            background-color: transparent;
-            color: #999999;
+            background-color: $base-input-background;
+            color: $faded-text;
 
             &_last {
                 border-bottom: none;
@@ -89,7 +91,7 @@
         }
         
         &_input_error {
-            color: #ee3465;
+            color: $danger-text;
         }
     }
 
@@ -114,14 +116,14 @@
         display: block;
          
         &_primary {   
-            background: transparent;
-            color: black;
+            background: $button-secondary-background;
+            color: $button-secondary-text;
         }
 
         &_secondary {
             margin-top: 12px;
-            background: transparent;
-            color: red;
+            background: $button-accent-background;
+            color: $button-danger-text;
         }
 
         &:hover {

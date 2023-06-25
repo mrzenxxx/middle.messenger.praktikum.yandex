@@ -1,8 +1,10 @@
+@import "../../../static/color-scheme.scss";
+
 .register {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #e5e5e5;
+    background-color: $base-background;
     height: 100vh;
     width: 100vw;
 
@@ -11,7 +13,7 @@
         height: 615px;
         border-radius: 12px;
         padding: 50px 30px 55px 30px;
-        box-shadow: 0px 0px 4px 0px #00000024;
+        box-shadow: 0px 0px 4px 0px $base-shadow;
 
         &_title {
             display: block;
@@ -44,23 +46,23 @@
             font-weight: 400;
             font-size: 12px;
             line-height: 1.2;
-            color: #3f3333;
+            color: $faded-text;
         }
         
         &_input {
             padding: 6px 0;
             box-sizing: border-box;
             border-style: none;
-            border-bottom: 1px solid #424242;
+            border-bottom: 1px solid $base-lines;
             font-weight: 400;
             font-size: 14px;
             line-height: 1.21;
-            background-color: transparent;
-            color: #171515;
+            background-color: $base-input-background;
+            color: $base-text;
         }
         
         &_input_error {
-            color: #ee3465;
+            color: $danger-text;
         }
     }
 
@@ -73,14 +75,14 @@
         margin-top: 10px;
          
         &_primary {   
-            background-color: black;
-            color: white;
+            background-color: $button-primary-background;
+            color: $button-primary-text;
             margin-top: 64px;
         }
 
         &_secondary {
-            background: transparent;
-            color: black;
+            background: $button-secondary-background;
+            color: $button-secondary-text;
         }
 
         &:hover {
@@ -89,8 +91,5 @@
             opacity: 0.9;
             transition: 0.25s;
         }
-
-
     }
-
 }
