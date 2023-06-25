@@ -1,12 +1,9 @@
 @import "../../../static/color-scheme.scss";
+@import "../../../static/default-main.scss";
 
 .login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $base-background;
-    height: 100vh;
-    width: 100vw;
+
+    @include default-main;
 
     &__form {
         width: 340px;
