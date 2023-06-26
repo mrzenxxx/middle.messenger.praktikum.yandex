@@ -10,6 +10,6 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Сервер запущен на порту ${PORT}!`);
-  console.log(`ОТКРЫТЬ ПРИЛОЖЕНИЕ: >>> http://localhost:${PORT} <<<`);
+  console.warn(`Сервер запущен на порту ${PORT}!`);
+  console.warn(`ОТКРЫТЬ ПРИЛОЖЕНИЕ: >>> http://localhost:${PORT} <<<`);
 });
