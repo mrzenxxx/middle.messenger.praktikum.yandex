@@ -10,4 +10,4 @@ export const template = `
             <a href="/">{{button}}</a>
         </button>
     </main>
-`
+`;

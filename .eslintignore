@@ -1,0 +1,4 @@
+/dist
+**/*.min.js
+/node_modules
+vite.config.js

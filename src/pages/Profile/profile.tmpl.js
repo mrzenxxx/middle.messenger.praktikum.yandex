@@ -46,4 +46,4 @@ export const template = `
             <div>
         </form>   
     </main>
-`
+`;

@@ -22,4 +22,4 @@ export const template = `
             </li>
         </ul>
     </nav>
-`
+`;

@@ -20,4 +20,4 @@ export const template = `
             </button>
         </form>   
     </main>
-`
+`;

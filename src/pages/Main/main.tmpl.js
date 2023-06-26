@@ -1,5 +1,4 @@
-export const template = 
-    `<main class="{{className}}">
+export const template = `<main class="{{className}}">
       <aside class="{{className}}__aside">
         <ul class="{{className}}__chat_list">
             <li class="{{className}}__chat">{{chatName}}</li>
@@ -15,4 +14,4 @@ export const template =
         <span class="{{className}}__chat_feed">{{chatMessage}}</span>
         <input class="{{className}}__chat_message" placeholder='Введите сообщение...'></input>
       </section>
-    </main>`
+    </main>`;
