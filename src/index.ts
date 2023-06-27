@@ -7,7 +7,7 @@ import { ServerError } from './pages/ServerError/index';
 import { Navigation } from './components/Navigation';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const root = document.querySelector('#app');
+    const root = document.querySelector('#app')!;
     const getPage = () => {
         switch (window.location.pathname){
             case '/' : return Navigation();
