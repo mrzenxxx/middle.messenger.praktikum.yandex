@@ -64,24 +64,24 @@ export class Block {
   }
 
   // Может переопределять пользователь, необязательно трогать
-  protected componentDidMount(oldProps?: any): void {}
+  protected componentDidMount(oldProps?: Props): void {}
 
   public dispatchComponentDidMount(): void {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  private _componentDidUpdate(oldprops: Props, newprops: Props): void {
+  private _componentDidUpdate(oldProps: Props, newProps: Props): void {
     const response = this.componentDidUpdate(oldProps, newProps);
     if (response) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
-  protected componentDidUpdate(oldprops: Props, newprops: Props): boolean {
+  protected componentDidUpdate(oldProps?: Props, newProps?: Props): boolean {
     return true;
   }
 
-  public setProps = (nextprops: Props): void => {
+  public setProps = (nextProps: Props): void => {
     if (!nextProps) {
       return;
     }
@@ -103,7 +103,7 @@ export class Block {
     return "";
   }
 
-  private _makePropsProxy(props: Props): any {
+  private _makePropsProxy(props: Props): Props {
     const self = this;
   
     return new Proxy(props, {
