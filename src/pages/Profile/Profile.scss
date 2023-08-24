@@ -1,8 +1,7 @@
-@import "../../../static/styles/color-scheme.scss";
-@import "../../../static/styles/default-main.scss";
+@import "../../../static/styles/color-scheme";
+@import "../../../static/styles/default-main";
 
 .profile {
-
     @include default-main;
 
     &__avatar {

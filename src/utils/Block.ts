@@ -1,4 +1,5 @@
 import { EventBus } from "./EventBus";
+import { nanoid } from "nanoid";
 
 type Props = {
     [key: string]: string | number | boolean | {[key: string] : unknown} | unknown[]
@@ -21,9 +22,12 @@ export class Block {
     FLOW_RENDER: "flow:render"
   };
 
+  public id = nanoid(8);
   private _element: HTMLElement | null = null;
   private _meta: { tagName: string; props: Props } | null = null;
-  private props: Props;
+  protected props: Props;
+  protected refs: Record<string, Block> = {};
+  public children: Record<string, Block> = {};
   private eventBus: () => EventBus;
 
   constructor(tagName: string = "div", props: Props = {}) {

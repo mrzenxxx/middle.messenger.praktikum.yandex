@@ -1,16 +1,15 @@
-@import "../../../static/styles/color-scheme.scss";
-@import "../../../static/styles/default-main.scss";
+@import "../../../static/styles/color-scheme";
+@import "../../../static/styles/default-main";
 
-.register {
-    
+.register {   
     @include default-main;
 
     &__form {
         width: 340px;
         height: 615px;
         border-radius: 12px;
-        padding: 50px 30px 55px 30px;
-        box-shadow: 0px 0px 4px 0px $base-shadow;
+        padding: 50px 30px 55px;
+        box-shadow: 0 0 4px 0 $base-shadow;
 
         &_title {
             display: block;

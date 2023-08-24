@@ -4,7 +4,7 @@ import { Register } from './pages/Register/index';
 import { Profile } from './pages/Profile/index';
 import { NotFound } from './pages/NotFound/index';
 import { ServerError } from './pages/ServerError/index';
-import { Navigation } from './components/Navigation';
+import { Navigation } from './pages/Navigation/index';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.querySelector('#app')!;

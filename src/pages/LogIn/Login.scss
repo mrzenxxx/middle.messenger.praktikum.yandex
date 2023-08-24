@@ -1,16 +1,15 @@
-@import "../../../static/styles/color-scheme.scss";
-@import "../../../static/styles/default-main.scss";
+@import "../../../static/styles/color-scheme";
+@import "../../../static/styles/default-main";
 
 .login {
-
     @include default-main;
 
     &__form {
         width: 340px;
         height: 450px;
         border-radius: 12px;
-        padding: 50px 30px 55px 30px;
-        box-shadow: 0px 0px 6px 0px $base-shadow;
+        padding: 50px 30px 55px;
+        box-shadow: 0 0 6px 0 $base-shadow;
 
         &_title {
             display: block;
@@ -18,7 +17,7 @@
             text-align: center;
             margin-bottom: 40px;
         }
-        
+
         &_fields {
             display: flex;
             flex-direction: column;
@@ -38,14 +37,14 @@
             cursor: pointer;
             position: relative;
         }
-        
+
         &_label-text {
             font-weight: 400;
             font-size: 12px;
             line-height: 1.2;
             color: $faded-text;
         }
-        
+
         &_input {
             padding: 6px 0;
             box-sizing: border-box;
@@ -57,7 +56,7 @@
             background-color: $base-input-background;
             color: $base-text;
         }
-        
+
         &_input_error {
             color: $danger-text;
         }
@@ -70,8 +69,8 @@
         border-radius: 8px;
         font-size: 13px;
         margin-top: 10px;
-         
-        &_primary {   
+
+        &_primary {
             background-color: $button-primary-background;
             color: $button-primary-text;
         }
