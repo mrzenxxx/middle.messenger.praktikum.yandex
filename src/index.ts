@@ -7,24 +7,27 @@ import { Register } from './pages/Register/index';
 import { Profile } from './pages/Profile/index';
 import { NotFound } from './pages/NotFound/index';
 import { ServerError } from './pages/ServerError/index';
-import  Navigation  from './pages/Navigation/index';
+import { Navigation }  from './pages/Navigation/index';
+import Block from './utils/Block';
 
 
-registerComponent('Button', Button);
+registerComponent('Button', Button as typeof Block);
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.querySelector('#app')!;
     const getPage = () => {
         switch (window.location.pathname){
-            case '/' : return new Navigation();
-            case '/main' : return Main();
-            case '/login' : return LogIn();
-            case '/profile' : return Profile();
-            case '/register' : return Register();
-            case '/500' : return ServerError();
-            default : return NotFound();    
+            case '/' : return new Navigation({});
+            case '/main' : return new Main({});
+            case '/login' : return new LogIn({});
+            case '/profile' : return new Profile({});
+            case '/register' : return new Register({});
+            case '/500' : return new ServerError({});
+            default : return new NotFound({});    
         }
     }
-    console.log('getPage():', getPage());
-    root.append(getPage().getContent());
+
+    const page: Block<{}> = getPage();
+    root.append(page.getContent() as HTMLElement);
+    page.dispatchComponentDidMount();
 })

@@ -2,7 +2,7 @@ import Block from "../../utils/Block";
 import template from "./navigation.hbs?raw";
 import './Navigation.scss';
 
-type NavigationProps = {}
+type NavigationProps = Record<string, unknown>
 
 export default class Navigation extends Block<NavigationProps> {
 
@@ -14,8 +14,6 @@ export default class Navigation extends Block<NavigationProps> {
     }
 
     protected render() {
-
-        console.log('nav render()', this) 
         return this.compile(
           template, this.props
         );

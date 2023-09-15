@@ -1,10 +1,20 @@
-import Handlebars from 'handlebars';
-import { template } from './notFound.tmpl';
+import Block from '../../utils/Block';
+import template from './notFound.hbs?raw';
 import './NotFound.scss';
 
-export const NotFound = () => Handlebars.compile(template)({
-  className: '.not-found',
-  title: '404',
-  text: 'Не туда попали',
-  button: 'Назад к чатам',
-});
+type NotFoundProps = Record<string, unknown>;
+
+export class NotFound extends Block<NotFoundProps> {
+  constructor(props: NotFoundProps) {
+    super({
+        ...props,
+        className: 'not-found',
+        title: '404',
+        text: 'Не туда попали',
+        button: 'Назад к чатам',
+    })
+  }
+  protected render(): DocumentFragment {
+    return this.compile(template, this.props)
+  }
+}
