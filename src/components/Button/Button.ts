@@ -1,5 +1,5 @@
 import Block from "../../utils/Block";
-import template from "./button.hbs";
+import template from "./button.hbs?raw";
 
 interface ButtonProps {
     label: string;
@@ -23,6 +23,6 @@ interface ButtonProps {
   
     render() {
       console.log('button rendered', this);
-      return this.compile(template, {});
+      return this.compile(template, this.props);
     }
   }

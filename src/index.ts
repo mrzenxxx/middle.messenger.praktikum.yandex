@@ -1,4 +1,4 @@
-import Handlebars from 'handlebars/runtime';
+
 import { Button } from './components/Button/Button';
 import { registerComponent } from "./utils/registerComponent";
 import { Main } from './pages/Main/index';
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = document.querySelector('#app')!;
     const getPage = () => {
         switch (window.location.pathname){
-            case '/' : return new Button();
+            case '/' : return new Navigation();
             case '/main' : return Main();
             case '/login' : return LogIn();
             case '/profile' : return Profile();
@@ -25,5 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
             default : return NotFound();    
         }
     }
-    root.innerHTML = getPage();
+    console.log('getPage():', getPage());
+    root.append(getPage().getContent());
 })

@@ -98,7 +98,7 @@ export default class Block<P extends Record<string, unknown> = any> {
 
   private _render(): void {
     const fragment = this.render();
-    const newElement = fragment.firstChild as HTMLElement;
+    const newElement = fragment.firstElementChild as HTMLElement;
     
     if (newElement&&this._element) {
         this._element.replaceWith(newElement);
