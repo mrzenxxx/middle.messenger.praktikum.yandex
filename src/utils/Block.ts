@@ -1,5 +1,6 @@
 import { EventBus } from "./EventBus";
 import { nanoid } from "nanoid";
+import Handlebars from "handlebars";
 
 type Events = {
   INIT: string;
@@ -8,7 +9,7 @@ type Events = {
   FLOW_RENDER: string;
 }
 
-export class Block<P extends Record<string, unknown> = any> {
+export default class Block<P extends Record<string, unknown> = any> {
   static EVENTS: Events = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
@@ -18,7 +19,6 @@ export class Block<P extends Record<string, unknown> = any> {
 
   public id = nanoid(8);
   private _element: HTMLElement | null = null;
-  private _meta: { tagName: string; props: P } | null = null;
   protected props: P;
   protected refs: Record<string, Block<P>> = {};
   public children: Record<string, Block<P> | Block<P>[]> = {};
@@ -34,7 +34,7 @@ export class Block<P extends Record<string, unknown> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  private _getChildrenAndProps(childrenAndProps: P) : {props: P, children: Record<string, Block | Block[]>} {
+  private _getChildrenAndProps(childrenAndProps: P) : {props: P, children: Record<string, Block<P> | Block<P>[]>} {
     const props: Record<string, unknown> = {};
     const children: Record<string, Block<P> | Block<P>[]> = {};
     for (let [key , value] of Object.entries(childrenAndProps)){
@@ -81,18 +81,7 @@ export class Block<P extends Record<string, unknown> = any> {
     })
   }
 
-  private _createResources(): void {
-    const { tagName } = this._meta!;
-    this._element = this._createDocumentElement(tagName);
-    this.eventBus().emit(Block.EVENTS.FLOW_CDM);
-  }
-
-  private _createDocumentElement(tagName: string) {
-    return document.createElement(tagName);
-  }
-
   private init(): void {
-    this._createResources();
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
@@ -109,13 +98,13 @@ export class Block<P extends Record<string, unknown> = any> {
 
   private _render(): void {
     const fragment = this.render();
-    const element = fragment.firstChild as HTMLElement;
+    const newElement = fragment.firstChild as HTMLElement;
     
-    if (element&&this._element) {
-        this._element.replaceWith(element);
+    if (newElement&&this._element) {
+        this._element.replaceWith(newElement);
     }
 
-    this._element = element;
+    this._element = newElement;
     this._addEvents();
   }
 
@@ -125,23 +114,18 @@ export class Block<P extends Record<string, unknown> = any> {
     return true;
   }
 
-  protected compile(template: (context: any) => string, context: any) {
+  protected compile(template: string, context: any) {
     const contextAndStubs = {...context, __refs: this.refs};
-
-    Object.entries(this.children).forEach(([name, component]) => {
-        if (Array.isArray(component)) {
-            contextAndStubs[name] = component.map((child) => `<div data-id="${child.id}"></div>`)
-        } else {
-            contextAndStubs[name] = `<div data-id="${component.id}"></div>`
-        }
-    })
-
-    const html = template(contextAndStubs);
+    console.log("template", template);
+    console.log("contextAndStubs", contextAndStubs);
+    const html = Handlebars.compile(template)(contextAndStubs);
+    console.log("html", html);
     const temp = document.createElement('template');
 
     temp.innerHTML = html;
 
     contextAndStubs.__children?.forEach(({embed}: any) => {
+      console.log("children temp content", temp.content);  
       embed(temp.content);
     });
 
@@ -171,7 +155,11 @@ export class Block<P extends Record<string, unknown> = any> {
   };
 
   public get element(): HTMLElement | null {
-    return this._element;
+    return this!._element ;
+  }
+  
+  public getContent() {
+    return this!._element;
   }
 
   public show(): void {

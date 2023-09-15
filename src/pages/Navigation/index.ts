@@ -1,7 +1,18 @@
-import Handlebars from 'handlebars';
-import './Navigation.scss';
-import { template } from './navigation.tmpl';
+import Block from "../../utils/Block";
+import template from "./navigation.hbs";
 
-export const Navigation = () => Handlebars.compile(template)({
-  className: 'navigation',
-});
+type NavigationProps = {}
+
+export default class Navigation extends Block<NavigationProps> {
+
+    // constructor() {
+    //     super({className: 'navigation'} )
+    // }
+
+    protected render() {
+        console.log('nav render()', this) 
+        return this.compile(
+          template, {className: 'navigation'}
+        );
+    }
+}

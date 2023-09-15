@@ -20,5 +20,9 @@
       "sourceMap": true,
       "strictNullChecks": true,
     },
-    "include": ["src"]
+    "include": [
+      "src",
+      "src/types/hbs.d.ts",
+      "vite.config.js"
+    ]
   } 
