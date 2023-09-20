@@ -18,6 +18,11 @@
         color: $button-secondary-text;
     }
 
+    &_danger {
+        background: $button-secondary-background;
+        color: $danger-text;
+    }
+
     &:hover {
         cursor: pointer;
         scale: 1.05;

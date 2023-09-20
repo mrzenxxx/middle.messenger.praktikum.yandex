@@ -1,5 +1,15 @@
+{{#if profile_styled}}
+<label class="profile__form_label">
+    <span class="profile__form_label-text">{{label}}</span>
+    <input class="profile__form_input" name={{name}} value={{value}} type={{type}} onblur={{onBlur}}></input>
+    <span class="profile__form_input-error">{{error}}</span>
+</label>
+{{/if}}
+
+{{#unless profile_styled}}
 <label class="form_label">
     <span class="form_label-text">{{label}}</span>
     <input class="form_input" name={{name}} type={{type}} onblur={{onBlur}}></input>
     <span class="form_input-error">{{error}}</span>
 </label>
+{{/unless}}
