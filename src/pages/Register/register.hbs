@@ -1,41 +1,15 @@
 <main class="{{className}}">
-    <form class="{{className}}__form">
-        <span class="{{className}}__form_title">{{title}}</span>
+    {{#>Form className="register" title="Регистрация"}}
         <div class="{{className}}__form_fields">
-            <label class="{{className}}__form_label">
-                <span class="{{className}}__form_label-text">Почта</span>
-                <input class="{{className}}__form_input" name='email'></input>
-            </label>
-            <label class="{{className}}__form_label">
-                <span class="{{className}}__form_label-text">Логин</span>
-                <input class="{{className}}__form_input" name='login'></input>
-            </label>
-            <label class="{{className}}__form_label">
-                <span class="{{className}}__form_label-text">Имя</span>
-                <input class="{{className}}__form_input" name='first_name'></input>
-            </label>
-            <label class="{{className}}__form_label">
-                <span class="{{className}}__form_label-text">Фамилия</span>
-                <input class="{{className}}__form_input" name='second_name'></input>
-            </label>
-            <label class="{{className}}__form_label">
-                <span class="{{className}}__form_label-text">Телефон</span>
-                <input class="{{className}}__form_input" name="phone" type="phone"></input>
-            </label>
-            <label class="{{className}}__form_label">
-                <span class="{{className}}__form_label-text">Пароль</span>
-                <input class="{{className}}__form_input" name='password' type="password"></input>
-            </label>
-            <label class="{{className}}__form_label">
-                <span class="{{className}}__form_label-text">Подтвердите пароль</span>
-                <input class="{{className}}__form_input" name='password_confirm' type="password"></input>
-            </label>
+            {{{FormInput label="Почта" name="email"}}}
+            {{{FormInput label="Логин" name="login"}}}
+            {{{FormInput label="Имя" name="first_name"}}}
+            {{{FormInput label="Фамилия" name="second_name"}}}
+            {{{FormInput label="Телефон" name="phone" type="phone"}}}
+            {{{FormInput label="Пароль" name="password" type="password"}}}
+            {{{FormInput label="Подтвердите пароль" name="password_confirm" type="password"}}}
         </div>
-        <button class="{{className}}__button {{className}}__button_primary">
-            {{primary_label}}
-        </button>
-        <button class="{{className}}__button {{className}}__button_secondary">
-            {{secondary_label}}
-        </button>
-    </form>
+        {{{Button label="Зарегистрироваться" type="primary"}}}
+        {{{Button label="Уже есть аккаунт?" type="secondary"}}}
+    {{/Form}}
 </main>

@@ -2,30 +2,21 @@
 
 .form {
     border-radius: 12px;
-    padding: 50px 30px 55px;
+    padding: 36px 24px;
     box-shadow: 0 0 6px 0 $base-shadow;
-
+    width: auto;
+    height: auto;
 
     &_title {
         display: block;
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: bolder;
         text-align: center;
         margin-bottom: 40px;
     }
 
-    &__login {
-        width: 340px;
-        height: 450px;
-    }
-
-    &__register {
-        width: 340px;
-        height: 615px;
-    }
-
     &__profile {
         width: 510px;
-        height: auto;
         padding: 0;
     }
 }

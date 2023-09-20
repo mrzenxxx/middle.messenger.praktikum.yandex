@@ -2,10 +2,9 @@ import Block from "../../utils/Block";
 import template from "./button.hbs?raw";
 import './Button.scss';
 
-
 interface ButtonProps {
     label: string;
-    type?: 'submit' | 'button',
+    type: string,
     onClick?: () => void;
     events: {
       click?: () => void;

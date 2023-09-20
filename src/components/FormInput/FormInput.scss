@@ -28,6 +28,10 @@
         line-height: 1.21;
         background-color: $base-input-background;
         color: $base-text;
+
+        &:focus {
+            outline: none;
+        }
     }
 
     &_input_error {
