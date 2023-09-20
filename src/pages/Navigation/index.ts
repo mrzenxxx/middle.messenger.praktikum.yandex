@@ -4,7 +4,7 @@ import './Navigation.scss';
 
 type NavigationProps = Record<string, unknown>
 
-export default class Navigation extends Block<NavigationProps> {
+export class Navigation extends Block<NavigationProps> {
 
     constructor(props: NavigationProps) {
         super({

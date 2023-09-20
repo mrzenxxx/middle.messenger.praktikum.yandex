@@ -1,0 +1,36 @@
+@import "../../../static/styles/color-scheme";
+
+.form {
+
+    &_label {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    &_label-text {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.2;
+        color: $faded-text;
+    }
+
+    &_input {
+        padding: 6px 0;
+        box-sizing: border-box;
+        border-style: none;
+        border-bottom: 1px solid $base-lines;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.21;
+        background-color: $base-input-background;
+        color: $base-text;
+    }
+
+    &_input_error {
+        color: $danger-text;
+    }
+}

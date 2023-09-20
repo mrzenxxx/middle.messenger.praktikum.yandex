@@ -1,0 +1,31 @@
+@import "../../../static/styles/color-scheme";
+
+.form {
+    border-radius: 12px;
+    padding: 50px 30px 55px;
+    box-shadow: 0 0 6px 0 $base-shadow;
+
+
+    &_title {
+        display: block;
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    &__login {
+        width: 340px;
+        height: 450px;
+    }
+
+    &__register {
+        width: 340px;
+        height: 615px;
+    }
+
+    &__profile {
+        width: 510px;
+        height: auto;
+        padding: 0;
+    }
+}
