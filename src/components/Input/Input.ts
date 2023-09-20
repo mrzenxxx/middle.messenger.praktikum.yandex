@@ -1,8 +1,8 @@
 import Block from "../../utils/Block";
-import template from "./FormInput.hbs?raw";
-import './FormInput.scss';
+import template from "./Input.hbs?raw";
+import './Input.scss';
 
-interface FormInputProps {
+interface InputProps {
     label: string;
     type?: 'submit' | 'button',
     onBlur?: () => void;
@@ -11,8 +11,8 @@ interface FormInputProps {
     };
 }
 
-export class FormInput extends Block<FormInputProps | any> {
-    constructor(props: FormInputProps) {
+export class Input extends Block<InputProps | any> {
+    constructor(props: InputProps) {
         super({
             ...props,
             events: {

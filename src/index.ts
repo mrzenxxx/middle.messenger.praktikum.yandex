@@ -1,7 +1,7 @@
-import Handlebars from 'handlebars';
-import { Button } from './components/Button/Button';
-import { FormInput } from './components/FormInput/FormInput';
+import { registerPartial } from 'handlebars';
 import { registerComponent } from "./utils/registerComponent";
+import { Button } from './components/Button/Button';
+import { Input } from './components/Input/Input';
 import { Main } from './pages/Main/index';
 import { LogIn } from './pages/LogIn/index';
 import { Register } from './pages/Register/index';
@@ -11,11 +11,14 @@ import { ServerError } from './pages/ServerError/index';
 import { Navigation }  from './pages/Navigation/index';
 import Block from './utils/Block';
 import Form from './components/Form/Form';
+import Chat from './components/Chat/Chat';
 
 
-Handlebars.registerPartial('Form', Form);
+registerPartial('Form', Form);
+registerPartial('Chat', Chat);
+
 registerComponent('Button', Button as typeof Block);
-registerComponent('FormInput', FormInput as typeof Block);
+registerComponent('Input', Input as typeof Block);
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.querySelector('#app')!;
