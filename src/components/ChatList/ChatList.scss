@@ -1,0 +1,12 @@
+@import "../../../static/styles/color-scheme";
+
+.chat_list {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 310px;
+    height: 100dvh;
+    border-right: 1px solid $base-shadow;
+    background-color: $base-background;
+}

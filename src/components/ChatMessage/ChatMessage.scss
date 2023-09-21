@@ -1,0 +1,47 @@
+@import "../../../static/styles/color-scheme";
+
+.chat_message {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 50%;
+    height: auto;
+    background-color: $base-shadow;
+    margin: 4px 0;
+
+    &__info_wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid #000;
+        padding: 0 0 4px;
+        margin-bottom: 8px;
+    }
+
+    &__author {
+        font-size: 13px;
+        font-weight: 400;
+        padding: 0;
+        margin: 0;
+        color: white;
+    }
+
+    &__time {
+        font-size: 13px;
+        font-weight: 400;
+        padding: 0;
+        margin: 0;
+        color: white;
+    }
+
+    &__text {
+        font-size: 12px;
+        line-height: normal;
+        background-color: $base-background;
+        font-weight: 400;
+        padding: 0;
+        margin: 0;
+        color: $base-text;
+    }
+}

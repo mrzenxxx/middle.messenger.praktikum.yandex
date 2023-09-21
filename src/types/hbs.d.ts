@@ -1,6 +1,2 @@
-declare module '*.hbs' {
-    declare const template: string;
-    export = template;  
-}
-
-declare module '*.hbs?raw' 
+declare module '*.hbs' ;
+declare module '*.hbs?raw';

@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import template from "./Form.hbs?raw";
-import "./Form.scss";
+import template from "./ChatMessage.hbs?raw";
+import "./ChatMessage.scss";
 
 export default Handlebars.compile(template);

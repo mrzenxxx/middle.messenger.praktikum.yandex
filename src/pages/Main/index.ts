@@ -8,9 +8,6 @@ export class Main extends Block<MainProps> {
   constructor(props: MainProps) {
     super({
         ...props,
-        className: 'main-page',
-        chatName: 'Заглушка списка чатов',
-        chatMessage: 'Заглушка окна чата',
     })
   }
   protected render(): DocumentFragment {

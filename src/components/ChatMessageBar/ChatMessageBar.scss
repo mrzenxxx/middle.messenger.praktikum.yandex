@@ -1,0 +1,51 @@
+@import "../../../static/styles/color-scheme";
+
+.chat_message-bar {
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 36px;
+    background-color: $base-shadow;
+    border-bottom: 1px solid $base-lines;
+    border-top: 1px solid $base-lines;
+    box-sizing: border-box;
+
+    &__attach-button {
+        margin: auto 0;
+        width: 32px;
+        height: 32px;
+        background: url(../../../static/img/icons/attach.svg);
+    }
+
+    &__send-button {
+        margin: auto 0;
+        width: 32px;
+        height: 32px;
+        background: url(../../../static/img/icons/forward.svg);
+    }
+
+    &_input {
+        margin: auto 0;
+        width: 100%;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        padding: 6px 0;
+        box-sizing: border-box;
+        border: 1px solid $base-lines;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.21;
+        background-color: $base-input-background;
+        color: $base-text;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &_input_error {
+        color: $danger-text;
+    }
+}

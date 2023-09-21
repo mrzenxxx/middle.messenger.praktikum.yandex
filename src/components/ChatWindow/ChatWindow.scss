@@ -1,0 +1,12 @@
+@import "../../../static/styles/color-scheme";
+
+.chat_window {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    background-color: $base-background;
+    border-right: 1px solid #000;
+}
