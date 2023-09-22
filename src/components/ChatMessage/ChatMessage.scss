@@ -1,16 +1,19 @@
 @import "../../../static/styles/color-scheme";
 
 .chat_message {
-    padding: 4px 8px 6px;
-    display: flex;
-    flex-direction: column;
+    padding: 8px ;
+    display: inline-block;
     position: relative;
     width: auto;
-    max-width: 55%;
     height: auto;
     background-color: $secondary-background;
     margin: 4px 0;
     border-radius: 4px;
+
+    &__wrapper {
+        display: inline-block;
+        max-width: 55%;
+    }
 
     &__info_wrapper {
         display: flex;
