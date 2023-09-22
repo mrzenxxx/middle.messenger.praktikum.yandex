@@ -7,13 +7,13 @@
     {{>ChatBox header="Урааааа!!!" time="11.11" content="Наконец-то нарисовалась эта штука, ещё конечно верстать и верстать...."}}
     {{>ChatBox header="Урааааа!!!" time="11.11" content="Наконец-то нарисовалась эта штука, ещё конечно верстать и верстать...."}}
   {{/ChatList}}
-  <section class="main-page__chat_window">
-  {{>ChatHeader header = "Название чата"}}
   {{#>ChatWindow}}
-    {{>ChatMessage author="Vova" time="22.22" text="Hello, World!!!"}}
-    {{>ChatMessage author="Vova" time="22.22" text="Hello, World!!!"}}
-    {{>ChatMessage author="Vova" time="22.22" text="Hello, World!!!SDJFHKDSJBFjkbgjnsdbfgjsdbkfsdufbwibfmdsnvndvjsdoivhjwoiughjkrebvsmd"}}
+  {{>ChatHeader header = "Название чата"}}
+    {{#>ChatFeed}}
+      {{>ChatMessage author="Vova" time="22.22" text="Hello, World!!!"}}
+      {{>ChatMessage author="Vova" time="22.22" text="Hello, World!!!"}}
+      {{>ChatMessage author="Vova" time="22.22" text="Hello, World!!!SDJFHKDSJBFjkbgjnsdbfgjsdbkfsdufbwibfmdsnvndvjsdoivhjwoiughjkrebvsmd"}}
+    {{/ChatFeed}}
+    {{{ChatMessageBar}}}  
   {{/ChatWindow}}
-  {{{ChatMessageBar}}}  
-  </section>
 </main>

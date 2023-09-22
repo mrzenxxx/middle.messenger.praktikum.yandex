@@ -1,7 +1,7 @@
 @import "../../../static/styles/color-scheme";
 
 .chat_list {
-    padding: 10px;
+    padding: 0 10px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -9,4 +9,10 @@
     height: 100dvh;
     border-right: 1px solid $base-shadow;
     background-color: $base-background;
+
+    &__wrapper {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 }

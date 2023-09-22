@@ -13,9 +13,11 @@
         <div class="chatbox__info_time">
             {{time}}
         </div>
-        <div class="chatbox__info_unread">
-            {{unread}}
-        </div>
+        {{#if unread}}
+            <div class="chatbox__info_unread">
+                {{unread}}
+            </div>
+        {{/if}}
     </div>
 </button>
 </li>

@@ -1,70 +1,96 @@
 @import "../../../static/styles/color-scheme";
 
 .chatbox {
-    padding: 12px 0;
+    padding: 8px 0;
     display: flex;
     flex-direction: row;
     position: relative;
     width: 100%;
     height: 72px;
+    border: none;
     background-color: $base-background;
-    border-bottom: 1px solid $base-lines;
-    border-top: 1px solid $base-lines;
+    border-bottom: 1px solid $secondary-lines;
+    border-top: 1px solid $secondary-lines;
     box-sizing: border-box;
+    border-collapse: collapse;
+    margin: -1px 0;
+    
 
     &__text {
         display: flex;
         flex-direction: column;
-        width: auto;
+        overflow: hidden;
+        width: 100%;
+        margin-left: 8px;
+        text-align: left;
 
         &_header {
             color: #1E1E1E;
-            font-family: Inter;
-            font-size: 13px;
+            font-size: 12px;
             font-style: normal;
             font-weight: 600;
-            line-height: 13px; 
+            line-height: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 4px;
         }
 
         &_content {
             height: 100%;
-            color: #999;
+            color: $faded-text;
             font-size: 12px;
-            font-style: normal;
             font-weight: 500;
-            line-height: 15px; 
+            line-height: 13px; 
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+           
         }
     }
 
     &__info {
         display: flex;
+        justify-content: space-between;
+        align-items: end;
         flex-direction: column;
         height: 100%;
-        width: 28px;
-        background-color: bisque;
+        min-width: 24px;
 
         &_time {
-            color: #999;
+            color: $faded-text;
             text-align: right;
-            font-family: Inter;
-            font-size: 9px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 13px; 
+            font-size: 10px;
+            font-weight: bold;
         }
 
         &_unread {
-            width: 12px;
-            height: 12px;
-            flex-shrink: 0;
-            color: #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9px;
+            width: 18px;
+            height: 18px;
+            background-color: $dark-background;
+            color: $button-primary-text;
             text-align: center;
-            font-family: Inter;
-            font-size: 11px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            opacity: 0.85;
         }
+    }
+
+    &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid $base-lines;
+        border-top: 1px solid $base-lines;
+        z-index: 1000;
+        scale: 1.05;
+        transition: 0.25s;
     }
 
 }

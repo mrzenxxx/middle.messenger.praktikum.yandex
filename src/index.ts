@@ -12,20 +12,22 @@ import { Navigation }  from './pages/Navigation/index';
 import Block from './utils/Block';
 import Avatar from './components/Avatar/Avatar';
 import Form from './components/Form/Form';
-import ChatWindow from './components/ChatWindow/ChatWindow';
+import ChatFeed from './components/ChatFeed/ChatFeed';
 import ChatBox from './components/ChatBox/ChatBox';
 import ChatHeader from './components/ChatHeader/ChatHeader';
 import ChatList from './components/ChatList/ChatList';
 import ChatMessage from './components/ChatMessage/ChatMessage';
+import ChatWindow from './components/ChatWindow/ChatWindow';
 import { ChatMessageBar } from './components/ChatMessageBar/ChatMessageBar';
 
 Handlebars.registerPartial('Avatar', Avatar);
 Handlebars.registerPartial('Form', Form);
-Handlebars.registerPartial('ChatWindow', ChatWindow);
+Handlebars.registerPartial('ChatFeed', ChatFeed);
 Handlebars.registerPartial('ChatBox', ChatBox);
 Handlebars.registerPartial('ChatHeader', ChatHeader);
 Handlebars.registerPartial('ChatList', ChatList);
 Handlebars.registerPartial('ChatMessage', ChatMessage);
+Handlebars.registerPartial('ChatWindow', ChatWindow);
 
 registerComponent('Button', Button as typeof Block);
 registerComponent('Input', Input as typeof Block);
