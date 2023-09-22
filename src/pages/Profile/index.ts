@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../core/Block';
 import './Profile.scss';
 import template from './profile.hbs?raw';
 
@@ -10,7 +10,7 @@ export class Profile extends Block<ProfileProps> {
         ...props,
         className: 'profile',
         nickname: 'Mr.BIG',
-        image: 'static/img/mock_image.jpg',
+        image: 'assets/img/mock_image.jpg',
         button_1_label: 'Изменить данные',
         button_2_label: 'Изменить пароль',
         button_3_label: 'Выйти',

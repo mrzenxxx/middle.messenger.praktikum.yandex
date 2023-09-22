@@ -1,4 +1,4 @@
-import Block from "../../utils/Block";
+import Block from "../../core/Block";
 import template from "./navigation.hbs?raw";
 import './Navigation.scss';
 

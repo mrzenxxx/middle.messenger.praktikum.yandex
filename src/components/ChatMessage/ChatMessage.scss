@@ -1,4 +1,4 @@
-@import "../../../static/styles/color-scheme";
+@import "../../../assets/styles/color-scheme";
 
 .chat_message {
     padding: 8px ;
@@ -36,7 +36,7 @@
 
     &__text {
         font-size: 12px;
-        line-height: normal;
+        line-height: 8px;
         font-weight: 400;
         color: $base-text;
         word-break: break-all;

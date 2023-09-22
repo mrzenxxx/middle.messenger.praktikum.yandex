@@ -1,5 +1,5 @@
 import Handlebars from 'handlebars';
-import { registerComponent } from "./utils/registerComponent";
+import { registerComponent } from "./core/registerComponent";
 import { Button } from './components/Button/Button';
 import { Input } from './components/Input/Input';
 import { Main } from './pages/Main/index';
@@ -9,7 +9,7 @@ import { Profile } from './pages/Profile/index';
 import { NotFound } from './pages/NotFound/index';
 import { ServerError } from './pages/ServerError/index';
 import { Navigation }  from './pages/Navigation/index';
-import Block from './utils/Block';
+import Block from './core/Block';
 import Avatar from './components/Avatar/Avatar';
 import Form from './components/Form/Form';
 import ChatFeed from './components/ChatFeed/ChatFeed';
