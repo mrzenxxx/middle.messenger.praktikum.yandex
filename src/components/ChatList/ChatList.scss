@@ -4,20 +4,26 @@
     padding: 0 10px;
     display: flex;
     flex-direction: column;
-    position: relative;
-    width: 310px;
+    width: 320px;
     height: 100dvh;
-    border-right: 1px solid $base-shadow;
+    border-right: 1px solid $base-lines;
     background-color: $base-background;
-    overflow: auto;
 
     &__wrapper {
         margin: 0;
         padding: 0;
         list-style: none;
-    }
 
-    &::-webkit-scrollbar {
-        width: 0px;
+        //ЗДЕСЬ НЕ ПОЛУЧАЕТСЯ СДЕЛАТЬ, КАК ЗАДУМАНО
+        //ПО ГОРИЗОНТАЛИ ПОЯВЛЯЕТСЯ ПРОКРУТКА
+        //СОДЕРЖИМОЕ ОБРЕЗАЕТСЯ ПО КРАЯМ
+        overflow-x: visible;
+        overflow-y: scroll;
+        height: calc(100dvh - 88px);
+
+        // &::-webkit-scrollbar {
+        //     width: 0px;
+        //     height: 0px;           
+        // }
     }
 }

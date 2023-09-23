@@ -1,122 +1,194 @@
 [
  {
     "time": "11:11",
-    "author": "Vasya",
+    "author": {
+        "name": "Vasya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd hv sdfjsjkdhjf ksdhk fdkfjwdkfj skdljg kdfjhg kdfjgk ljaskjlfagh dkfjh gjkdrhskj ghrdjkh gwaeh jkghdskj hgkm adjkfhg jkasdhjkf hsdkjg hkjdsh gajksadhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "11:12",
-    "author": "Petya",
+    "author": {
+        "name": "Petya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhskh gwaeh jkghdskj hgkm dhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "11:13",
-    "author": "Vovan",
+    "author": {
+        "name": "Vovan",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd"
  },
  {
     "time": "11:14",
-    "author": "Maga",
+    "author": {
+        "name": "Maga",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "skj hgkm adjkfhg jkasdhjkf hsdkjg hkjdsh gajksadhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "11:15",
-    "author": "Vasya",
+    "author": {
+        "name": "Vasya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "OMG WTF"
  },
  {
     "time": "12:00",
-    "author": "Terminator",
+    "author": {
+        "name": "Terminator",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "LoL"
  },
  {
     "time": "13:13",
-    "author": "Vasya",
+    "author": {
+        "name": "Vasya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd hv sdfjsjkdhjf ksdhk fdkfjwdkfj skdljg kdfjhg kdfjgk ljaskjlfagh dkfjh gjkdrhskj ghrdjkh gwaeh jkghdskj hgkm adjkfhg jkasdhjkf hsdkjg hkjdsh gajksadhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "16:16",
-    "author": "User_8979sd7a89s6d89asda",
+    "author": {
+        "name": "User_8979sd7a89s6d89asda",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd"
  },
  {
     "time": "11:11",
-    "author": "Vasya",
+    "author": {
+        "name": "Vasya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd hv sdfjsjkdhjf ksdhk fdkfjwdkfj skdljg kdfjhg kdfjgk ljaskjlfagh dkfjh gjkdrhskj ghrdjkh gwaeh jkghdskj hgkm adjkfhg jkasdhjkf hsdkjg hkjdsh gajksadhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "11:12",
-    "author": "Petya",
+    "author": {
+        "name": "Petya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhskh gwaeh jkghdskj hgkm dhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "11:13",
-    "author": "Vovan",
+    "author": {
+        "name": "Vovan",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd"
  },
  {
     "time": "11:14",
-    "author": "Maga",
+    "author": {
+        "name": "Maga",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "skj hgkm adjkfhg jkasdhjkf hsdkjg hkjdsh gajksadhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "11:15",
-    "author": "Vasya",
+    "author": {
+        "name": "Vasya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "OMG WTF"
  },
  {
     "time": "12:00",
-    "author": "Terminator",
+    "author": {
+        "name": "Terminator",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "LoL"
  },
  {
     "time": "13:13",
-    "author": "Vasya",
+    "author": {
+        "name": "Vasya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd hv sdfjsjkdhjf ksdhk fdkfjwdkfj skdljg kdfjhg kdfjgk ljaskjlfagh dkfjh gjkdrhskj ghrdjkh gwaeh jkghdskj hgkm adjkfhg jkasdhjkf hsdkjg hkjdsh gajksadhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "16:16",
-    "author": "User_8979sd7a89s6d89asda",
+    "author": {
+        "name": "User_8979sd7a89s6d89asda",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd"
  },
  {
     "time": "11:11",
-    "author": "Vasya",
+    "author": {
+        "name": "Vasya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd hv sdfjsjkdhjf ksdhk fdkfjwdkfj skdljg kdfjhg kdfjgk ljaskjlfagh dkfjh gjkdrhskj ghrdjkh gwaeh jkghdskj hgkm adjkfhg jkasdhjkf hsdkjg hkjdsh gajksadhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "11:12",
-    "author": "Petya",
+    "author": {
+        "name": "Petya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhskh gwaeh jkghdskj hgkm dhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "11:13",
-    "author": "Vovan",
+    "author": {
+        "name": "Vovan",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd"
  },
  {
     "time": "11:14",
-    "author": "Maga",
+    "author": {
+        "name": "Maga",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "skj hgkm adjkfhg jkasdhjkf hsdkjg hkjdsh gajksadhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "11:15",
-    "author": "Vasya",
+    "author": {
+        "name": "Vasya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "OMG WTF"
  },
  {
     "time": "12:00",
-    "author": "Terminator",
+    "author": {
+        "name": "Terminator",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "LoL"
  },
  {
     "time": "13:13",
-    "author": "Vasya",
+    "author": {
+        "name": "Vasya",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd hv sdfjsjkdhjf ksdhk fdkfjwdkfj skdljg kdfjhg kdfjgk ljaskjlfagh dkfjh gjkdrhskj ghrdjkh gwaeh jkghdskj hgkm adjkfhg jkasdhjkf hsdkjg hkjdsh gajksadhg jkhsdajkg hskjdhf  jkashdjgfhsdkj lhfgjskdhg kjsadhghsa"
  },
  {
     "time": "16:16",
-    "author": "User_8979sd7a89s6d89asda",
+    "author": {
+        "name": "User_8979sd7a89s6d89asda",
+        "avatar": "assets/mocks/chad.png"
+    },
     "content": "HFDhfjhsdjfsd"
  }     
 ]

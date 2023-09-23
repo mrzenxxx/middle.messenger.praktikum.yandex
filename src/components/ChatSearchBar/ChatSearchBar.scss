@@ -1,0 +1,51 @@
+@import "../../../assets/styles/color-scheme";
+
+.chat_search-bar {
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+    background-color: $base-background;
+    border-bottom: 1px solid $base-lines;
+    box-sizing: border-box;
+
+    &__input {
+        margin: auto 0;
+        width: 100%;
+        height: 28px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        padding: 6px 0 6px 12px;
+        box-sizing: border-box;
+        border: 1px solid $secondary-lines;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.21;
+        background-color: $secondary-background;
+        color: $base-text;
+
+        // НЕ ПОЛУЧАЕТСЯ В ЭТОМ МЕСТЕ НАРИСОВАТЬ ИКОНКУ
+        &::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            background-image: url(../../../assets/img/icons/search.svg);
+            background-size: cover;
+            background-position: center;
+          }
+
+        &:focus {
+            background-color: $base-background;
+            outline-color: $base-shadow;
+        }
+    }
+
+    &_input_error {
+        color: $danger-text;
+    }
+}

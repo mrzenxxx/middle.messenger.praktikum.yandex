@@ -17,16 +17,22 @@
 
     }
 
-    &_normal {
-        min-width: 40px;
-        height: 40px;
-        border-radius: 20px;
+    &_xsmall {
+        min-width: 18px;
+        height: 18px;
+        border-radius: 12px;
     }
 
     &_small {
         min-width: 24px;
         height: 24px;
         border-radius: 12px;
+    }
+
+    &_normal {
+        min-width: 40px;
+        height: 40px;
+        border-radius: 20px;
     }
 
     &_large {

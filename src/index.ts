@@ -19,6 +19,8 @@ import ChatList from './components/ChatList/ChatList';
 import ChatMessage from './components/ChatMessage/ChatMessage';
 import ChatWindow from './components/ChatWindow/ChatWindow';
 import { ChatMessageBar } from './components/ChatMessageBar/ChatMessageBar';
+import { ChatSettingsBar } from './components/ChatSettingsBar/ChatSettingsBar';
+import { ChatSearchBar } from './components/ChatSearchBar/ChatSearchBar';
 
 Handlebars.registerPartial('Avatar', Avatar);
 Handlebars.registerPartial('Form', Form);
@@ -32,6 +34,9 @@ Handlebars.registerPartial('ChatWindow', ChatWindow);
 registerComponent('Button', Button as typeof Block);
 registerComponent('Input', Input as typeof Block);
 registerComponent('ChatMessageBar', ChatMessageBar as typeof Block);
+registerComponent('ChatSearchBar', ChatSearchBar as typeof Block);
+registerComponent('ChatSettingsBar', ChatSettingsBar as typeof Block);
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.querySelector('#app')!;

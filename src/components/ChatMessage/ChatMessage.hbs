@@ -1,7 +1,9 @@
 <div class="chat_message__wrapper">
     <div class="chat_message">
         <div class="chat_message__info_wrapper">
-            <span class="chat_message__author">{{author}}</span>
+            {{>Avatar size="xsmall" src=./author.avatar}}
+            <span class="chat_message__author">{{./author.name}}</span>
+            <span class="chat_message__separator"></span>
             <span class="chat_message__time">{{time}}</span>
         </div>
         <span class="chat_message__text">{{text}}</span>

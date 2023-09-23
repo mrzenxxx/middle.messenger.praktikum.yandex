@@ -1,7 +1,7 @@
     {
         "first_name": "Petya",
         "second_name": "Pupkin",
-        "avatar": "/path/to/avatar.jpg",
+        "avatar": "assets/mocks/chad.png",
         "display_name": "||etRUxa",
         "email": "my@email.com",
         "login": "userLogin",
