@@ -30,8 +30,9 @@
     }
 
     &_large {
-        min-width: 128px;
+        width: 128px;
         height: 128px;
         border-radius: 64px;
+        margin: 0 auto;
     }
 }

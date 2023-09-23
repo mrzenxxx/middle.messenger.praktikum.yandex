@@ -9,10 +9,15 @@
     height: 100dvh;
     border-right: 1px solid $base-shadow;
     background-color: $base-background;
+    overflow: auto;
 
     &__wrapper {
         margin: 0;
         padding: 0;
         list-style: none;
+    }
+
+    &::-webkit-scrollbar {
+        width: 0px;
     }
 }

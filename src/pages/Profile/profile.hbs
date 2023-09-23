@@ -1,18 +1,16 @@
 <main class="profile">
     {{#>Form type="profile"}}
-        <div class="profile__avatar">
-            <img class="profile__avatar_image" src="{{image}}" />
-        </div>
+        {{>Avatar size="large" src=user.avatar}}
         <span class="profile__profile_name">
-            {{nickname}}
+            {{user.display_name}}
         </span>
         <div class="profile__form_fields">
-            {{{Input label='Почта' name='email' value='vasya2007@yandex.ru' profile_styled=true}}}
-            {{{Input label='Логин' name='login' value='vasya2007' profile_styled=true}}}
-            {{{Input label='Имя' name='first_name' value='Василий' profile_styled=true}}}
-            {{{Input label='Фамилия' name='second_name' value='Пупкин' profile_styled=true}}}
-            {{{Input label='Имя в чате' name='display_name' value='Mr.BIG' profile_styled=true}}}
-            {{{Input label='Телефон' name="phone" type="phone" value='+7(911)111-11-11' profile_styled=true}}}
+            {{{Input label='Почта' name='email' value=user.email profile_styled=true}}}
+            {{{Input label='Логин' name='login' value=user.login profile_styled=true}}}
+            {{{Input label='Имя' name='first_name' value=user.first_name profile_styled=true}}}
+            {{{Input label='Фамилия' name='second_name' value=user.second_name profile_styled=true}}}
+            {{{Input label='Имя в чате' name='display_name' value=user.display_name profile_styled=true}}}
+            {{{Input label='Телефон' name="phone" type="phone" value=user.phone profile_styled=true}}}
         </div>
         <div class="{{className}}__buttons_wrapper">
             {{{Button label = "Изменить данные" type="secondary"}}}

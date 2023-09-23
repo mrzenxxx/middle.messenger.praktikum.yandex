@@ -3,16 +3,15 @@
 .chat_message {
     padding: 8px ;
     display: inline-block;
-    position: relative;
     width: auto;
+    max-width: 55%;
     height: auto;
     background-color: $secondary-background;
     margin: 4px 0;
     border-radius: 4px;
 
     &__wrapper {
-        display: inline-block;
-        max-width: 55%;
+        display: block;
     }
 
     &__info_wrapper {
@@ -25,6 +24,7 @@
     &__author {
         font-size: 12px;
         font-weight: 400;
+        margin-right: 8px;
         color: $faded-text;
     }
 

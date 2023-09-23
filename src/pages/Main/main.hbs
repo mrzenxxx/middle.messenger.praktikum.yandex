@@ -1,18 +1,24 @@
 <main class="main-page">
   {{#>ChatList}}
-    {{>ChatBox header="Урааааа!!! Урааааа!!! Урааааа!!!" time="11.11" content="Наконец-то нарисовалась эта штука, ещё конечно верстать и верстать...." unread = 1}}
-    {{>ChatBox header="Урааааа!!!" time="11.11" content="Наконец-то нарисовалась эта штука, ещё конечно верстать и верстать, верстать и верстать, верстать и верстать...." unread = 1}}
-    {{>ChatBox header="Урааааа!!!" time="11.11" content="Наконец-то нарисовалась эта штука, ещё конечно верстать и верстать...." unread = 111}}
-    {{>ChatBox header="Урааааа!!!" time="11.11" content="Наконец-то нарисовалась эта штука, ещё конечно верстать и верстать...."}}
-    {{>ChatBox header="Урааааа!!!" time="11.11" content="Наконец-то нарисовалась эта штука, ещё конечно верстать и верстать...."}}
-    {{>ChatBox header="Урааааа!!!" time="11.11" content="Наконец-то нарисовалась эта штука, ещё конечно верстать и верстать...."}}
+    {{#each chats}}
+      {{>ChatBox 
+        header=this.title
+        time=this.last_message.time
+        content=this.last_message.content
+        unread=this.unread_count
+      }}
+    {{/each}}
   {{/ChatList}}
   {{#>ChatWindow}}
-  {{>ChatHeader header = "Название чата"}}
+  {{>ChatHeader header = "Chat 4 Chads"}}
     {{#>ChatFeed}}
-      {{>ChatMessage author="Vova" time="22.22" text="Hello, World!!!"}}
-      {{>ChatMessage author="Vova" time="22.22" text="Hello, World!!! Hello!!! World!!!"}}
-      {{>ChatMessage author="Vova" time="22.22" text="Hello, World!!!SDJFHKDSJBFjkbgjnsdbfgjsdbkfsdufbwibfmdsnvndvjsdoivhjwoiughjkrebvsmd GFHASHFjdsfnsdjbfsdg jdshfsjkhdfmsdb dsfhjksdfkj"}}
+      {{#each messages}}
+        {{>ChatMessage 
+          author=this.author 
+          time=this.time
+          text=this.content
+        }}
+      {{/each}}
     {{/ChatFeed}}
     {{{ChatMessageBar}}}  
   {{/ChatWindow}}
