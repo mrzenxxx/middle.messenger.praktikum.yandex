@@ -34,7 +34,7 @@ Handlebars.registerPartial('ChatWindow', ChatWindow);
 
 registerComponent('Button', Button as typeof Block);
 registerComponent('Input', Input as typeof Block);
-registerComponent('FormField', FormField);
+registerComponent('FormField', FormField as typeof Block);
 registerComponent('ChatMessageBar', ChatMessageBar as typeof Block);
 registerComponent('ChatSearchBar', ChatSearchBar as typeof Block);
 registerComponent('ChatSettingsBar', ChatSettingsBar as typeof Block);
