@@ -35,22 +35,6 @@
         }
     }
 
-    &_input {
-        padding: 6px 0;
-        box-sizing: border-box;
-        border-style: none;
-        border-bottom: 1px solid $base-lines;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1.21;
-        background-color: $base-input-background;
-        color: $base-text;
-
-        &:focus {
-            outline: none;
-        }
-    }
-
     &_input_error {
         color: $danger-text;
     }

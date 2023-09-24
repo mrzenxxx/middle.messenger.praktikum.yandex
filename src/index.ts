@@ -12,7 +12,6 @@ import { Navigation }  from './pages/Navigation/index';
 import Block from './core/Block';
 import Avatar from './components/Avatar/Avatar';
 import Form from './components/Form/Form';
-import FormField from './components/FormField/FormField'; 
 import ChatFeed from './components/ChatFeed/ChatFeed';
 import ChatBox from './components/ChatBox/ChatBox';
 import ChatHeader from './components/ChatHeader/ChatHeader';
@@ -22,10 +21,10 @@ import ChatWindow from './components/ChatWindow/ChatWindow';
 import { ChatMessageBar } from './components/ChatMessageBar/ChatMessageBar';
 import { ChatSettingsBar } from './components/ChatSettingsBar/ChatSettingsBar';
 import { ChatSearchBar } from './components/ChatSearchBar/ChatSearchBar';
+import { FormField } from './components/FormField/FormField'; 
 
 Handlebars.registerPartial('Avatar', Avatar);
 Handlebars.registerPartial('Form', Form);
-Handlebars.registerPartial('FormField', FormField);
 Handlebars.registerPartial('ChatFeed', ChatFeed);
 Handlebars.registerPartial('ChatBox', ChatBox);
 Handlebars.registerPartial('ChatHeader', ChatHeader);
@@ -35,6 +34,7 @@ Handlebars.registerPartial('ChatWindow', ChatWindow);
 
 registerComponent('Button', Button as typeof Block);
 registerComponent('Input', Input as typeof Block);
+registerComponent('FormField', FormField);
 registerComponent('ChatMessageBar', ChatMessageBar as typeof Block);
 registerComponent('ChatSearchBar', ChatSearchBar as typeof Block);
 registerComponent('ChatSettingsBar', ChatSettingsBar as typeof Block);
