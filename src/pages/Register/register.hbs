@@ -1,13 +1,13 @@
 <main class="register">
-    {{#>Form className="register" title="Регистрация"}}
+    {{#>Form type="register" title="Регистрация"}}
         <div class="register__form_fields">
-            {{{Input label="Почта" name="email"}}}
-            {{{Input label="Логин" name="login"}}}
-            {{{Input label="Имя" name="first_name"}}}
-            {{{Input label="Фамилия" name="second_name"}}}
-            {{{Input label="Телефон" name="phone" type="phone"}}}
-            {{{Input label="Пароль" name="password" type="password"}}}
-            {{{Input label="Подтвердите пароль" name="password_confirm" type="password"}}}
+            {{>FormField label="Почта" name="email" type="email" onBlur=props.onBlur}}
+            {{>FormField label="Логин" name="login" type="text" }}
+            {{>FormField label="Имя" name="first_name" type="text" }}
+            {{>FormField label="Фамилия" name="second_name" type="text" }}
+            {{>FormField label="Телефон" name="phone" type="phone" type="" }}
+            {{>FormField label="Пароль" name="password" type="password" type="" }}
+            {{>FormField label="Подтвердите пароль" name="password_confirm" type="password"}}
         </div>
         {{{Button label="Зарегистрироваться" type="primary"}}}
         {{{Button label="Уже есть аккаунт?" type="secondary"}}}

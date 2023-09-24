@@ -5,12 +5,12 @@
             {{user.display_name}}
         </span>
         <div class="profile__form_fields">
-            {{{Input label='Почта' name='email' value=user.email profile_styled=true}}}
-            {{{Input label='Логин' name='login' value=user.login profile_styled=true}}}
-            {{{Input label='Имя' name='first_name' value=user.first_name profile_styled=true}}}
-            {{{Input label='Фамилия' name='second_name' value=user.second_name profile_styled=true}}}
-            {{{Input label='Имя в чате' name='display_name' value=user.display_name profile_styled=true}}}
-            {{{Input label='Телефон' name="phone" type="phone" value=user.phone profile_styled=true}}}
+            {{>FormField label='Почта' name='email' value=user.email style="profile"}}
+            {{>FormField label='Логин' name='login' value=user.login style="profile"}}
+            {{>FormField label='Имя' name='first_name' value=user.first_name style="profile"}}
+            {{>FormField label='Фамилия' name='second_name' value=user.second_name style="profile"}}
+            {{>FormField label='Имя в чате' name='display_name' value=user.display_name style="profile"}}
+            {{>FormField label='Телефон' name="phone" type="phone" value=user.phone style="profile"}}
         </div>
         <div class="{{className}}__buttons_wrapper">
             {{{Button label = "Изменить данные" type="secondary"}}}

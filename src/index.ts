@@ -12,6 +12,7 @@ import { Navigation }  from './pages/Navigation/index';
 import Block from './core/Block';
 import Avatar from './components/Avatar/Avatar';
 import Form from './components/Form/Form';
+import FormField from './components/FormField/FormField'; 
 import ChatFeed from './components/ChatFeed/ChatFeed';
 import ChatBox from './components/ChatBox/ChatBox';
 import ChatHeader from './components/ChatHeader/ChatHeader';
@@ -24,6 +25,7 @@ import { ChatSearchBar } from './components/ChatSearchBar/ChatSearchBar';
 
 Handlebars.registerPartial('Avatar', Avatar);
 Handlebars.registerPartial('Form', Form);
+Handlebars.registerPartial('FormField', FormField);
 Handlebars.registerPartial('ChatFeed', ChatFeed);
 Handlebars.registerPartial('ChatBox', ChatBox);
 Handlebars.registerPartial('ChatHeader', ChatHeader);

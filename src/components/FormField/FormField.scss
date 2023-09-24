@@ -1,0 +1,57 @@
+@import "../../../assets/styles/color-scheme";
+
+.form-field {
+
+    &_label {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        cursor: pointer;
+        position: relative;
+
+        &__profile {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            position: relative;
+        }
+    }
+
+    &_label-text {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.2;
+        color: $faded-text;
+
+        &__profile {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.2;
+            position: absolute;
+            top: 6px;
+            color: $base-text;
+        }
+    }
+
+    &_input {
+        padding: 6px 0;
+        box-sizing: border-box;
+        border-style: none;
+        border-bottom: 1px solid $base-lines;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.21;
+        background-color: $base-input-background;
+        color: $base-text;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &_input_error {
+        color: $danger-text;
+    }
+}

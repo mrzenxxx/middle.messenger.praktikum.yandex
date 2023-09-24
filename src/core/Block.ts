@@ -116,16 +116,13 @@ export default class Block<P extends Record<string, unknown> = any> {
 
   protected compile(template: string, context: any) {
     const contextAndStubs = {...context, __refs: this.refs};
-    console.log("template", template);
-    console.log("contextAndStubs", contextAndStubs);
+    // console.log("contextAndStubs", contextAndStubs);
     const html = Handlebars.compile(template)(contextAndStubs);
-    console.log("html", html);
     const temp = document.createElement('template');
 
     temp.innerHTML = html;
 
     contextAndStubs.__children?.forEach(({embed}: any) => {
-      console.log("children temp content", temp.content);  
       embed(temp.content);
     });
 

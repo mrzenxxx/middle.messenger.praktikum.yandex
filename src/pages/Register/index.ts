@@ -8,10 +8,6 @@ export class Register extends Block<RegisterProps> {
   constructor(props: RegisterProps) {
     super({
         ...props,
-        className: 'register',
-        title: 'Регистрация',
-        primary_label: 'Зарегистрироваться',
-        secondary_label: 'Уже есть аккаунт?',
     })
   }
   protected render(): DocumentFragment {

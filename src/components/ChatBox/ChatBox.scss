@@ -72,9 +72,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 9px;
-            width: 18px;
-            height: 18px;
+            border-radius: 10px;
+            padding: auto;
+            width: auto;
+            min-width: 20px;
+            height: 20px;
+            max-height: 20px;
             background-color: $dark-background;
             color: $button-primary-text;
             text-align: center;

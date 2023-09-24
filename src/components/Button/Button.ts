@@ -23,7 +23,6 @@ interface ButtonProps {
     }
   
     render() {
-      console.log('button rendered', this);
       return this.compile(template, this.props);
     }
   }
