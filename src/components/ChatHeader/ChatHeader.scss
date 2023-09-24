@@ -1,6 +1,6 @@
 @import "../../../assets/styles/color-scheme";
 
-.chat_header {
+.chat-header {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -26,7 +26,7 @@
         margin: auto 0;
         height: 20px;
         width: 2px;
-        background: url(../../../assets/img/icons/options.svg);
+        background: url("../../../assets/img/icons/options.svg");
         border: none;
         background-position: center;
         background-repeat: no-repeat;

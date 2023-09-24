@@ -1,7 +1,6 @@
 @import "../../../assets/styles/color-scheme";
 
-.chat_message-bar {
-
+.chat-message-bar {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -15,7 +14,7 @@
         margin: auto 2px;
         min-width: 32px;
         height: 32px;
-        background: url(../../../assets/img/icons/attach.svg);
+        background: url("../../../assets/img/icons/attach.svg");
 
         &:hover {
             cursor: pointer;
@@ -30,7 +29,7 @@
         margin: auto;
         min-width: 32px;
         height: 32px;
-        background: url(../../../assets/img/icons/forward.svg);
+        background: url("../../../assets/img/icons/forward.svg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;

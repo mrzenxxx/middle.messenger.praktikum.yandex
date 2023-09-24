@@ -1,7 +1,6 @@
 @import "../../../assets/styles/color-scheme";
 
-.chat_search-bar {
-
+.chat-search-bar {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -34,7 +33,7 @@
             right: 0;
             width: 20px;
             height: 20px;
-            background-image: url(../../../assets/img/icons/search.svg);
+            background-image: url("../../../assets/img/icons/search.svg");
             background-size: cover;
             background-position: center;
           }
