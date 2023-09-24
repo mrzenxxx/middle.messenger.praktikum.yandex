@@ -1,4 +1,10 @@
 {
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
   "compilerOptions": {
     "outDir": "dist",
     "declaration": true,
@@ -22,11 +28,5 @@
     "noImplicitAny": true,
     "sourceMap": true,
     "strictNullChecks": true,
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  }
 }
