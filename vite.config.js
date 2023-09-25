@@ -1,5 +1,5 @@
 import handlebars from 'vite-plugin-handlebars';
-
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { defineConfig } from 'vite';
 import { resolve } from 'path'; 
 
@@ -11,5 +11,13 @@ export default defineConfig({
         outDir: resolve(__dirname, 'dist'),
     },
 
-    plugins: [handlebars()],
+    plugins: [handlebars(),
+              viteStaticCopy({
+                  targets: [
+                    {
+                      src: 'assets/img/mocks',
+                      dest: 'assets/img/'
+                    }
+                  ]
+              }) ],
 });
