@@ -9,7 +9,7 @@ type Events = {
   FLOW_RENDER: string;
 }
 
-export default class Block<P extends Record<string, unknown> = any> {
+export default class Block<P extends Record<string, unknown>> {
   static EVENTS: Events = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -46,7 +46,8 @@ export default class Block<P extends Record<string, unknown> = any> {
 
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value] of Object.entries(childrenAndProps)) {
-      if ((value instanceof Block || Array.isArray(value)) && (value.every((item) => item instanceof Block))) {
+      if ((value instanceof Block || Array.isArray(value))
+      && ((value as []).every((item : HTMLElement | HTMLInputElement) => item instanceof Block))) {
         children[key] = value;
       } else {
         props[key] = value;
@@ -119,10 +120,16 @@ export default class Block<P extends Record<string, unknown> = any> {
     this._addEvents();
   }
 
-  protected componentDidMount(props?: P): void {}
+  protected componentDidMount(props?: P): void {
+    this.setProps(props as P);
+  }
 
   protected componentDidUpdate(oldProps?: P, newProps?: P): boolean {
-    return true;
+    if (oldProps !== newProps) {
+      this.setProps(newProps as P);
+      return true;
+    }
+    return false;
   }
 
   protected compile(template: string, context: any) {
@@ -163,11 +170,7 @@ export default class Block<P extends Record<string, unknown> = any> {
     Object.assign(this.props, nextProps);
   };
 
-  public get element(): HTMLElement | null {
-    return this!._element;
-  }
-
-  public getContent() {
+  public get element(): HTMLElement | HTMLInputElement | null {
     return this!._element;
   }
 

@@ -25,9 +25,9 @@ export function registerComponent(name: string, Component: typeof Block) {
           return;
         }
 
-        component.getContent()?.append(...Array.from(stub.childNodes));
+        component.element?.append(...Array.from(stub.childNodes));
 
-        stub.replaceWith(component.getContent()!);
+        stub.replaceWith(component.element!);
       },
     });
 

@@ -17,9 +17,9 @@ export class FormField extends Block<FormFieldProps|any> {
   }
 
   validate(): string {
-    if (!VALIDATION_RULES[this.refs.input.getContent()!.name].test(this.refs.input.getContent()!.value)) {
-      console.warn('Validation Failed:', VALIDATION_ERRORS[this.refs.input.getContent()!.name]);
-      return VALIDATION_ERRORS[this.refs.input.getContent()!.name];
+    if (!VALIDATION_RULES[(this.refs.input.element! as HTMLInputElement).name].test((this.refs.input.element! as HTMLInputElement).value)) {
+      console.warn('Validation Failed:', VALIDATION_ERRORS[(this.refs.input.element! as HTMLInputElement).name]);
+      return VALIDATION_ERRORS[(this.refs.input.element! as HTMLInputElement).name];
     }
     console.warn('Validation Passed');
     return '';

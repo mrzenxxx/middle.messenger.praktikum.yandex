@@ -54,6 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const page: Block<{}> = getPage();
-  root.append(page.getContent() as HTMLElement);
+  root.append(page.element as HTMLElement);
   page.dispatchComponentDidMount();
 });
