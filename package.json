@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3000",
     "prebuild": "tsc --noEmit",
     "build": "npm run prebuild && vite build",
     "preview": "vite preview",
