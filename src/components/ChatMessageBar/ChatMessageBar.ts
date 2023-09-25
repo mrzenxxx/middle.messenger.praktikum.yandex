@@ -1,5 +1,5 @@
-import Block from "../../core/Block";
-import template from "./ChatMessageBar.hbs?raw";
+import Block from '../../core/Block';
+import template from './ChatMessageBar.hbs?raw';
 import './ChatMessageBar.scss';
 
 interface ChatMessageBarProps {
@@ -12,16 +12,16 @@ interface ChatMessageBarProps {
 }
 
 export class ChatMessageBar extends Block<ChatMessageBarProps | any> {
-    constructor(props: ChatMessageBarProps) {
-        super({
-            ...props,
-            events: {
-                blur: props?.onBlur,
-            }
-        });
-    }
+  constructor(props: ChatMessageBarProps) {
+    super({
+      ...props,
+      events: {
+        blur: props?.onBlur,
+      },
+    });
+  }
 
-    render() {
-        return this.compile(template, this.props);
-    }
+  render() {
+    return this.compile(template, this.props);
+  }
 }

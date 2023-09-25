@@ -7,14 +7,15 @@ type ServerErrorProps = Record<string, unknown>;
 export class ServerError extends Block<ServerErrorProps> {
   constructor(props: ServerErrorProps) {
     super({
-        ...props,
-        className: 'server-error',
-        title: '500',
-        text: 'Ошибка на сервере',
-        button: 'Назад к чатам',
-    })
+      ...props,
+      className: 'server-error',
+      title: '500',
+      text: 'Ошибка на сервере',
+      button: 'Назад к чатам',
+    });
   }
+
   protected render(): DocumentFragment {
-    return this.compile(template, this.props)
+    return this.compile(template, this.props);
   }
 }

@@ -1,6 +1,6 @@
-import { EventBus } from "./EventBus";
-import { nanoid } from "nanoid";
-import Handlebars from "handlebars";
+import { nanoid } from 'nanoid';
+import Handlebars from 'handlebars';
+import { EventBus } from './EventBus';
 
 type Events = {
   INIT: string;
@@ -11,22 +11,27 @@ type Events = {
 
 export default class Block<P extends Record<string, unknown> = any> {
   static EVENTS: Events = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_CDU: "flow:component-did-update",
-    FLOW_RENDER: "flow:render"
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_CDU: 'flow:component-did-update',
+    FLOW_RENDER: 'flow:render',
   };
 
   public id = nanoid(8);
+
   private _element: HTMLElement | null = null;
+
   protected props: P;
+
   protected refs: Record<string, Block<P>> = {};
+
   public children: Record<string, Block<P> | Block<P>[]> = {};
+
   private eventBus: () => EventBus;
 
-  constructor(propsWithChildren: P ) {
+  constructor(propsWithChildren: P) {
     const eventBus = new EventBus();
-    const {props, children} = this._getChildrenAndProps(propsWithChildren)
+    const { props, children } = this._getChildrenAndProps(propsWithChildren);
     this.props = this._makePropsProxy(props);
     this.children = children;
     this.eventBus = () => eventBus;
@@ -34,38 +39,43 @@ export default class Block<P extends Record<string, unknown> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   private _getChildrenAndProps(childrenAndProps: P) : {props: P, children: Record<string, Block<P> | Block<P>[]>} {
     const props: Record<string, unknown> = {};
     const children: Record<string, Block<P> | Block<P>[]> = {};
-    for (let [key , value] of Object.entries(childrenAndProps)){
-        if (value instanceof Block || Array.isArray(value) && value.every((item)=> item instanceof Block)){
-            children[key] = value;
-        } else {
-            props[key] = value;
-        }
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [key, value] of Object.entries(childrenAndProps)) {
+      if ((value instanceof Block || Array.isArray(value)) && (value.every((item) => item instanceof Block))) {
+        children[key] = value;
+      } else {
+        props[key] = value;
+      }
     }
     return { props: props as P, children };
   }
 
   private _makePropsProxy(props: P) {
-    const self = this
+    const self = this;
 
     return new Proxy(props, {
-        get(target, prop: string) {
-            const value = target[prop]
-            return typeof value === 'function' ? value.bind(target) : value
-        },
-        set(target, prop: string, value) {
-            const oldTarget = { ...target }
-            target[prop as keyof P] = value
-            self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target)
-            return true
-        },
-        deleteProperty() {
-            throw new Error('Нет доступа')
-        },
-    })
-}
+      get(target, prop: string) {
+        const value = target[prop];
+        return typeof value === 'function' ? value.bind(target) : value;
+      },
+      set(target, prop: string, value) {
+        const oldTarget = { ...target };
+
+        // eslint-disable-next-line no-param-reassign
+        target[prop as keyof P] = value;
+        self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
+        return true;
+      },
+      deleteProperty() {
+        throw new Error('Нет доступа');
+      },
+    });
+  }
 
   private _registerEvents(eventBus: EventBus): void {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
@@ -75,11 +85,11 @@ export default class Block<P extends Record<string, unknown> = any> {
   }
 
   private _addEvents(): void {
-    const {events = {}} = this.props as P & { events: Record<string, () => void> };
-    console.log(this.props);
-    Object.keys(events).forEach((eventName)=>{
-        this._element?.addEventListener(eventName, events[eventName])
-    })
+    const { events = {} } = this.props as P & { events: Record<string, () => void> };
+    console.warn(this.props);
+    Object.keys(events).forEach((eventName) => {
+      this._element?.addEventListener(eventName, events[eventName]);
+    });
   }
 
   private init(): void {
@@ -100,9 +110,9 @@ export default class Block<P extends Record<string, unknown> = any> {
   private _render(): void {
     const fragment = this.render();
     const newElement = fragment.firstElementChild as HTMLElement;
-    
-    if (newElement&&this._element) {
-        this._element.replaceWith(newElement);
+
+    if (newElement && this._element) {
+      this._element.replaceWith(newElement);
     }
 
     this._element = newElement;
@@ -116,14 +126,14 @@ export default class Block<P extends Record<string, unknown> = any> {
   }
 
   protected compile(template: string, context: any) {
-    const contextAndStubs = {...context, __refs: this.refs};
-    // console.log("contextAndStubs", contextAndStubs);
+    const contextAndStubs = { ...context, __refs: this.refs };
+    // console.warn("contextAndStubs", contextAndStubs);
     const html = Handlebars.compile(template)(contextAndStubs);
     const temp = document.createElement('template');
 
     temp.innerHTML = html;
 
-    contextAndStubs.__children?.forEach(({embed}: any) => {
+    contextAndStubs.__children?.forEach(({ embed }: any) => {
       embed(temp.content);
     });
 
@@ -131,19 +141,20 @@ export default class Block<P extends Record<string, unknown> = any> {
   }
 
   protected render(): DocumentFragment {
-    return new DocumentFragment;
+    return new DocumentFragment();
   }
 
   public dispatchComponentDidMount(): void {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
 
-    Object.values(this.children).forEach((child)=> {
-        Array.isArray(child) ?
-            child.forEach((entry)=> entry.dispatchComponentDidMount()) :
-            child.dispatchComponentDidMount();
+    Object.values(this.children).forEach((child) => {
+      if (Array.isArray(child)) {
+        child.forEach((entry) => entry.dispatchComponentDidMount());
+      } else {
+        child.dispatchComponentDidMount();
+      }
     });
   }
-  
 
   public setProps = (nextProps: P): void => {
     if (!nextProps) {
@@ -153,18 +164,18 @@ export default class Block<P extends Record<string, unknown> = any> {
   };
 
   public get element(): HTMLElement | null {
-    return this!._element ;
+    return this!._element;
   }
-  
+
   public getContent() {
     return this!._element;
   }
 
   public show(): void {
-    this._element!.style.display = "block";
+    this._element!.style.display = 'block';
   }
-  
+
   public hide(): void {
-    this._element!.style.display = "none";
+    this._element!.style.display = 'none';
   }
 }

@@ -9,11 +9,12 @@ type ProfileProps = Record<string, unknown>;
 export class Profile extends Block<ProfileProps> {
   constructor(props: ProfileProps) {
     super({
-        ...props,
-        user,
-    })
+      ...props,
+      user,
+    });
   }
+
   protected render(): DocumentFragment {
-    return this.compile(template, this.props)
+    return this.compile(template, this.props);
   }
 }

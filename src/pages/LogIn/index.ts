@@ -7,10 +7,11 @@ type LogInProps = Record<string, unknown>;
 export class LogIn extends Block<LogInProps> {
   constructor(props: LogInProps) {
     super({
-        ...props,
-    })
+      ...props,
+    });
   }
+
   protected render(): DocumentFragment {
-    return this.compile(template, this.props)
+    return this.compile(template, this.props);
   }
 }

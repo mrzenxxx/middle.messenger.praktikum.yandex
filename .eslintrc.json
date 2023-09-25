@@ -13,8 +13,21 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "max-len": [2, 120],
+        "max-len": [2, 180],
         "import/prefer-default-export": "off",
-        "no-console": ["error", { "allow": ["warn"] }]
+        "no-console": ["error", { "allow": ["warn"] }],
+        "import/extensions": "off",
+        "import/no-unresolved": "off",
+        "no-underscore-dangle": "off",
+        "func-names": "off",
+        "no-unused-vars": "off",
+        "no-use-before-define": "off"
+    },
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "paths": ["src"]
+          }
+        }
     }
 }

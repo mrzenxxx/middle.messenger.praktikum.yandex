@@ -1,5 +1,5 @@
 import Handlebars from 'handlebars';
-import { registerComponent } from "./core/registerComponent";
+import { registerComponent } from './core/registerComponent';
 import { Button } from './components/Button/Button';
 import { Input } from './components/Input/Input';
 import { Main } from './pages/Main/index';
@@ -8,7 +8,7 @@ import { Register } from './pages/Register/index';
 import { Profile } from './pages/Profile/index';
 import { NotFound } from './pages/NotFound/index';
 import { ServerError } from './pages/ServerError/index';
-import { Navigation }  from './pages/Navigation/index';
+import { Navigation } from './pages/Navigation/index';
 import Block from './core/Block';
 import Avatar from './components/Avatar/Avatar';
 import Form from './components/Form/Form';
@@ -21,7 +21,7 @@ import ChatWindow from './components/ChatWindow/ChatWindow';
 import { ChatMessageBar } from './components/ChatMessageBar/ChatMessageBar';
 import { ChatSettingsBar } from './components/ChatSettingsBar/ChatSettingsBar';
 import { ChatSearchBar } from './components/ChatSearchBar/ChatSearchBar';
-import { FormField } from './components/FormField/FormField'; 
+import { FormField } from './components/FormField/FormField';
 
 Handlebars.registerPartial('Avatar', Avatar);
 Handlebars.registerPartial('Form', Form);
@@ -39,22 +39,21 @@ registerComponent('ChatMessageBar', ChatMessageBar as typeof Block);
 registerComponent('ChatSearchBar', ChatSearchBar as typeof Block);
 registerComponent('ChatSettingsBar', ChatSettingsBar as typeof Block);
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    const root = document.querySelector('#app')!;
-    const getPage = () => {
-        switch (window.location.pathname){
-            case '/' : return new Navigation({});
-            case '/main' : return new Main({});
-            case '/login' : return new LogIn({});
-            case '/profile' : return new Profile({});
-            case '/register' : return new Register({});
-            case '/500' : return new ServerError({});
-            default : return new NotFound({});    
-        }
+  const root = document.querySelector('#app')!;
+  const getPage = () => {
+    switch (window.location.pathname) {
+      case '/': return new Navigation({});
+      case '/main': return new Main({});
+      case '/login': return new LogIn({});
+      case '/profile': return new Profile({});
+      case '/register': return new Register({});
+      case '/500': return new ServerError({});
+      default: return new NotFound({});
     }
+  };
 
-    const page: Block<{}> = getPage();
-    root.append(page.getContent() as HTMLElement);
-    page.dispatchComponentDidMount();
-})
+  const page: Block<{}> = getPage();
+  root.append(page.getContent() as HTMLElement);
+  page.dispatchComponentDidMount();
+});

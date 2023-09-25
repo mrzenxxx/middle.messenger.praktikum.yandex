@@ -7,10 +7,11 @@ type RegisterProps = Record<string, unknown>;
 export class Register extends Block<RegisterProps> {
   constructor(props: RegisterProps) {
     super({
-        ...props,
-    })
+      ...props,
+    });
   }
+
   protected render(): DocumentFragment {
-    return this.compile(template, this.props)
+    return this.compile(template, this.props);
   }
 }
