@@ -16,9 +16,10 @@ export class FormField extends Block<FormFieldProps|any> {
     });
   }
 
-  validate() {
+  validate(): string {
     // @ts-ignore
     if (!VALIDATION_RULES[this.refs.input.getContent()!.name].test(this.refs.input.getContent()!.value)) {
+      // @ts-ignore
       console.warn('Validation Failed:', VALIDATION_ERRORS[this.refs.input.getContent()!.name]);
       // @ts-ignore
       return VALIDATION_ERRORS[this.refs.input.getContent()!.name];

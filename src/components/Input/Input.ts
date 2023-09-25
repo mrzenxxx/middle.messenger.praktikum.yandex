@@ -4,6 +4,7 @@ import './Input.scss';
 
 interface InputProps {
     name: string;
+    onBlur?: () => void;
     events: {
         blur?: () => void;
     };

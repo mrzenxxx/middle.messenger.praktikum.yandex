@@ -46,6 +46,8 @@ export default class Block<P extends Record<string, unknown> = any> {
 
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value] of Object.entries(childrenAndProps)) {
+      
+      //@ts-ignore
       if ((value instanceof Block || Array.isArray(value)) && (value.every((item) => item instanceof Block))) {
         children[key] = value;
       } else {
@@ -119,8 +121,10 @@ export default class Block<P extends Record<string, unknown> = any> {
     this._addEvents();
   }
 
+  //@ts-ignore
   protected componentDidMount(props?: P): void {}
 
+  //@ts-ignore
   protected componentDidUpdate(oldProps?: P, newProps?: P): boolean {
     return true;
   }
