@@ -8,6 +8,16 @@ export class LogIn extends Block<LogInProps> {
   constructor(props: LogInProps) {
     super({
       ...props,
+      onLogin: (event : Event) => {
+        event.preventDefault();
+        const login = this.refs.login.value();
+        const password =  this.refs.password.value();
+
+        console.log({
+            login,
+            password
+        })
+      }
     });
   }
 

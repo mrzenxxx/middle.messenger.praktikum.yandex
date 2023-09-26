@@ -124,11 +124,9 @@ export default class Block<P extends Record<string, unknown>> {
   }
 
   protected componentDidUpdate(oldProps?: P, newProps?: P): boolean {
-    if (oldProps !== newProps) {
-      this.setProps(newProps as P);
+    if (oldProps && newProps) {
       return true;
     }
-    return false;
   }
 
   protected compile(template: string, context: any) {
@@ -173,11 +171,15 @@ export default class Block<P extends Record<string, unknown>> {
     return this!._element;
   }
 
+  public value(){
+    // Заглушка, чтобы не ругался TS
+  }
+
   public show(): void {
-    this._element!.style.display = 'block';
+    this.element!.style.display = 'block';
   }
 
   public hide(): void {
-    this._element!.style.display = 'none';
+    this.element!.style.display = 'none';
   }
 }

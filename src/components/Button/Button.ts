@@ -6,10 +6,6 @@ interface ButtonProps {
     label: string;
     type: string,
     onClick?: () => void;
-    events: {
-      click?: () => void;
-      submit?: () => void;
-    };
   }
 
 export class Button extends Block<ButtonProps|any> {

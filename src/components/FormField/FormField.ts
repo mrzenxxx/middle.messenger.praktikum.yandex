@@ -4,6 +4,7 @@ import './FormField.scss';
 import { VALIDATION_RULES, VALIDATION_ERRORS } from '../../core/constants/validation';
 
 interface FormFieldProps {
+  value : string;
   error : string;
   onBlur?: () => void;
 }
@@ -12,17 +13,44 @@ export class FormField extends Block<FormFieldProps|any> {
   constructor(props: FormFieldProps) {
     super({
       ...props,
+      error: null,
       onBlur: () => this.validate(),
     });
   }
 
-  validate(): string {
-    if (!VALIDATION_RULES[(this.refs.input.element! as HTMLInputElement).name].test((this.refs.input.element! as HTMLInputElement).value)) {
-      console.warn('Validation Failed:', VALIDATION_ERRORS[(this.refs.input.element! as HTMLInputElement).name]);
-      return VALIDATION_ERRORS[(this.refs.input.element! as HTMLInputElement).name];
+  private _value() {
+    return (this.refs.input.element! as HTMLInputElement).value;
+  }
+  private conditionCheck () {
+    return VALIDATION_RULES[(this.refs.input.element! as HTMLInputElement).name].test((this.refs.input.element! as HTMLInputElement).value)
+  }
+
+  public value() {
+    if (!this.validate()) {
+        return;
+      }
+    return this._value();
+  }
+
+  public validate(): boolean {
+
+    if (!this.conditionCheck()) {
+      console.error('Validation Failed!');
+      this.setProps({
+        ...this.props,
+        value: this._value(),
+        error: VALIDATION_ERRORS[(this.refs.input.element! as HTMLInputElement).name],
+      });
+      return false;
     }
-    console.warn('Validation Passed');
-    return '';
+
+    console.warn('Validation Passed!');
+    this.setProps({
+      ...this.props,
+      value: this._value(),
+      error: null,
+    });
+    return true;
   }
 
   render() {

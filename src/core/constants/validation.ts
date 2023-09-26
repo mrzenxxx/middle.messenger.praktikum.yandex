@@ -3,7 +3,7 @@ export const VALIDATION_RULES : Record<string, RegExp> = {
   second_name: /^(?!.[\s])(?!^[0-9]$)[A-Za-z0-9_-]{3,20}$/,
   email: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/,
   login: /^[A-Za-zА-ЯЁа-яё][A-Za-zА-ЯЁа-яё-]*$/,
-  password: /^(?=.[A-Z])(?=.[0-9]).{8,40}$/,
+  password: /^(?=.*[A-Z])(?=.*\d).{8,40}$/,
   phone: /^[0-9]{10,15}$/,
   password_confirm: /^(?=.[A-Z])(?=.[0-9]).{8,40}$/,
   message: /.+/,

@@ -1,10 +1,10 @@
 <main class="login">
     {{#>Form type="login" title="Вход"}}
         <div class="login__form_fields">
-            {{{FormField label="Логин" name="login"}}}
-            {{{FormField label="Пароль" name="password"}}}
+            {{{FormField label="Логин" ref="login" name="login" type="text" }}}
+            {{{FormField label="Пароль" ref="password" name="password" type="password"}}}
         </div>
-        {{{Button label="Войти" type="primary"}}}
+        {{{Button label="Войти" type="primary" onClick=onLogin}}}
         {{{Button label="Еще не зарегистрированы?" type="secondary"}}}
     {{/Form}}
 </main>

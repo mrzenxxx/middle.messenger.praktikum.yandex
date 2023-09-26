@@ -4,10 +4,10 @@ import './Input.scss';
 
 interface InputProps {
     name: string;
+    style: string;
+    type: string;
+    value: string;
     onBlur?: () => void;
-    events: {
-        blur?: () => void;
-    };
 }
 
 export class Input extends Block<InputProps | any> {
@@ -16,12 +16,14 @@ export class Input extends Block<InputProps | any> {
       events: {
         blur: props.onBlur,
       },
-      name: props?.name,
+      name: props.name,
+      style: props.style,
+      type: props.type,
+      value: props.value,
     });
   }
 
   render() {
-    console.warn('INPUT', this);
     return this.compile(template, this.props);
   }
 }

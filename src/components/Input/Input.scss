@@ -1,7 +1,7 @@
 @import "../../../assets/styles/color-scheme";
 
 .input {
-        padding: 6px 0;
+
         box-sizing: border-box;
         border-style: none;
         border-bottom: 1px solid $base-lines;
@@ -10,6 +10,7 @@
         line-height: 1.21;
         background-color: $base-input-background;
         color: $base-text;
+        padding-bottom: 3px;
 
         &__profile {
             color: $faded-text;

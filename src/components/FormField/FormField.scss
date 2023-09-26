@@ -6,25 +6,25 @@
         display: flex;
         flex-direction: column;
         gap: 3px;
-        cursor: pointer;
         position: relative;
 
         &__profile {
             width: 100%;
             display: flex;
             flex-direction: column;
-            cursor: pointer;
             position: relative;
         }
     }
 
     &_label-text {
+        cursor: pointer;
         font-weight: 400;
         font-size: 12px;
         line-height: 1.2;
         color: $faded-text;
 
         &__profile {
+            cursor: pointer;
             font-weight: 400;
             font-size: 14px;
             line-height: 1.2;
@@ -34,7 +34,13 @@
         }
     }
 
-    &_input_error {
+    &_input-error {
+        text-align: center;
+        width: 100%;
+        height: 24px;
+        font-size: 10px;
+        line-height: 9px;
         color: $danger-text;
+        margin-bottom: 4px;
     }
 }
