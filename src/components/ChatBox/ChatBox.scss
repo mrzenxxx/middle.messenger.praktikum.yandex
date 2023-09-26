@@ -14,7 +14,10 @@
     box-sizing: border-box;
     border-collapse: collapse;
     margin: -1px 0;
-    
+
+    &__wrapper {
+        display: block;
+    }
 
     &__text {
         display: flex;
