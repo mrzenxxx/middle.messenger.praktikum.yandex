@@ -6,8 +6,11 @@ interface InputProps {
     name: string;
     style: string;
     type: string;
-    value: string;
+    value?: string;
+    placeholder?: string;
+    className?: string;
     onBlur?: () => void;
+    onChange?: () => void;
 }
 
 export class Input extends Block<InputProps | any> {
@@ -15,11 +18,13 @@ export class Input extends Block<InputProps | any> {
     super({
       events: {
         blur: props.onBlur,
+        change: props.onChange,
       },
       name: props.name,
       style: props.style,
       type: props.type,
       value: props.value,
+      placeholder: props.placeholder,
     });
   }
 

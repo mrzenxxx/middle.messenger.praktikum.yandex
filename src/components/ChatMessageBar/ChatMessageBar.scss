@@ -1,68 +1,14 @@
 @import "../../../assets/styles/color-scheme";
 
-.chat-message-bar {
+.chat_message-bar {
     display: flex;
     flex-direction: row;
     width: 100%;
     min-height: 48px;
+    max-height: 48px;
     background-color: $base-background;
     border-top: 1px solid $base-lines;
     box-sizing: border-box;
-
-    &__attach-button {
-        border: none;
-        margin: auto 2px;
-        min-width: 32px;
-        height: 32px;
-        background: url("../../../assets/img/icons/attach.svg");
-
-        &:hover {
-            cursor: pointer;
-            scale: 1.05;
-            opacity: 0.9;
-            transition: 0.25s;
-        }
-    }
-
-    &__send-button {
-        border: none;
-        margin: auto;
-        min-width: 32px;
-        height: 32px;
-        background: url("../../../assets/img/icons/forward.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-color: transparent;
-
-        &:hover {
-            cursor: pointer;
-            scale: 1.05;
-            transition: 0.25s;
-        }
-
-    }
-
-    &__input {
-        margin: auto 0;
-        width: calc(100% - 80px);
-        height: 32px;
-        flex-shrink: 0;
-        border-radius: 30px;
-        padding: 6px 0 6px 12px;
-        box-sizing: border-box;
-        border: 1px solid $secondary-lines;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1.21;
-        background-color: $secondary-background;
-        color: $base-text;
-
-        &:focus {
-            background-color: $base-background;
-            outline-color: $base-shadow;
-        }
-    }
 
     &_input_error {
         color: $danger-text;

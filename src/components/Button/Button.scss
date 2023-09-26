@@ -8,19 +8,57 @@
     font-size: 13px;
     margin-top: 10px;
 
-    &_primary {
+    &__primary {
         background-color: $button-primary-background;
         color: $button-primary-text;
     }
 
-    &_secondary {
+    &__secondary {
         background: $button-secondary-background;
         color: $button-secondary-text;
     }
 
-    &_danger {
+    &__danger {
         background: $button-secondary-background;
         color: $danger-text;
+    }
+
+    &__chat-message-bar_attach {
+        border: none;
+        margin: auto 2px;
+        min-width: 32px;
+        height: 32px;
+        background: url("../../../assets/img/icons/attach.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            opacity: 0.9;
+            transition: 0.25s;
+        }
+    }
+
+    &__chat-message-bar_send {
+        border: none;
+        margin: auto;
+        min-width: 32px;
+        height: 32px;
+        background: url("../../../assets/img/icons/forward.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+
     }
 
     &:hover {
