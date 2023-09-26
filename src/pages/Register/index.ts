@@ -10,10 +10,11 @@ export class Register extends Block<RegisterProps> {
       ...props,
       onRegister: (event : Event) => {
         event.preventDefault();
-        const form : Record<string, string | null> = {};
-        for (const key in this.refs) {
+        const form: Record<string, string | null> = {};
+        const keys = Object.keys(this.refs);
+        keys.forEach((key) => {
           form[key] = this.refs[key].value();
-        }
+        });
         console.table(form);
       },
     });
