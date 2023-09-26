@@ -11,6 +11,14 @@ export class Profile extends Block<ProfileProps> {
     super({
       ...props,
       user,
+      onSaveChanges: (event : Event) => {
+        event.preventDefault();
+        const form : Record<string, string | null> = {};
+        for (const key in this.refs) {
+          form[key] = this.refs[key].value();
+        }
+        console.table(form);
+      },
     });
   }
 

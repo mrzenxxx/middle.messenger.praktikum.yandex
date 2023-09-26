@@ -34,9 +34,7 @@ export class FormField extends Block<FormFieldProps|any> {
   }
 
   public validate(): boolean {
-    
     if (!this.conditionCheck()) {
-
       this.setProps({
         ...this.props,
         value: this._value(),

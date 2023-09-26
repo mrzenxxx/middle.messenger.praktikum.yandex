@@ -13,7 +13,7 @@ export class LogIn extends Block<LogInProps> {
         const login = this.refs.login.value();
         const password = this.refs.password.value();
 
-        console.info({
+        console.table({
           login,
           password,
         });

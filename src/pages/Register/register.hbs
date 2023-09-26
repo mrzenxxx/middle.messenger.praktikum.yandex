@@ -1,15 +1,15 @@
 <main class="register">
     {{#>Form type="register" title="Регистрация"}}
         <div class="register__form_fields">
-            {{{FormField label="Почта" name="email" type="email"}}}
-            {{{FormField label="Логин" name="login" type="text" }}}
-            {{{FormField label="Имя" name="first_name" type="text" }}}
-            {{{FormField label="Фамилия" name="second_name" type="text" }}}
-            {{{FormField label="Телефон" name="phone" type="phone" type="phone"}}}
-            {{{FormField label="Пароль" name="password" type="password" type="password"}}}
-            {{{FormField label="Подтвердите пароль" name="password_confirm" type="password"}}}
+            {{{FormField label="Почта" ref="email" name="email" type="email"}}}
+            {{{FormField label="Логин" ref="login" name="login" type="text" }}}
+            {{{FormField label="Имя" ref="first_name" name="first_name" type="text" }}}
+            {{{FormField label="Фамилия" ref="second_name" name="second_name" type="text" }}}
+            {{{FormField label="Телефон" ref="phone" name="phone" type="phone" type="phone"}}}
+            {{{FormField label="Пароль" ref="password" name="password" type="password" type="password"}}}
+            {{{FormField label="Подтвердите пароль" ref="password_confirm" name="password_confirm" type="password"}}}
         </div>
-        {{{Button label="Зарегистрироваться" type="primary"}}}
-        {{{Button label="Уже есть аккаунт?" type="secondary"}}}
+        {{{Button label="Зарегистрироваться" type="primary" onClick=onRegister}}}
+        {{{Button label="Уже есть аккаунт?" type="secondary" onClick=onSwitch}}}
     {{/Form}}
 </main>

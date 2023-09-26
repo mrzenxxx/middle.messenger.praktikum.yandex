@@ -8,6 +8,14 @@ export class Register extends Block<RegisterProps> {
   constructor(props: RegisterProps) {
     super({
       ...props,
+      onRegister: (event : Event) => {
+        event.preventDefault();
+        const form : Record<string, string | null> = {};
+        for (const key in this.refs) {
+          form[key] = this.refs[key].value();
+        }
+        console.table(form);
+      },
     });
   }
 

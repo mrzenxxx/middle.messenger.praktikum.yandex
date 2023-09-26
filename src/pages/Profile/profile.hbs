@@ -5,15 +5,15 @@
             {{user.display_name}}
         </span>
         <div class="profile__form_fields">
-            {{{FormField label='Почта' name='email' value=user.email style="profile"}}}
-            {{{FormField label='Логин' name='login' value=user.login style="profile"}}}
-            {{{FormField label='Имя' name='first_name' value=user.first_name style="profile"}}}
-            {{{FormField label='Фамилия' name='second_name' value=user.second_name style="profile"}}}
-            {{{FormField label='Имя в чате' name='display_name' value=user.display_name style="profile"}}}
-            {{{FormField label='Телефон' name="phone" type="phone" value=user.phone style="profile"}}}
+            {{{FormField label='Почта' ref='email' name='email' value=user.email style="profile"}}}
+            {{{FormField label='Логин' ref='login' name='login' value=user.login style="profile"}}}
+            {{{FormField label='Имя' ref='first_name' name='first_name' value=user.first_name style="profile"}}}
+            {{{FormField label='Фамилия' ref='second_name' name='second_name' value=user.second_name style="profile"}}}
+            {{{FormField label='Имя в чате' ref='display_name' name='display_name' value=user.display_name style="profile"}}}
+            {{{FormField label='Телефон' ref="phone" name="phone" type="phone" value=user.phone style="profile"}}}
         </div>
-        <div class="{{className}}__buttons_wrapper">
-            {{{Button label = "Изменить данные" type="secondary"}}}
+        <div class="profile__buttons_wrapper">
+            {{{Button label = "Изменить данные" type="primary" onClick=onSaveChanges}}}
             {{{Button label = "Изменить пароль" type="secondary"}}}
             {{{Button label = "Выйти" type="danger"}}}
         <div>
