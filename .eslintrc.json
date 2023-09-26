@@ -15,7 +15,7 @@
     "rules": {
         "max-len": [2, 180],
         "import/prefer-default-export": "off",
-        "no-console": ["error", { "allow": ["warn"] }],
+        "no-console": ["error", { "allow": ["warn", "table", "error", "info"] }],
         "import/extensions": "off",
         "import/no-unresolved": "off",
         "no-underscore-dangle": "off",

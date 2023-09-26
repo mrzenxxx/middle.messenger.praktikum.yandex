@@ -127,6 +127,7 @@ export default class Block<P extends Record<string, unknown>> {
     if (oldProps && newProps) {
       return true;
     }
+    return false;
   }
 
   protected compile(template: string, context: any) {
@@ -171,8 +172,8 @@ export default class Block<P extends Record<string, unknown>> {
     return this!._element;
   }
 
-  public value(){
-    // Заглушка, чтобы не ругался TS
+  public value() {
+    return (this.element! as HTMLInputElement).value || null;
   }
 
   public show(): void {

@@ -11,13 +11,13 @@ export class LogIn extends Block<LogInProps> {
       onLogin: (event : Event) => {
         event.preventDefault();
         const login = this.refs.login.value();
-        const password =  this.refs.password.value();
+        const password = this.refs.password.value();
 
-        console.log({
-            login,
-            password
-        })
-      }
+        console.info({
+          login,
+          password,
+        });
+      },
     });
   }
 

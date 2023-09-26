@@ -21,21 +21,22 @@ export class FormField extends Block<FormFieldProps|any> {
   private _value() {
     return (this.refs.input.element! as HTMLInputElement).value;
   }
-  private conditionCheck () {
-    return VALIDATION_RULES[(this.refs.input.element! as HTMLInputElement).name].test((this.refs.input.element! as HTMLInputElement).value)
+
+  private conditionCheck() {
+    return VALIDATION_RULES[(this.refs.input.element! as HTMLInputElement).name].test((this.refs.input.element! as HTMLInputElement).value);
   }
 
   public value() {
     if (!this.validate()) {
-        return;
-      }
+      return 'Validation Failed';
+    }
     return this._value();
   }
 
   public validate(): boolean {
-
+    
     if (!this.conditionCheck()) {
-      console.error('Validation Failed!');
+
       this.setProps({
         ...this.props,
         value: this._value(),
@@ -44,7 +45,6 @@ export class FormField extends Block<FormFieldProps|any> {
       return false;
     }
 
-    console.warn('Validation Passed!');
     this.setProps({
       ...this.props,
       value: this._value(),
