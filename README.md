@@ -10,6 +10,6 @@ npm run start   - сборка и запуск проекта на express-се�
 npm run lint    - проверка правил оформления кода  
 
 **Проект на Netlify**  
-https://6513367b38ff4d000831cfd9--zippy-manatee-27aee2.netlify.app/
+https://651392b618a1f30008fdb165--zippy-manatee-27aee2.netlify.app/main
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/26c97060-2d1a-4917-ae74-636d358c9f57/deploy-status)](https://app.netlify.com/sites/zippy-manatee-27aee2/deploys?branch=deploy)

@@ -18,7 +18,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps | any> {
   constructor(props: ChatMessageBarProps) {
     super({
       ...props,
-      // Не получается передать строку с пробелом, 
+      // Не получается передать строку с пробелом,
       // пробовал экранирование самое разное
       placeholder: 'Введите сообщение...',
       onBlur: () => {
@@ -73,7 +73,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps | any> {
         ...this.props,
         value: this._value(),
         placeholder: '',
-        error: 'Нельзя отправить пустое сообщение!',
+        error: 'Пустое сообщение!',
       });
       return false;
     }
