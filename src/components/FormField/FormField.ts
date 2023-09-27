@@ -5,7 +5,7 @@ import { VALIDATION_RULES, VALIDATION_ERRORS } from '../../core/constants/valida
 
 interface FormFieldProps {
   value : string;
-  error : string;
+  error : string | null;
   onBlur?: () => void;
 }
 

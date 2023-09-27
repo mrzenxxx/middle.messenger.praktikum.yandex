@@ -1,5 +1,6 @@
-<div class="chat_message-bar">
+<div class="chat-message-bar">
     {{{Button type='chat-message-bar_attach' onClick=onAttach}}}
-    {{{Input style='chat-message-bar_message' type='text' onBlur=onBlur placeholder=[placeholder]}}}
+    {{{Input style='chat-message-bar_message' type='text' ref='input' name='message' value=value onBlur=onBlur onFocus=onFocus onInputChange=onInputChange placeholder=placeholder}}}
+    <span class="chat-message-bar_input-error">{{error}}</span>
     {{{Button type='chat-message-bar_send' onClick=onSend}}}
 </div>
