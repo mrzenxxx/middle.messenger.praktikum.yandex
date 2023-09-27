@@ -2,20 +2,13 @@ import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 import { EventBus } from './EventBus';
 
-type Events = {
-  INIT: string;
-  FLOW_CDM: string;
-  FLOW_CDU: string;
-  FLOW_RENDER: string;
-}
-
 export default class Block<P extends Record<string, unknown>> {
-  static EVENTS: Events = {
+  static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
     FLOW_CDU: 'flow:component-did-update',
     FLOW_RENDER: 'flow:render',
-  };
+  } as const;
 
   public id = nanoid(8);
 
@@ -92,6 +85,14 @@ export default class Block<P extends Record<string, unknown>> {
     });
   }
 
+  private _removeEvents() {
+    const { events = {} } = this.props as P & { events: Record<string, () => void> };
+
+    Object.keys(events).forEach((eventName) => {
+      this._element?.removeEventListener(eventName, events[eventName]);
+    });
+  }
+
   private init(): void {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
@@ -109,6 +110,7 @@ export default class Block<P extends Record<string, unknown>> {
 
   private _render(): void {
     const fragment = this.render();
+    this._removeEvents();
     const newElement = fragment.firstElementChild as HTMLElement;
 
     if (newElement && this._element) {
