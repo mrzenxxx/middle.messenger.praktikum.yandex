@@ -35,7 +35,7 @@ export class FormField extends Block<FormFieldProps|any> {
 
   public validate(): boolean {
     if (!this.conditionCheck()) {
-      this.setProps({
+      this.refs.errorMessage.setProps({
         ...this.props,
         value: this._value(),
         error: VALIDATION_ERRORS[(this.refs.input.element! as HTMLInputElement).name],
@@ -43,7 +43,7 @@ export class FormField extends Block<FormFieldProps|any> {
       return false;
     }
 
-    this.setProps({
+    this.refs.errorMessage.setProps({
       ...this.props,
       value: this._value(),
       error: null,

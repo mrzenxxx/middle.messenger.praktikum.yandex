@@ -31,5 +31,14 @@
         margin-top: 48px;
     }
 
+    &_input-error {
+        text-align: center;
+        width: 100%;
+        height: 24px;
+        font-size: 12px;
+        line-height: 12px;
+        color: $danger-text;
+        margin-bottom: 4px;
+    }
 
 }

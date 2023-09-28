@@ -19,10 +19,10 @@ export class Input extends Block<InputProps | any> {
   constructor(props: InputProps) {
     super({
       events: {
-        blur: props.onBlur,
-        change: props.onChange,
-        focus: props.onFocus,
-        input: props.onInput,
+        blur: props?.onBlur,
+        change: props?.onChange,
+        focus: props?.onFocus,
+        input: props?.onInput,
       },
       name: props.name,
       style: props.style,
