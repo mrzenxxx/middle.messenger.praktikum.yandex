@@ -23,8 +23,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
       onBlur: () => {
         this.validate();
       },
-      // С валидными данными вызывается только при втором нажатиии на кнопку,
-      // если поле ввода находится в фокусе
+
       onSend: (event : Event) => {
         event.preventDefault();
         const { name } = this.refs.input.element! as HTMLInputElement;
@@ -42,6 +41,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
       },
       onFocus: () => {
         this.refs.errorMessage.setProps({
+          ...this.props,
           error: null,
         })
       },
@@ -54,12 +54,14 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
   public validate(): boolean {
     if (!this.conditionCheck()) {
         this.refs.errorMessage.setProps({
+          ...this.props,
           error: "Пустое сообщение!",
         })
       return false;
     }
 
     this.refs.errorMessage.setProps({
+      ...this.props,
       error: null,
     });
     return true;
