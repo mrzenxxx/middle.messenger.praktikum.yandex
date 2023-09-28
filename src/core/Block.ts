@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 import { EventBus } from './EventBus';
+import deepEqual from './utils/deepEqual';
 
 export default class Block<P extends Record<string, unknown>> {
   static EVENTS = {
@@ -105,6 +106,7 @@ export default class Block<P extends Record<string, unknown>> {
 
   private _componentDidUpdate(oldProps: P, newProps: P): void {
     const response = this.componentDidUpdate(oldProps, newProps);
+    console.table({oldProps, newProps, response});
     if (response) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
@@ -128,7 +130,7 @@ export default class Block<P extends Record<string, unknown>> {
   }
 
   protected componentDidUpdate(oldProps?: P, newProps?: P): boolean {
-    if (oldProps && newProps) {
+    if (oldProps && newProps && !deepEqual<P>(oldProps,newProps)) {
       return true;
     }
     return false;
@@ -136,7 +138,6 @@ export default class Block<P extends Record<string, unknown>> {
 
   protected compile(template: string, context: any) {
     const contextAndStubs = { ...context, __refs: this.refs };
-    // console.warn("contextAndStubs", contextAndStubs);
     const html = Handlebars.compile(template)(contextAndStubs);
     const temp = document.createElement('template');
 

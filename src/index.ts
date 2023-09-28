@@ -1,5 +1,5 @@
 import Handlebars from 'handlebars';
-import { registerComponent } from './core/registerComponent';
+import { registerComponent } from './core/utils/registerComponent';
 import { Button } from './components/Button/Button';
 import { Input } from './components/Input/Input';
 import { Main } from './pages/Main/Main';
@@ -24,7 +24,6 @@ import { ChatSearchBar } from './components/ChatSearchBar/ChatSearchBar';
 import { FormField } from './components/FormField/FormField';
 
 Handlebars.registerPartial('Avatar', Avatar);
-// Handlebars.registerPartial('Form', Form);
 Handlebars.registerPartial('ChatFeed', ChatFeed);
 Handlebars.registerPartial('ChatBox', ChatBox);
 Handlebars.registerPartial('ChatHeader', ChatHeader);
