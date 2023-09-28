@@ -47,7 +47,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps | any> {
       },
       events: {
         submit: props.onSend,
-      }
+      },
     });
   }
 

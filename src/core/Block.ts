@@ -81,9 +81,9 @@ export default class Block<P extends Record<string, unknown>> {
   private _addEvents(): void {
     const { events = {} } = this.props as P & { events: Record<string, () => void> };
     Object.keys(events).forEach((eventName) => {
-      if (events[eventName]){
-        this._element?.addEventListener(eventName, events[eventName])
-      };
+      if (events[eventName]) {
+        this._element?.addEventListener(eventName, events[eventName]);
+      }
     });
   }
 

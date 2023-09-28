@@ -19,7 +19,7 @@ export class LogIn extends Block<LogInProps> {
           password,
         });
       },
-      
+
     });
   }
 
