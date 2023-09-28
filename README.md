@@ -6,7 +6,9 @@ https://www.figma.com/file/Ngoxofva1QKyJFUqdvRVEc/MyChat?type=design&node-id=1-4
 
 **Команды для запуска приложения**  
 npm run dev     - запуск проекта локально  
+
 npm run start   - сборка и запуск проекта на express-сервере
+
 npm run lint    - проверка правил оформления кода  
 
 **Проект на Netlify**  
