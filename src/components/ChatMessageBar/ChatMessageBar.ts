@@ -2,21 +2,24 @@ import Block from '../../core/Block';
 import template from './ChatMessageBar.hbs?raw';
 import './ChatMessageBar.scss';
 
-interface ChatMessageBarProps {
+interface ChatMessageBarProps extends Record<string, unknown> {
   placeholder: string;
   style: string;
-  error: string | null;
   value: string | null;
-  onSend: () => void;
+  error: string | null;
+  onBlur: () => void;
+  onSend: (event: Event) => void;
+  onFocus: () => void;
 }
 
-export class ChatMessageBar extends Block<ChatMessageBarProps | any> {
+export class ChatMessageBar extends Block<ChatMessageBarProps> {
   constructor(props: ChatMessageBarProps) {
     super({
       ...props,
       // Не получается передать строку с пробелом,
       // пробовал экранирование самое разное
       placeholder: 'Введите сообщение...',
+      error: null,
       onBlur: () => {
         this.validate();
       },
@@ -38,12 +41,9 @@ export class ChatMessageBar extends Block<ChatMessageBarProps | any> {
         });
       },
       onFocus: () => {
-        // Вылетает ошибка, поле нельзя выбрать
-        // this.setProps({
-        //   ...props,
-        //   value: this._value(),
-        //   error: null,
-        // });
+        this.refs.errorMessage.setProps({
+          error: null,
+        })
       },
       events: {
         submit: props.onSend,
@@ -53,18 +53,13 @@ export class ChatMessageBar extends Block<ChatMessageBarProps | any> {
 
   public validate(): boolean {
     if (!this.conditionCheck()) {
-      this.setProps({
-        ...this.props,
-        value: this._value(),
-        placeholder: '',
-        error: 'Пустое сообщение!',
-      });
+        this.refs.errorMessage.setProps({
+          error: "Пустое сообщение!",
+        })
       return false;
     }
 
-    this.setProps({
-      ...this.props,
-      value: this._value(),
+    this.refs.errorMessage.setProps({
       error: null,
     });
     return true;

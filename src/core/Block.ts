@@ -106,7 +106,6 @@ export default class Block<P extends Record<string, unknown>> {
 
   private _componentDidUpdate(oldProps: P, newProps: P): void {
     const response = this.componentDidUpdate(oldProps, newProps);
-    console.table({oldProps, newProps, response});
     if (response) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
