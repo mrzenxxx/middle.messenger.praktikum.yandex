@@ -129,7 +129,7 @@ export default class Block<P extends Record<string, unknown>> {
   }
 
   protected componentDidUpdate(oldProps?: P, newProps?: P): boolean {
-    if (oldProps && newProps && !deepEqual<P>(oldProps,newProps)) {
+    if (oldProps && newProps && !deepEqual<P>(oldProps, newProps)) {
       return true;
     }
     return false;

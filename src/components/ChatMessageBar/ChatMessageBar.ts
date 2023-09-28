@@ -43,7 +43,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
         this.refs.errorMessage.setProps({
           ...this.props,
           error: null,
-        })
+        });
       },
       events: {
         submit: props.onSend,
@@ -53,10 +53,10 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
 
   public validate(): boolean {
     if (!this.conditionCheck()) {
-        this.refs.errorMessage.setProps({
-          ...this.props,
-          error: "Пустое сообщение!",
-        })
+      this.refs.errorMessage.setProps({
+        ...this.props,
+        error: 'Пустое сообщение!',
+      });
       return false;
     }
 

@@ -7,13 +7,14 @@ interface ErrorMessageProps extends Record<string, unknown> {
     error: string | null,
 }
 
-export class ErrorMessage extends Block<ErrorMessageProps>{
-    constructor(props: ErrorMessageProps) {
-        super({
-            ...props,
-        })
-    }
-    render(){
-        return this.compile(template, this.props)
-    }
+export class ErrorMessage extends Block<ErrorMessageProps> {
+  constructor(props: ErrorMessageProps) {
+    super({
+      ...props,
+    });
+  }
+
+  render() {
+    return this.compile(template, this.props);
+  }
 }
