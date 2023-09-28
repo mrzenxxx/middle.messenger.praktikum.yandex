@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 import { EventBus } from './EventBus';
-import deepEqual from './utils/deepEqual';
+// import deepEqual from './utils/deepEqual';
 
 export default class Block<P extends Record<string, unknown>> {
   static EVENTS = {
@@ -129,7 +129,8 @@ export default class Block<P extends Record<string, unknown>> {
   }
 
   protected componentDidUpdate(oldProps?: P, newProps?: P): boolean {
-    if (oldProps && newProps && !deepEqual<P>(oldProps, newProps)) {
+    // TODO implement deep-equal comparsion
+    if (oldProps && newProps) {
       return true;
     }
     return false;

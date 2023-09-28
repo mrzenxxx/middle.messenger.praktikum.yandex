@@ -1,4 +1,5 @@
 export default function deepEqual<T extends any>(obj1: T, obj2: T): boolean {
+  // из-за этого условия неправильно работает функция сравнения пропсов
   if (!obj1 || !obj2) {
     return false;
   }
