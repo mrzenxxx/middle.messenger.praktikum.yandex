@@ -7,11 +7,7 @@ interface ChatMessageBarProps {
   style: string;
   error: string | null;
   value: string | null;
-  onBlur: () => void;
-  onFocus: () => void;
-  onInputChange?: () => void;
   onSend: () => void;
-  onAttach: () => void;
 }
 
 export class ChatMessageBar extends Block<ChatMessageBarProps | any> {
@@ -24,9 +20,10 @@ export class ChatMessageBar extends Block<ChatMessageBarProps | any> {
       onBlur: () => {
         this.validate();
       },
-      // С валидными данными вызывается только при втором нажатиии,
+      // С валидными данными вызывается только при втором нажатиии на кнопку,
       // если поле ввода находится в фокусе
-      onSend: () => {
+      onSend: (event : Event) => {
+        event.preventDefault();
         const { name } = this.refs.input.element! as HTMLInputElement;
         const value = this.value();
         console.info({
@@ -40,30 +37,17 @@ export class ChatMessageBar extends Block<ChatMessageBarProps | any> {
           placeholder: 'Введите сообщение...',
         });
       },
-      // События не отрабатываются, не понимаю почему
       onFocus: () => {
-        console.warn('focus');
-        this.setProps({
-          ...props,
-          value: this._value(),
-          error: null,
-        });
-      },
-      // Событие не отрабатываются, не понимаю почему
-      onInputChange: () => {
-        console.warn('input');
-        this.setProps({
-          ...props,
-          value: this._value(),
-          error: null,
-        });
+        // Вылетает ошибка, поле нельзя выбрать
+        // this.setProps({
+        //   ...props,
+        //   value: this._value(),
+        //   error: null,
+        // });
       },
       events: {
-        blur: props.onBlur,
-        click: props.onSend,
-        focus: props.onFocus,
-        input: props.onInputChange,
-      },
+        submit: props.onSend,
+      }
     });
   }
 

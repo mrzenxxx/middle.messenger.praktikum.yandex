@@ -1,6 +1,7 @@
-<form class="form form__{{type}}">
+<form {{#if customStyle}}class="{{customStyle}}"{{else}}class="form form__{{type}}"{{/if}}>
     {{#if title}}
         <span class="form_title">{{title}}</span>
     {{/if}}
-    {{>@partial-block}}
+    {{!-- {{>@partial-block}} --}}
+    {{children}}
 </form>

@@ -1,6 +1,6 @@
-<form class="chat-message-bar">
+{{#Form customStyle='chat-message-bar' onSubmit=onSend}}
     {{{Button style='chat-message-bar_attach' type='button' onClick=onAttach}}}
-    {{{Input style='chat-message-bar_message' type='text' ref='input' name='message' value=value onBlur=onBlur onFocus=onFocus onInputChange=onInputChange placeholder=placeholder}}}
-    <span class="chat-message-bar_input-error">{{error}}</span>
-    {{{Button style='chat-message-bar_send' type="submit" onClick=onSend}}}
-</form>
+    {{{Input style='chat-message-bar_message' type='text' ref='input' name='message' value=value onBlur=onBlur onFocus=onFocus placeholder=placeholder}}}
+    <span class='chat-message-bar_input-error'>{{error}}</span>
+    {{{Button style='chat-message-bar_send' type='submit'}}}
+{{/Form}}

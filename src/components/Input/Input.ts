@@ -11,6 +11,8 @@ interface InputProps {
     className?: string;
     onBlur?: () => void;
     onChange?: () => void;
+    onFocus?: () => void;
+    onInput?: () => void;
 }
 
 export class Input extends Block<InputProps | any> {
@@ -19,6 +21,8 @@ export class Input extends Block<InputProps | any> {
       events: {
         blur: props.onBlur,
         change: props.onChange,
+        focus: props.onFocus,
+        input: props.onInput,
       },
       name: props.name,
       style: props.style,

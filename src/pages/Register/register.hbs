@@ -1,5 +1,5 @@
 <main class="register">
-    {{#>Form type="register" title="Регистрация"}}
+    {{#Form type="register" title="Регистрация" onSubmit=onRegister}}
         <div class="register__form_fields">
             {{{FormField label="Почта" ref="email" name="email" type="email"}}}
             {{{FormField label="Логин" ref="login" name="login" type="text" }}}
@@ -9,7 +9,7 @@
             {{{FormField label="Пароль" ref="password" name="password" type="password" type="password"}}}
             {{{FormField label="Подтвердите пароль" ref="password_confirm" name="password_confirm" type="password"}}}
         </div>
-        {{{Button label="Зарегистрироваться" style="primary" type="submit" onClick=onRegister}}}
+        {{{Button label="Зарегистрироваться" style="primary" type="submit"}}}
         {{{Button label="Уже есть аккаунт?" style="secondary" type="button" onClick=onSwitch}}}
     {{/Form}}
 </main>

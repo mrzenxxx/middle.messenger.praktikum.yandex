@@ -8,6 +8,7 @@ export class LogIn extends Block<LogInProps> {
   constructor(props: LogInProps) {
     super({
       ...props,
+
       onLogin: (event : Event) => {
         event.preventDefault();
         const login = this.refs.login.value();
@@ -18,6 +19,7 @@ export class LogIn extends Block<LogInProps> {
           password,
         });
       },
+      
     });
   }
 

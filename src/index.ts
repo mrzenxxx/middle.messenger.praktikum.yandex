@@ -24,7 +24,7 @@ import { ChatSearchBar } from './components/ChatSearchBar/ChatSearchBar';
 import { FormField } from './components/FormField/FormField';
 
 Handlebars.registerPartial('Avatar', Avatar);
-Handlebars.registerPartial('Form', Form);
+// Handlebars.registerPartial('Form', Form);
 Handlebars.registerPartial('ChatFeed', ChatFeed);
 Handlebars.registerPartial('ChatBox', ChatBox);
 Handlebars.registerPartial('ChatHeader', ChatHeader);
@@ -34,6 +34,7 @@ Handlebars.registerPartial('ChatWindow', ChatWindow);
 
 registerComponent('Button', Button as typeof Block);
 registerComponent('Input', Input as typeof Block);
+registerComponent('Form', Form as typeof Block);
 registerComponent('FormField', FormField as typeof Block);
 registerComponent('ChatMessageBar', ChatMessageBar as typeof Block);
 registerComponent('ChatSearchBar', ChatSearchBar as typeof Block);
