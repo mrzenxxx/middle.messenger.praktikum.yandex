@@ -24,7 +24,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
       error: null,
       // Не получается передать строку с пробелом,
       // пробовал экранирование самое разное, ничего не помогает
-      placeholder: "Введите сообщение",
+      placeholder: 'Введите сообщение',
       onBlur: () => {
         this.validate();
       },
@@ -37,14 +37,14 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
           [name]: value,
         });
 
-        if(this.validate()){
+        if (this.validate()) {
           this.setProps({
             ...props,
             value: '',
             error: null,
             placeholder: 'Введите сообщение...',
-          })
-        };
+          });
+        }
       },
       onFocus: () => {
         this.refs.errorMessage.setProps({
@@ -77,7 +77,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
           // события сюда явно (иначе при перерендеренге они отваливаются)
           focus: this.props.onFocus,
           blur: this.props.onBlur,
-        }
+        },
       });
       return false;
     }
