@@ -26,7 +26,8 @@
     "vite-plugin-handlebars": "^1.6.0",
     "path": "^0.12.7",
     "sass": "^1.63.4",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "@esbuild/linux-x64": "^0.19.2"
   },
   "dependencies": {
     "express": "^4.18.2",
