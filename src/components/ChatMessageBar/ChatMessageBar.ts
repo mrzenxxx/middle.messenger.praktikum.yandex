@@ -52,14 +52,6 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
           error: null,
         });
       },
-      events: {
-        submit: props.onSend,
-        // События, добавленные сюда, по логике должны передаваться
-        // в this.refs.messageInput.setProps вместе со всем остальным,
-        // но почему-то не работает так
-        // blur: props.onBlur,
-        // focus: props.onFocus,
-      },
     });
   }
 
