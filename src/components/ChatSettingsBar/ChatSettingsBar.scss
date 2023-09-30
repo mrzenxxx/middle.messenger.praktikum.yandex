@@ -1,0 +1,72 @@
+@import "../../../assets/styles/color-scheme";
+
+.chat-settings-bar {
+    display: flex;
+    flex-direction: row;
+    padding: auto 16px;
+    margin-top: 4px;
+    width: 100%;
+    height: 48px;
+    justify-content: center;
+    background-color: $base-background;
+    border-top: 1px solid $base-lines;
+    box-sizing: border-box;
+
+    &__profile-button {
+        border: none;
+        margin: auto 16px;
+        width: 28px;
+        height: 28px;
+        background-image: url("../../../assets/img/icons/profile.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: transparent;
+        opacity: 0.8;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+    }
+
+    &__settings-button {
+        border: none;
+        margin: auto 16px;
+        width: 32px;
+        height: 32px;
+        background: url("../../../assets/img/icons/settings.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: transparent;
+        opacity: 0.8;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+
+    }
+
+    &__favorites-button {
+        border: none;
+        margin: auto 12px;
+        width: 32px;
+        height: 32px;
+        background: url("../../../assets/img/icons/favorite.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: transparent;
+        opacity: 0.8;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+    }
+}

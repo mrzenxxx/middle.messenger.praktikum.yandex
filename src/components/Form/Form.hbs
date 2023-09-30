@@ -1,0 +1,6 @@
+<form {{#if customStyle}}class="{{customStyle}}"{{else}}class="form form__{{type}}"{{/if}}>
+    {{#if title}}
+        <span class="form_title">{{title}}</span>
+    {{/if}}
+    {{children}}
+</form>

@@ -1,0 +1,9 @@
+@import "../../../assets/styles/color-scheme";
+
+.error-message {
+    font-size: 24px;
+    line-height: 8px;
+    font-weight: 400;
+    color: $danger-text;
+    word-break: break-all;
+}

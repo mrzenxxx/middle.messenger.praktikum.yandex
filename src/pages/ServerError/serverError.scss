@@ -1,8 +1,7 @@
-@import "../../../static/color-scheme.scss";
-@import "../../../static/default-main.scss";
+@import "../../../assets/styles/color-scheme";
+@import "../../../assets/styles/default-main";
 
-.server_error {
-    
+.server-error {    
     @include default-main;
 
     &__title {
@@ -24,11 +23,11 @@
         font-size: 12px;
         border: none;
 
-        & * {
+        * {
             text-decoration: none;
         }
 
-        & *:visited {
+        *:visited {
             color: $button-accent-text;
         }
     }

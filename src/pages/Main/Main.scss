@@ -1,56 +1,6 @@
-.main_page {
+.main-page {
     display: flex;
     flex-direction: row;
-    width: 100vw;
-    height: 100vh;
-
-        &__aside {
-            width: 35%;
-            height: 100vh;
-            border: 2px solid black;
-
-        }
-
-        &__chat_list {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            list-style-type: none;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        &__chat {
-            display: flex;
-            width: 100%;
-            height: 40px;
-            font-weight: 600;
-            margin: 0;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid black;
-
-            &_window {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                font-weight: 600;
-            }
-
-            &_feed {
-                display: flex;
-                padding: 30px;
-                justify-content: center;
-            }
-
-            &_message {
-                width: 100%;
-                height: 24px;
-            }
-        }   
+    width: 100dvw;
+    height: 100dvh;
 }

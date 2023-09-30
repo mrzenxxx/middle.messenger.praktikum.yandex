@@ -1,0 +1,26 @@
+@import "../../../assets/styles/color-scheme";
+
+.form {
+    border-radius: 12px;
+    padding: 36px 24px;
+    box-shadow: 0 0 6px 0 $base-shadow;
+    width: 280px;
+    max-width: 280px;
+    height: auto;
+
+    &_title {
+        display: block;
+        font-size: 18px;
+        font-weight: bolder;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    &__profile {
+        width: 80%;
+        max-width: 510px;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}

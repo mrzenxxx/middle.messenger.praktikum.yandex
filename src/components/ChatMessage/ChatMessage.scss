@@ -1,0 +1,50 @@
+@import "../../../assets/styles/color-scheme";
+
+.chat-message {
+    padding: 8px ;
+    display: inline-block;
+    width: auto;
+    max-width: 55%;
+    height: auto;
+    background-color: $secondary-background;
+    margin: 4px 0;
+    border-radius: 4px;
+
+    &__wrapper {
+        display: block;
+    }
+
+    &__info_wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-bottom: 4px;
+    }
+
+    &__separator {
+        width: 100%;
+    }
+
+    &__author {
+        text-align: left;
+        font-size: 12px;
+        font-weight: 400;
+        margin: 0 6px;
+        color: $faded-text;
+    }
+
+    &__time {
+        text-align: left;
+        font-size: 12px;
+        font-weight: 400;
+        color: $faded-text;
+    }
+
+    &__text {
+        font-size: 12px;
+        line-height: 8px;
+        font-weight: 400;
+        color: $base-text;
+        word-break: break-all;
+    }
+}

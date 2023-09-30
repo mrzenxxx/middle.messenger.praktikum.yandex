@@ -1,0 +1,23 @@
+<li class="chatbox__wrapper">
+<button class="chatbox">
+    {{>Avatar size="normal" src=./avatar alt="Chat avatar picture"}}
+    <div class="chatbox__text">
+        <div class="chatbox__text_header">
+            {{header}}
+        </div>
+        <div class="chatbox__text_content">
+            {{content}}
+        </div>
+    </div>
+    <div class="chatbox__info">
+        <div class="chatbox__info_time">
+            {{time}}
+        </div>
+        {{#if unread}}
+            <div class="chatbox__info_unread">
+                {{unread}}
+            </div>
+        {{/if}}
+    </div>
+</button>
+</li>

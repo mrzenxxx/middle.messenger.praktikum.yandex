@@ -1,0 +1,22 @@
+@import "../../../assets/styles/color-scheme";
+
+.chat-message-bar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 48px;
+    max-height: 48px;
+    background-color: $base-background;
+    border-top: 1px solid $base-lines;
+    box-sizing: border-box;
+    position: relative;
+
+    &_input-error {
+        display: block;
+        position: absolute;
+        right: 50px;
+        top: 14px;
+        font-size: 12px;
+        color: $danger-text;
+    }
+}
