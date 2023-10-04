@@ -1,9 +1,5 @@
 import { isPlainObject } from "./isPlainObject";
 
-type Indexed<T = unknown> = {
-    [key in string]: T;
-};
-
 export default function merge(lhs: Indexed, rhs: Indexed): Indexed {
     const merged: Indexed = {};
 

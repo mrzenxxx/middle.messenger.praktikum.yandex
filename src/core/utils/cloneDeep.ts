@@ -1,7 +1,3 @@
-type Indexed<T = any> = {
-    [k in (string | symbol)]: T;
-};
-
 function cloneDeep<T extends Indexed>(obj: T) {
     return (function _cloneDeep(item: T): T | Date | Set<unknown> | Map<unknown, unknown> | object | T[] {
 

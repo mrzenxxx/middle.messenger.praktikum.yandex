@@ -1,3 +1,5 @@
+import queryStringify from "./utils/queryStringify";
+
 interface RequestOptions {
     method?: string;
     data?: any;
@@ -14,31 +16,8 @@ enum METHODS {
     DELETE = 'DELETE'
 }
 
-function queryStringify(data: { [key: string]: unknown }): string {
-  let resultQueryParams: string = '';
-  let paramsList: Array<[string, unknown]> = [];
-
-  if (!data) {
-    return resultQueryParams;
-  }
-  paramsList = Object.entries(data);
-  resultQueryParams += '?';
-
-  // eslint-disable-next-line no-restricted-syntax
-  for (const param of paramsList) {
-    const [key, value] = param;
-    resultQueryParams += `${key}=${value!.toString()}`;
-
-    if (paramsList.indexOf(param) !== paramsList.length - 1) {
-      resultQueryParams += '&';
-    }
-  }
-
-  return resultQueryParams;
-}
-
 export class HTTPTransport {
-  get = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(`${url}${queryStringify(options.data)}`, { method: METHODS.GET });
+  get = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(`${url}?${queryStringify(options.data)}`, { method: METHODS.GET });
 
   post = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.POST });
 

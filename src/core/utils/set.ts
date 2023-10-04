@@ -1,9 +1,5 @@
 import { isPlainObject } from "./isPlainObject";
 
-type Indexed<T = unknown> = {
-    [key in string]: T;
-};
-
 export default function set(object: Indexed | unknown, path: string, value: unknown): Indexed | unknown {
     if (!isPlainObject(object)) {
         return object;

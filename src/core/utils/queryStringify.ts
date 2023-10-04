@@ -1,6 +1,4 @@
-type StringIndexed = Record<string, any>;
-
-function queryStringify(data: StringIndexed, parentKey?: string): string {
+export default function queryStringify(data: StringIndexed, parentKey?: string): string {
     if (typeof data !== 'object' || data === null) {
         throw new Error('input must be an object');
     }
