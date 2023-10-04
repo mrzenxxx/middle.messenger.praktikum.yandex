@@ -8,6 +8,8 @@ interface RequestOptions {
     retries?: number;
 }
 
+type HTTPMethod = (url: string, options?: RequestOptions) => Promise<XMLHttpRequest>
+
 // eslint-disable-next-line no-shadow
 enum METHODS {
     GET = 'GET',
@@ -17,17 +19,25 @@ enum METHODS {
 }
 
 export class HTTPTransport {
-  get = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(`${url}?${queryStringify(options.data)}`, { method: METHODS.GET });
 
-  post = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.POST });
+  static BASE_URL = 'https://ya-praktikum.tech/api/v2';
+  protected endpoint: string;
 
-  put = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.PUT });
+  constructor(endpoint: string) {
+    this.endpoint = `${HTTPTransport.BASE_URL}${endpoint}`;
+  }
 
-  delete = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.DELETE });
+  get : HTTPMethod = (url, options = {}) => this.request(`${url}?${queryStringify(options.data)}`, { method: METHODS.GET });
+
+  post : HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.POST });
+
+  put : HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.PUT });
+
+  delete : HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.DELETE });
 
   // eslint-disable-next-line class-methods-use-this
-  request = (url: string, options: RequestOptions): Promise<XMLHttpRequest> => {
-    const { method = 'GET', data, headers } = options;
+  request = (url: string, options: RequestOptions) => {
+    const { method = 'GET', data, headers } = options as RequestOptions;
     console.warn('REQUEST', url, options);
 
     return new Promise<XMLHttpRequest>((resolve, reject) => {
@@ -38,40 +48,25 @@ export class HTTPTransport {
       if (headers) {
         // eslint-disable-next-line no-restricted-syntax
         for (const [key, value] of Object.entries(headers)) {
-          xhr.setRequestHeader(key, value);
+          xhr.setRequestHeader(key, value as string);
         }
       }
 
-      xhr.onload = function () {
-        resolve(xhr);
-      };
+      xhr.onload = () => resolve(xhr);
+      xhr.onabort = () => reject({reason: 'Abort'});
+      xhr.onerror = () => reject({reason: 'Network error'});
+      xhr.ontimeout = () => reject({reason: 'Timeout'});
 
-      xhr.onabort = reject;
-      xhr.onerror = reject;
-      xhr.ontimeout = reject;
+      xhr.setRequestHeader('Content-Type', 'application/json');
+
+      xhr.withCredentials = true;
+      xhr.responseType = 'json';
 
       if (method === METHODS.GET || !data) {
         xhr.send();
       } else {
-        xhr.send(data);
+        xhr.send(JSON.stringify(data));
       }
     });
   };
-}
-
-export const xhrUtil = new HTTPTransport();
-
-export function fetchWithRetry(url : string, options : RequestOptions) : Promise<XMLHttpRequest> {
-  const { retries = 1 } = options;
-
-  function handleError(error: Error) {
-    const triesLeft = retries - 1;
-    if (!triesLeft) {
-      throw error;
-    }
-
-    return fetchWithRetry(url, { ...options, retries: triesLeft });
-  }
-
-  return xhrUtil.request(url, options).catch(handleError);
 }

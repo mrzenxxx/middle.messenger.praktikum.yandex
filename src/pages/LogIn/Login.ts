@@ -1,7 +1,8 @@
 import Block from '../../core/Block';
 import template from './login.hbs?raw';
 import './Login.scss';
-import Router from '../../core/Router';
+import router from '../../core/Router';
+import AuthController from '../../controllers/AuthController';
 
 type LogInProps = Record<string, unknown>;
 
@@ -12,10 +13,15 @@ export class LogIn extends Block<LogInProps> {
 
       onLogin: (event : Event) => {
         event.preventDefault();
-        const login = this.refs.login.value();
-        const password = this.refs.password.value();
+        const login = this.refs.login.value()!;
+        const password = this.refs.password.value()!;
 
         console.table({
+          login,
+          password,
+        });
+
+        AuthController.login({
           login,
           password,
         });
@@ -23,7 +29,7 @@ export class LogIn extends Block<LogInProps> {
 
       onSwitch: (event : Event) => {
         event.preventDefault();
-        Router.go('/register');
+        router.go('/register');
       }
 
     });

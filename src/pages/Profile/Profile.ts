@@ -1,6 +1,7 @@
 import Block from '../../core/Block';
 import './Profile.scss';
 import template from './profile.hbs?raw';
+import store from '../../core/Store';
 
 import { user } from '../../../assets/mocks';
 
