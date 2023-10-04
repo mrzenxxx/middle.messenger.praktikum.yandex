@@ -23,6 +23,8 @@ import { ChatSettingsBar } from './components/ChatSettingsBar/ChatSettingsBar';
 import { ChatSearchBar } from './components/ChatSearchBar/ChatSearchBar';
 import { FormField } from './components/FormField/FormField';
 import { ErrorMessage } from './components/ErrorMessage/ErrorMessage';
+import Router from './core/Router';
+import { Routes } from './core/constants/routes';
 
 Handlebars.registerPartial('Avatar', Avatar);
 Handlebars.registerPartial('ChatFeed', ChatFeed);
@@ -42,20 +44,14 @@ registerComponent('ChatSearchBar', ChatSearchBar as typeof Block);
 registerComponent('ChatSettingsBar', ChatSettingsBar as typeof Block);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const root = document.querySelector('#app')!;
-  const getPage = () => {
-    switch (window.location.pathname) {
-      case '/': return new Navigation({});
-      case '/main': return new Main({});
-      case '/login': return new LogIn({});
-      case '/profile': return new Profile({});
-      case '/register': return new Register({});
-      case '/500': return new ServerError({});
-      default: return new NotFound({});
-    }
-  };
-
-  const page: Block<{}> = getPage();
-  root.append(page.element as HTMLElement);
-  page.dispatchComponentDidMount();
-});
+  Router
+    .use(Routes.Navigation, Navigation)
+    .use(Routes.Login, LogIn)
+    .use(Routes.Register, Register)
+    .use(Routes.Messenger, Main)
+    .use(Routes.Profile, Profile)
+    .use(Routes.ServerError, ServerError)
+    .use(Routes.NotFound, NotFound)
+    .start();
+  }
+);
