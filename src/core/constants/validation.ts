@@ -1,4 +1,4 @@
-export const VALIDATION_RULES = {
+export const VALIDATION_RULES : StringIndexed = {
   first_name: /^[A-Za-zА-ЯЁа-яё][A-Za-zА-ЯЁа-яё-]*$/,
   second_name: /^(?!.[\s])(?!^[0-9]$)[A-Za-z0-9_-]{3,20}$/,
   display_name: /^[a-zA-Zа-яА-ЯёЁ0-9!@#$%^&*()_+-[\]{}|;':",.<>/?`~ ]{1,32}$/,
@@ -10,7 +10,7 @@ export const VALIDATION_RULES = {
   message: /.+/,
 } as const;
 
-export const VALIDATION_ERRORS = {
+export const VALIDATION_ERRORS : StringIndexed = {
   login: 'Длина от 3 до 20 символов, латиница, может содержать цифры, но не состоять из них, без пробелов, без спецсимволов (кроме "_" и "-")',
   first_name: 'Первая буква должна быть заглавной, без пробелов и без цифр, нет спецсимволов (кроме "-")',
   second_name: 'Первая буква должна быть заглавной, без пробелов и без цифр, нет спецсимволов (кроме "-")',
