@@ -5,6 +5,8 @@ import './Button.scss';
 interface ButtonProps {
     label: string;
     type: string,
+    style?: string,
+    className?: string,
     onClick?: () => void;
   }
 

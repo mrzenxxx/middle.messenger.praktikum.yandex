@@ -69,4 +69,23 @@
             transition: 0.25s;
         }
     }
+
+    &__new-chat-button {
+        border: none;
+        margin: auto 12px;
+        width: 32px;
+        height: 32px;
+        background: url("../../../assets/img/icons/add-chat.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: transparent;
+        opacity: 0.8;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+    }
 }

@@ -1,6 +1,7 @@
 import Block from '../../core/Block';
 import './Register.scss';
 import template from './register.hbs?raw';
+import Router from '../../core/Router';
 
 type RegisterProps = Record<string, unknown>;
 
@@ -8,6 +9,7 @@ export class Register extends Block<RegisterProps> {
   constructor(props: RegisterProps) {
     super({
       ...props,
+
       onRegister: (event : Event) => {
         event.preventDefault();
         const form: Record<string, string | null> = {};
@@ -17,6 +19,11 @@ export class Register extends Block<RegisterProps> {
         });
         console.table(form);
       },
+
+      onSwitch: (event : Event) => {
+        event.preventDefault();
+        Router.go('/login');
+      }
     });
   }
 

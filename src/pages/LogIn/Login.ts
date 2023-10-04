@@ -1,6 +1,7 @@
 import Block from '../../core/Block';
 import template from './login.hbs?raw';
 import './Login.scss';
+import Router from '../../core/Router';
 
 type LogInProps = Record<string, unknown>;
 
@@ -19,6 +20,11 @@ export class LogIn extends Block<LogInProps> {
           password,
         });
       },
+
+      onSwitch: (event : Event) => {
+        event.preventDefault();
+        Router.go('/register');
+      }
 
     });
   }
