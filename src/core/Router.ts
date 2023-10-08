@@ -1,23 +1,25 @@
-import Block from "./Block";
-import isEqual from "./utils/isEqual";
-import render from "./utils/render";
+import Block from './Block';
+import isEqual from './utils/isEqual';
+import render from './utils/render';
 
 interface BlockConstructable {
   new(props: StringIndexed): Block<StringIndexed>;
 }
 
 class Route {
+  private block: Nullable<Block<StringIndexed>> = null;
 
-  private block: Nullable<Block<StringIndexed>> = null ; 
-  private _pathname: string ;
+  private _pathname: string;
+
   private readonly _blockClass: BlockConstructable;
-  private readonly _root: string
-  
-  constructor( pathname: string, view: BlockConstructable, rootQuery: string) {
-      this._pathname = pathname;
-      this._blockClass = view;
-      this._root = rootQuery;
-    }
+
+  private readonly _root: string;
+
+  constructor(pathname: string, view: BlockConstructable, rootQuery: string) {
+    this._pathname = pathname;
+    this._blockClass = view;
+    this._root = rootQuery;
+  }
 
   leave() {
     this.block = null;
@@ -37,8 +39,11 @@ class Route {
 
 class Router {
   private static __instance: Router;
+
   private routes: Route[] = [];
+
   private currentRoute: Nullable<Route> = null;
+
   private history = window.history;
 
   constructor(private readonly rootQuery: string) {
@@ -79,7 +84,7 @@ class Router {
       const target = event.currentTarget as Window;
 
       this._onRoute(target.location.pathname);
-    }
+    };
 
     this._onRoute(window.location.pathname);
   }
@@ -99,7 +104,7 @@ class Router {
   }
 
   private getRoute(pathname: string) {
-    return this.routes.find(route => route.match(pathname));
+    return this.routes.find((route) => route.match(pathname));
   }
 }
 

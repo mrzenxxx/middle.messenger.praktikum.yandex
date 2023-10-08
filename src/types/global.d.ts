@@ -5,7 +5,7 @@ declare global {
     type Indexed<T = any> = {
         [k in (string | symbol)]: T;
     };
-    
+
     type PlainObject<T = any> = {
         [k in string]: T;
     };

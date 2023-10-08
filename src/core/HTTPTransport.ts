@@ -1,5 +1,5 @@
-import onRequestError from "./utils/onRequestError";
-import queryStringify from "./utils/queryStringify";
+import onRequestError from './utils/onRequestError';
+import queryStringify from './utils/queryStringify';
 
 interface RequestOptions {
     method?: string;
@@ -20,8 +20,8 @@ enum METHODS {
 }
 
 export class HTTPTransport {
-
   static BASE_URL = 'https://ya-praktikum.tech/api/v2';
+
   protected endpoint: string;
 
   constructor(endpoint: string) {
@@ -59,7 +59,7 @@ export class HTTPTransport {
           reject(new Error(`Request failed with status ${xhr.status}, ${xhr.response.reason}`));
         }
       };
-  
+
       xhr.onabort = () => reject(new Error(`Request aborted. ${onRequestError(xhr)}`));
       xhr.onerror = () => reject(new Error(`Request error. ${onRequestError(xhr)}`));
       xhr.ontimeout = () => reject(new Error(`Request timeout. ${onRequestError(xhr)}`));
@@ -67,9 +67,8 @@ export class HTTPTransport {
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.withCredentials = true;
       xhr.responseType = 'json';
-      
 
-      if (method === METHODS.GET || !data || (data instanceof FormData) ) {
+      if (method === METHODS.GET || !data || (data instanceof FormData)) {
         xhr.send();
       } else {
         xhr.send(JSON.stringify(data));

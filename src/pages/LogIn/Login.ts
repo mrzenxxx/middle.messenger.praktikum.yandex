@@ -31,7 +31,7 @@ export class LogIn extends Block<LogInProps> {
       onSwitch: (event : Event) => {
         event.preventDefault();
         router.go(Routes.Register);
-      }
+      },
 
     });
   }

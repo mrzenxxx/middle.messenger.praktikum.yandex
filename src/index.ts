@@ -53,5 +53,4 @@ document.addEventListener('DOMContentLoaded', () => {
     .use(Routes.ServerError, ServerError)
     .use(Routes.NotFound, NotFound)
     .start();
-  }
-);
+});

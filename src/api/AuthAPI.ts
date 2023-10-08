@@ -1,4 +1,4 @@
-import BaseAPI from "./BaseAPI";
+import BaseAPI from './BaseAPI';
 
 export type LoginData = {
     login: string;
@@ -26,18 +26,17 @@ export type User = {
 }
 
 export class AuthAPI extends BaseAPI {
-    constructor() {
-        super('/auth');
-    }
+  constructor() {
+    super('/auth');
+  }
 
-    public login = (data : LoginData) => this.http.post('/signin', {data});
+  public login = (data : LoginData) => this.http.post('/signin', { data });
 
-    public register = (data : RegisterData) => this.http.post('/signup', {data});
+  public register = (data : RegisterData) => this.http.post('/signup', { data });
 
-    public read = () => this.http.get('/user');
+  public read = () => this.http.get('/user');
 
-    public logout = () => this.http.post('/logout');
-
+  public logout = () => this.http.post('/logout');
 }
 
 export default new AuthAPI();
