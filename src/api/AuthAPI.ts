@@ -34,7 +34,7 @@ export class AuthAPI extends BaseAPI {
 
     public register = (data : RegisterData) => this.http.post('/signup', {data});
 
-    public getUser = () => this.http.get('/user');
+    public read = () => this.http.get('/user');
 
     public logout = () => this.http.post('/logout');
 

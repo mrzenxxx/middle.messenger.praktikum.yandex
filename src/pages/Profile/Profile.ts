@@ -1,17 +1,22 @@
 import Block from '../../core/Block';
 import './Profile.scss';
 import template from './profile.hbs?raw';
-import store from '../../core/Store';
+import { withStore } from '../../hocs/withStore';
+import AuthController from '../../controllers/AuthController';
 
-import { user } from '../../../assets/mocks';
+// import { user } from '../../../assets/mocks';
 
-type ProfileProps = Record<string, unknown>;
+interface ProfileProps {
+  user : StringIndexed,
+  onSaveChanges : (event : Event) => void,
+  onChangePassword: (event : Event) => void,
+  onLogout : (event : Event) => void,
+}
 
-export class Profile extends Block<ProfileProps> {
+export class ProfilePageBase extends Block<ProfileProps> {
   constructor(props: ProfileProps) {
     super({
       ...props,
-      user,
       onSaveChanges: (event : Event) => {
         event.preventDefault();
         const form: Record<string, string | null> = {};
@@ -19,12 +24,22 @@ export class Profile extends Block<ProfileProps> {
         keys.forEach((key) => {
           form[key] = this.refs[key].value();
         });
+        AuthController.getUser();
         console.table(form);
+      },
+      onLogout: (event : Event) => {
+        event.preventDefault();
+        AuthController.logout();
       },
     });
   }
-
+  
   protected render(): DocumentFragment {
+    AuthController.getUser();
     return this.compile(template, this.props);
   }
 }
+
+const withUser = withStore((state) => ({ ...state}))
+
+export const Profile = withUser(ProfilePageBase);

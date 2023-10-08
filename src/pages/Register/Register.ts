@@ -4,6 +4,7 @@ import template from './register.hbs?raw';
 import Router from '../../core/Router';
 import AuthController from '../../controllers/AuthController';
 import { RegisterData } from '../../api/AuthAPI';
+import { Routes } from '../../core/constants/routes';
 
 type RegisterProps = Record<string, unknown>;
 
@@ -14,18 +15,18 @@ export class Register extends Block<RegisterProps> {
 
       onRegister: (event : Event) => {
         event.preventDefault();
-        const form: RegisterData = {};
+        const form: Nullable<RegisterData> = {};
         const keys = Object.keys(this.refs);
         keys.forEach((key) => {
           form[key] = this.refs[key].value()!;
         });
         console.table(form);
-        AuthController.register(form!);
+        AuthController.register(form);
       },
 
       onSwitch: (event : Event) => {
         event.preventDefault();
-        Router.go('/login');
+        Router.go(Routes.Login);
       }
     });
   }

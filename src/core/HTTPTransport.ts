@@ -1,3 +1,4 @@
+import onRequestError from "./utils/onRequestError";
 import queryStringify from "./utils/queryStringify";
 
 interface RequestOptions {
@@ -8,7 +9,7 @@ interface RequestOptions {
     retries?: number;
 }
 
-type HTTPMethod = (url: string, options?: RequestOptions) => Promise<XMLHttpRequest>
+type HTTPMethod = (path: string, options?: RequestOptions) => Promise<XMLHttpRequest>
 
 // eslint-disable-next-line no-shadow
 enum METHODS {
@@ -27,13 +28,13 @@ export class HTTPTransport {
     this.endpoint = `${HTTPTransport.BASE_URL}${endpoint}`;
   }
 
-  get : HTTPMethod = (url, options = {}) => this.request(`${url}?${queryStringify(options.data)}`, { method: METHODS.GET });
+  get : HTTPMethod = (path, options = {}) => this.request(`${this.endpoint + path}${queryStringify(options.data)}`, { method: METHODS.GET });
 
-  post : HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.POST });
+  post : HTTPMethod = (path, options = {}) => this.request(this.endpoint + path, { ...options, method: METHODS.POST });
 
-  put : HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.PUT });
+  put : HTTPMethod = (path, options = {}) => this.request(this.endpoint + path, { ...options, method: METHODS.PUT });
 
-  delete : HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.DELETE });
+  delete : HTTPMethod = (path, options = {}) => this.request(this.endpoint + path, { ...options, method: METHODS.DELETE });
 
   // eslint-disable-next-line class-methods-use-this
   request = (url: string, options: RequestOptions) => {
@@ -46,23 +47,29 @@ export class HTTPTransport {
       xhr.open(method, url);
 
       if (headers) {
-        // eslint-disable-next-line no-restricted-syntax
-        for (const [key, value] of Object.entries(headers)) {
+        Object.entries(headers).forEach(([key, value]) => {
           xhr.setRequestHeader(key, value as string);
-        }
+        });
       }
 
-      xhr.onload = () => resolve(xhr);
-      xhr.onabort = () => reject({reason: 'Abort'});
-      xhr.onerror = () => reject({reason: 'Network error'});
-      xhr.ontimeout = () => reject({reason: 'Timeout'});
+      xhr.onload = () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          resolve(xhr.response);
+        } else {
+          reject(new Error(`Request failed with status ${xhr.status}, ${xhr.response.reason}`));
+        }
+      };
+  
+      xhr.onabort = () => reject(new Error(`Request aborted. ${onRequestError(xhr)}`));
+      xhr.onerror = () => reject(new Error(`Request error. ${onRequestError(xhr)}`));
+      xhr.ontimeout = () => reject(new Error(`Request timeout. ${onRequestError(xhr)}`));
 
       xhr.setRequestHeader('Content-Type', 'application/json');
-
       xhr.withCredentials = true;
       xhr.responseType = 'json';
+      
 
-      if (method === METHODS.GET || !data) {
+      if (method === METHODS.GET || !data || (data instanceof FormData) ) {
         xhr.send();
       } else {
         xhr.send(JSON.stringify(data));

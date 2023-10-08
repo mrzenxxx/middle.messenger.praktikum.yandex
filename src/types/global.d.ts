@@ -1,6 +1,6 @@
 declare global {
 
-    type Nullable<T> = T | null;
+    type Nullable<T> = T | null | {};
 
     type Indexed<T = any> = {
         [k in (string | symbol)]: T;

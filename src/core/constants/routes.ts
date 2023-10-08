@@ -1,8 +1,8 @@
 export enum Routes {
-    Navigation = '/',
-    Register = '/register',
-    Login = '/login',
-    Profile = '/profile',
+    Navigation = '/navigation',
+    Register = '/sign-up',
+    Login = '/',
+    Profile = '/settings',
     Messenger = '/messenger',
     ServerError = '/500',
     NotFound = '/404'

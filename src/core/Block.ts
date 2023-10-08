@@ -96,7 +96,7 @@ export default class Block<P extends Record<string, unknown>> {
     });
   }
 
-  private init(): void {
+  protected init(): void {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 

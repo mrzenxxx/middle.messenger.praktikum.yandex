@@ -3,6 +3,7 @@ import template from './login.hbs?raw';
 import './Login.scss';
 import router from '../../core/Router';
 import AuthController from '../../controllers/AuthController';
+import { Routes } from '../../core/constants/routes';
 
 type LogInProps = Record<string, unknown>;
 
@@ -29,7 +30,7 @@ export class LogIn extends Block<LogInProps> {
 
       onSwitch: (event : Event) => {
         event.preventDefault();
-        router.go('/register');
+        router.go(Routes.Register);
       }
 
     });

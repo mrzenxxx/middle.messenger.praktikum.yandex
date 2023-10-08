@@ -1,4 +1,4 @@
-export default function queryStringify(data: StringIndexed, parentKey?: string): string {
+export default function queryStringify(data: StringIndexed = {}, parentKey?: string): string {
     if (typeof data !== 'object' || data === null) {
         throw new Error('input must be an object');
     }
@@ -26,5 +26,5 @@ export default function queryStringify(data: StringIndexed, parentKey?: string):
         }
     }
 
-    return params.join('&');
+    return params.length > 0 ? `?${params.join('&')}` : '';
 }
