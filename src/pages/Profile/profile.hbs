@@ -1,16 +1,16 @@
 <main class='profile'>
     {{#Form type='profile' onSubmit=onSaveChanges}}
-        {{>Avatar size='large' src=user.avatar alt="Current user profile avatar picture"}}
+        {{>Avatar size='large' src=avatar alt="Current user profile avatar picture"}}
         <span class='profile__profile_name'>
-            {{user.display_name}}
+            {{display_name}}
         </span>
         <div class='profile__form_fields'>
-            {{{FormField label='Почта' ref='email' name='email' value=user.email style='profile'}}}
-            {{{FormField label='Логин' ref='login' name='login' value=user.login style='profile'}}}
-            {{{FormField label='Имя' ref='first_name' name='first_name' value=user.first_name style='profile'}}}
-            {{{FormField label='Фамилия' ref='second_name' name='second_name' value=user.second_name style='profile'}}}
-            {{{FormField label='Имя в чате' ref='display_name' name='display_name' value=user.display_name style='profile'}}}
-            {{{FormField label='Телефон' ref='phone' name='phone' type='phone' value=user.phone style='profile'}}}
+            {{{FormField label='Почта' ref='email' name='email' value=email style='profile'}}}
+            {{{FormField label='Логин' ref='login' name='login' value=login style='profile'}}}
+            {{{FormField label='Имя' ref='first_name' name='first_name' value=first_name style='profile'}}}
+            {{{FormField label='Фамилия' ref='second_name' name='second_name' value=second_name style='profile'}}}
+            {{{FormField label='Имя в чате' ref='display_name' name='display_name' value=display_name style='profile'}}}
+            {{{FormField label='Телефон' ref='phone' name='phone' type='phone' value=phone style='profile'}}}
         </div>
         <div class='profile__buttons_wrapper'>
             {{{Button label = 'Изменить данные' type='submit' style='primary'}}}

@@ -3,11 +3,11 @@ import './Profile.scss';
 import template from './profile.hbs?raw';
 import { withStore } from '../../hocs/withStore';
 import AuthController from '../../controllers/AuthController';
+import { User } from '../../api/AuthAPI';
 
 // import { user } from '../../../assets/mocks';
 
-interface ProfileProps {
-  user : StringIndexed,
+interface ProfileProps extends User {
   onSaveChanges : (event : Event) => void,
   onChangePassword: (event : Event) => void,
   onLogout : (event : Event) => void,
@@ -33,13 +33,13 @@ export class ProfilePageBase extends Block<ProfileProps> {
       },
     });
   }
-  
+
   protected render(): DocumentFragment {
     AuthController.getUser();
     return this.compile(template, this.props);
   }
 }
 
-const withUser = withStore((state) => ({ ...state}))
+const withUser = withStore((state) => ({ ...state.user }));
 
 export const Profile = withUser(ProfilePageBase);
