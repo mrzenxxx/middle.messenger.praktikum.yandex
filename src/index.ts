@@ -2,7 +2,7 @@ import Handlebars from 'handlebars';
 import { registerComponent } from './core/utils/registerComponent';
 import { Button } from './components/Button/Button';
 import { Input } from './components/Input/Input';
-import { Main } from './pages/Main/Main';
+import { Messenger } from './pages/Messenger/Messenger';
 import { LogIn } from './pages/LogIn/Login';
 import { Register } from './pages/Register/Register';
 import { Profile } from './pages/Profile/Profile';
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .use(Routes.Navigation, Navigation)
     .use(Routes.Login, LogIn)
     .use(Routes.Register, Register)
-    .use(Routes.Messenger, Main)
+    .use(Routes.Messenger, Messenger)
     .use(Routes.Profile, Profile)
     .use(Routes.ServerError, ServerError)
     .use(Routes.NotFound, NotFound)

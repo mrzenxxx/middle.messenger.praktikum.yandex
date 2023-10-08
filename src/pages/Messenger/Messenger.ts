@@ -1,13 +1,13 @@
 import Block from '../../core/Block';
-import template from './main.hbs?raw';
-import './Main.scss';
+import template from './Messenger.hbs?raw';
+import './Messenger.scss';
 
 import { chats, messages } from '../../../assets/mocks';
 
-type MainProps = Record<string, unknown>;
+type MessengerProps = Record<string, unknown>;
 
-export class Main extends Block<MainProps> {
-  constructor(props: MainProps) {
+export class Messenger extends Block<MessengerProps> {
+  constructor(props: MessengerProps) {
     super({
       ...props,
       chats,
