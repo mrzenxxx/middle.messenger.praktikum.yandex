@@ -3,7 +3,7 @@ import Block from "../../core/Block";
 import "./DialogCreateChat.scss";
 
 interface DialogProps {
-    isOpenDialogChat: boolean,
+    isOpen: boolean,
     error: Nullable<string>,
     onClose: () => void;
 }
@@ -12,11 +12,9 @@ export class DialogCreateChat extends Block<DialogProps> {
     constructor(props: DialogProps) {
         super({
           ...props,
-          isOpenDialogChat: true,
           onClose: ()=> {
             this.setProps({
                 ...this.props,
-                isOpenDialogChat: false,
             })
           }  
         });

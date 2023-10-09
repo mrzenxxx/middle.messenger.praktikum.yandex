@@ -6,7 +6,7 @@ import ChatsController from '../../controllers/ChatsController';
 
 
 interface MessengerProps extends Record<string, unknown> {
-  chats: [],
+  chats: Nullable<StringIndexed>,
   currentChat: number,
   user : number,
   messages: [],
@@ -24,5 +24,6 @@ class MessengerBase extends Block<MessengerProps> {
     return this.compile(template, this.props);
   }
 }
+
 
 export const Messenger = withStore((state)=>({...state.chats, ...state.currentChat, ...state.user }))(MessengerBase);

@@ -11,11 +11,9 @@ export class Dialog extends Block<DialogProps> {
     constructor(props: DialogProps) {
         super({
           ...props,
-          open: true,
           onClose: ()=> {
             this.setProps({
                 ...this.props,
-                open: false,
             })
           }  
         });

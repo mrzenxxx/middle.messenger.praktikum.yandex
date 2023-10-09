@@ -1,0 +1,14 @@
+<aside class="chat-sidebar">
+    {{{ChatSearchBar}}}
+    {{#>ChatList}}
+        {{#>each hui}}
+            {{{ChatBox
+            header=this.title
+            time=this.last_message.time
+            content=this.last_message.content
+            unread=this.unread_count
+            }}}
+        {{/each}}
+    {{/ChatList}}
+    {{{ChatSettingsBar}}}
+</aside>

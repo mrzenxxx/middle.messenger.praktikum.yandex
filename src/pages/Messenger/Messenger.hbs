@@ -1,26 +1,17 @@
 <main class="messenger-page">
-  {{#>ChatList}}
-    {{#each chats}}
-      {{>ChatBox 
-        header=this.title
-        time=this.last_message.time
-        content=this.last_message.content
-        unread=this.unread_count
-      }}
-    {{/each}}
-  {{/ChatList}}
+  {{{ChatSideBar chats=chats onClickProfileButton=switchToProfile onClickCreateChatButton=openDialog}}}
   {{#>ChatWindow}}
-  {{>ChatHeader header = currentChat.header}}
-    {{#>ChatFeed}}
+    {{>ChatHeader header = currentChat.header}}
+      {{#>ChatFeed}}
       {{#each messages}}
-        {{>ChatMessage 
-          author=this.author 
-          time=this.time
-          text=this.content
+        {{>ChatMessage
+        author=this.author
+        time=this.time
+        text=this.content
         }}
       {{/each}}
-    {{/ChatFeed}}
-    {{{ChatMessageBar}}}  
+      {{/ChatFeed}}
+    {{{ChatMessageBar}}}
   {{/ChatWindow}}
-  {{{DialogCreateChat}}}
+  {{{DialogCreateChat ref=dialogCreateChat}}}
 </main>
