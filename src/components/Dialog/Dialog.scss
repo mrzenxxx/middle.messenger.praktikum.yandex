@@ -1,0 +1,46 @@
+@import "../../../assets/styles/color-scheme";
+
+.dialog {
+
+    &__window {
+        min-width: 280px;
+        min-height: 180px;
+        height: auto;
+        background-color: $base-background;
+        box-shadow: (0 0 256px 50px $base-shadow), (0 0 6px 0px $dark-background);
+        border-radius: 12px;
+        border: none;
+        position: absolute;
+        opacity: 1;
+        z-index: 1;
+        margin-top: 40dvh;
+        animation: fade-in 0.3s ease-in-out forwards;
+
+        & form h4 {
+            text-align: center; 
+            margin: 0 auto 24px;
+        }
+    }
+
+
+    &__close-button {
+        position: absolute;
+        right: -32px;
+        top: -32px;
+        border: none;
+        margin: auto;
+        min-width: 32px;
+        height: 32px;
+        background: url("../../../assets/img/icons/close.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+    }
+}

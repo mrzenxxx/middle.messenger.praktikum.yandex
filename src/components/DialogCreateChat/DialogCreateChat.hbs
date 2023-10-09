@@ -1,0 +1,23 @@
+<div class="dialog__background">
+{{#Dialog open=isOpenDialogChat}}
+<form method="dialog">
+    <h4>Создать новую переписку</h4>
+    {{{ FormField label="Название чата" ref="chatTitle"}}}
+    {{{ ErrorLine error=error ref="errorMessage"}}}
+    <div>
+        {{{ Button
+        label="Cоздать"
+        type="submit"
+        style="primary"
+        onClick=onCreateChat
+        }}}
+        {{{ Button
+        label="Отменить"
+        type="link"
+        style="secondary"
+        onClick=onClose
+        }}}
+    </div>
+</form>
+{{/Dialog}}
+</div>

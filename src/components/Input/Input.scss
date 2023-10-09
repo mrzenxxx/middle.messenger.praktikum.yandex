@@ -38,6 +38,7 @@
         
             &:focus {
                 background-color: $base-background;
+                outline: auto;
                 outline-color: $base-shadow;
             }
         }

@@ -10,7 +10,7 @@
     {{/each}}
   {{/ChatList}}
   {{#>ChatWindow}}
-  {{>ChatHeader header = "Chat 4 Chads"}}
+  {{>ChatHeader header = currentChat.header}}
     {{#>ChatFeed}}
       {{#each messages}}
         {{>ChatMessage 
@@ -22,4 +22,5 @@
     {{/ChatFeed}}
     {{{ChatMessageBar}}}  
   {{/ChatWindow}}
+  {{{DialogCreateChat}}}
 </main>
