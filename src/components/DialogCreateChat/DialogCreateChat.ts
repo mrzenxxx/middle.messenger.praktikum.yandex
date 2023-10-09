@@ -1,6 +1,7 @@
 import template from './DialogCreateChat.hbs?raw';
 import Block from "../../core/Block";
 import "./DialogCreateChat.scss";
+import store from '../../core/Store';
 
 interface DialogProps {
     isOpen: boolean,
@@ -13,9 +14,7 @@ export class DialogCreateChat extends Block<DialogProps> {
         super({
           ...props,
           onClose: ()=> {
-            this.setProps({
-                ...this.props,
-            })
+            store.set('isOpenDialogChat', false);
           }  
         });
       }

@@ -32,10 +32,10 @@ export class ProfilePageBase extends Block<ProfileProps> {
         AuthController.logout();
       },
     });
+    AuthController.getUser();
   }
 
   protected render(): DocumentFragment {
-    AuthController.getUser();
     return this.compile(template, this.props);
   }
 }

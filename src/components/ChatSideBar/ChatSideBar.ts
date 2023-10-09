@@ -9,7 +9,6 @@ export class ChatSideBar extends Block<ChatSideBarProps> {
   constructor(props: ChatSideBarProps) {
     super({
       ...props,
-      chats : [],
   })
 }
 

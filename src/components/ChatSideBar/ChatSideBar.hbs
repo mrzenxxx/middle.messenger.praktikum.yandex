@@ -1,7 +1,8 @@
 <aside class="chat-sidebar">
     {{{ChatSearchBar}}}
     {{#>ChatList}}
-        {{#>each hui}}
+        {{#>each chats}}
+            {{!-- Сейчас рисует один пустой компонент (без данных) даже с пустым массивом или несуществующей переменной --}}
             {{{ChatBox
             header=this.title
             time=this.last_message.time
