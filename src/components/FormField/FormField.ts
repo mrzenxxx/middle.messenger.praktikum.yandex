@@ -24,7 +24,7 @@ export class FormField extends Block<FormFieldProps|any> {
   }
 
   private conditionCheck() : boolean {
-    return VALIDATION_RULES[(this.refs.input.element! as HTMLInputElement).name].test((this.refs.input.element! as HTMLInputElement).value);
+    return VALIDATION_RULES[(this.refs.input.element! as HTMLInputElement).name]?.test((this.refs.input.element! as HTMLInputElement).value);
   }
 
   public value() {

@@ -7,7 +7,8 @@ export const VALIDATION_RULES : StringIndexed = {
   password: /^(?=.*[A-Z])(?=.*\d).{8,40}$/,
   phone: /^\+?[0-9]{10,15}$/,
   password_confirm: /^(?=.[A-Z])(?=.[0-9]).{8,40}$/,
-  message: /.+/,
+  message: /^.+$/,
+  chat_title: /^.+$/,
 } as const;
 
 export const VALIDATION_ERRORS : StringIndexed = {
@@ -20,4 +21,5 @@ export const VALIDATION_ERRORS : StringIndexed = {
   phone: 'Длина от 10 до 15 символов, состоит из цифр, может начинается с плюса.',
   message: 'Сообщение не должно быть пустым',
   password_confirm: 'Длина от 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра. Или пароли не совпадают',
+  chat_title: 'Поле не должно быть пустым',
 } as const;

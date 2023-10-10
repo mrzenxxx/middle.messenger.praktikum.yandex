@@ -31,9 +31,7 @@ import { Routes } from './core/constants/routes';
 
 Handlebars.registerPartial('Avatar', Avatar);
 Handlebars.registerPartial('ChatFeed', ChatFeed);
-Handlebars.registerPartial('ChatList', ChatList);
 Handlebars.registerPartial('ChatHeader', ChatHeader);
-Handlebars.registerPartial('ChatList', ChatList);
 Handlebars.registerPartial('ChatMessage', ChatMessage);
 Handlebars.registerPartial('ChatWindow', ChatWindow);
 
@@ -48,6 +46,7 @@ registerComponent('ChatBox', ChatBox as typeof Block);
 registerComponent('ChatMessageBar', ChatMessageBar as typeof Block);
 registerComponent('ChatSearchBar', ChatSearchBar as typeof Block);
 registerComponent('ChatSideBar', ChatSideBar as typeof Block);
+registerComponent('ChatList', ChatList as typeof Block);
 registerComponent('ChatSettingsBar', ChatSettingsBar as typeof Block);
 
 document.addEventListener('DOMContentLoaded', () => {

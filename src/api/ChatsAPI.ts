@@ -18,7 +18,7 @@ export class ChatsAPI extends BaseAPI {
     super('/chats');
   }
 
-  public create = (title: string) => this.http.post('/', { title });
+  public create = (title: string) => this.http.post('/', { data: { title } });
 
   public read = () => this.http.get('/');
  

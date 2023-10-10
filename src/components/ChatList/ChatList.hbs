@@ -1,3 +1,10 @@
 <ul class="chat-list">
-    {{>@partial-block}}
+    {{#each chats}}
+            {{{ChatBox
+                header=this.title
+                time=this.last_message.time
+                content=this.last_message.content
+                unread=this.unread_count
+            }}}
+    {{/each}}
 </ul>
