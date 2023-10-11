@@ -19,7 +19,7 @@ class ChatsController {
     console.log(chats);
     chats.map(async (chat) => {
       const token = await this.getToken(chat.id);
-      console.log({token});
+      console.log({ token });
     //   await MessagesController.connect(chat.id, token);
     });
 

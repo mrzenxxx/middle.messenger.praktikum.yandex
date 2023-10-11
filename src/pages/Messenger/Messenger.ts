@@ -4,14 +4,13 @@ import template from './Messenger.hbs?raw';
 import './Messenger.scss';
 import ChatsController from '../../controllers/ChatsController';
 
-
 interface MessengerProps extends Record<string, unknown> {
   chats: Nullable<StringIndexed>,
   currentChat: number,
   user : number,
   messages: [],
   isOpenDialogChat : boolean,
-};
+}
 
 class MessengerBase extends Block<MessengerProps> {
   constructor(props: MessengerProps) {
@@ -26,5 +25,4 @@ class MessengerBase extends Block<MessengerProps> {
   }
 }
 
-
-export const Messenger = withStore((state)=>({...state}))(MessengerBase);
+export const Messenger = withStore((state) => ({ ...state }))(MessengerBase);

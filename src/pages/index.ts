@@ -7,13 +7,13 @@ import { ServerError } from './ServerError/ServerError';
 import { Navigation } from './Navigation/Navigation';
 
 const pages = {
-    LogIn,
-    Messenger,
-    NotFound,
-    Navigation,
-    Profile,
-    Register,
-    ServerError,
-}
+  LogIn,
+  Messenger,
+  NotFound,
+  Navigation,
+  Profile,
+  Register,
+  ServerError,
+};
 
 export default pages;
