@@ -1,12 +1,12 @@
 <button class="chatbox">
-    {{>Avatar size="normal" src=avatar alt="Chat avatar picture"}}
+    {{{Avatar size="normal" src=avatar alt="Chat avatar picture"}}}
     <div class="chatbox__text">
         <div class="chatbox__text_header">
             {{title}}
         </div>
         <div class="chatbox__text_content">
             {{#>if last_message}}
-                {{>Avatar size="xxsmall" src=last_message.user.avatar}}
+                {{{Avatar size="xxsmall" src=last_message.user.avatar}}}
                 <strong>{{last_message.user.first_name}}</strong>
                 <br/>
                 {{last_message.content}}

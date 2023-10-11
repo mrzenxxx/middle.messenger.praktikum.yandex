@@ -4,7 +4,7 @@ import './ChatList.scss';
 
 interface ChatListProps extends StringIndexed {};
 
-export default class ChatList extends Block<ChatListProps> {
+export class ChatList extends Block<ChatListProps> {
     constructor(props: ChatListProps) {
       super({
         ...props,

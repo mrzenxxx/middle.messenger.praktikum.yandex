@@ -1,5 +1,17 @@
-import Handlebars from 'handlebars';
+import Block from '../../core/Block';
 import template from './ChatHeader.hbs?raw';
 import './ChatHeader.scss';
 
-export default Handlebars.compile(template);
+interface ChatHeaderProps {};
+
+export class ChatHeader extends Block<ChatHeaderProps> {
+    constructor(props: ChatHeaderProps) {
+        super({
+          ...props,
+        });
+      }
+    
+      render() {
+        return this.compile(template, this.props);
+      }
+}

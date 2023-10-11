@@ -1,5 +1,17 @@
-import Handlebars from 'handlebars';
+import Block from '../../core/Block';
 import template from './ChatFeed.hbs?raw';
 import './ChatFeed.scss';
 
-export default Handlebars.compile(template);
+interface ChatFeedProps {};
+
+export class ChatFeed extends Block<ChatFeedProps> {
+    constructor(props: ChatFeedProps) {
+        super({
+          ...props,
+        });
+      }
+    
+      render() {
+        return this.compile(template, this.props);
+      }
+}
