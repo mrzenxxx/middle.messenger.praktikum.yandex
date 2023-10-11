@@ -29,7 +29,7 @@ export class FormField extends Block<FormFieldProps|any> {
 
   public value() {
     if (!this.validate()) {
-      return 'Validation Failed';
+      return '';
     }
     return this._value();
   }

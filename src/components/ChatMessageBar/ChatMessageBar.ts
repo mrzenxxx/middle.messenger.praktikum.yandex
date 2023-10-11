@@ -91,7 +91,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
 
   public value() {
     if (!this.validate()) {
-      return 'Validation Failed';
+      return '';
     }
     return this._value();
   }

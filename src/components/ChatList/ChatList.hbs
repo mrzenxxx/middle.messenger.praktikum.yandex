@@ -1,10 +1,15 @@
 <ul class="chat-list">
     {{#each chats}}
-            {{{ChatBox
-                header=this.title
-                time=this.last_message.time
-                content=this.last_message.content
-                unread=this.unread_count
-            }}}
+    <li class="chat-list__item">
+        {{{ChatBox
+        id=this.id
+        avatar=this.avatar
+        title=this.title
+        last_message=this.last_message
+        time=this.last_message.time
+        content=this.last_message.content
+        unread_count=this.unread_count
+        }}}
+    </li>
     {{/each}}
 </ul>

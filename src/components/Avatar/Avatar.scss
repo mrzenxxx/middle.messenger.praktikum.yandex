@@ -17,25 +17,36 @@
 
     }
 
+    &_xxsmall {
+        flex-shrink: 0;
+        width: 15px;
+        height: 15px;
+        border-radius: 8px;
+    }
+
     &_xsmall {
-        min-width: 18px;
+        flex-shrink: 0;
+        width: 18px;
         height: 18px;
-        border-radius: 12px;
+        border-radius: 9px;
     }
 
     &_small {
+        flex-shrink: 0;
         min-width: 24px;
         height: 24px;
         border-radius: 12px;
     }
 
     &_normal {
-        min-width: 40px;
+        flex-shrink: 0;
+        width: 40px;
         height: 40px;
         border-radius: 20px;
     }
 
     &_large {
+        flex-shrink: 0;
         width: 128px;
         height: 128px;
         border-radius: 64px;

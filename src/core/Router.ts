@@ -64,7 +64,7 @@ class Router {
     }
 
     if (this.currentRoute && this.currentRoute !== route) {
-      this.currentRoute.leave();
+      (this.currentRoute as Route).leave();
     }
 
     this.currentRoute = route;
