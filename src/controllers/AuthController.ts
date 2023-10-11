@@ -1,7 +1,7 @@
 import store from '../core/Store';
 import API, { AuthAPI, LoginData, RegisterData } from '../api/AuthAPI';
 import router from '../core/Router';
-import { Routes } from '../core/constants/routes';
+import routes from '../core/constants/routes';
 
 class AuthController {
   private readonly api : AuthAPI;
@@ -14,7 +14,7 @@ class AuthController {
     try {
       await this.api.login(data);
       await this.getUser();
-      router.go(Routes.Profile);
+      router.go(routes.Profile);
     } catch (error) {
       console.error(error);
     }
@@ -24,7 +24,7 @@ class AuthController {
     try {
       await this.api.register(data);
       await this.getUser();
-      router.go(Routes.Profile);
+      router.go(routes.Profile);
     } catch (error) {
       console.error(error);
     }
@@ -38,7 +38,7 @@ class AuthController {
   public async logout() {
     await this.api.logout();
     store.set('user', {});
-    router.go(Routes.Login);
+    router.go(routes.Login);
   }
 }
 

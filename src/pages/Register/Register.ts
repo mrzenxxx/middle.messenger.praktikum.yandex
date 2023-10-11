@@ -4,7 +4,7 @@ import template from './register.hbs?raw';
 import Router from '../../core/Router';
 import AuthController from '../../controllers/AuthController';
 import { RegisterData } from '../../api/AuthAPI';
-import { Routes } from '../../core/constants/routes';
+import routes from '../../core/constants/routes';
 
 type RegisterProps = Record<string, unknown>;
 
@@ -26,7 +26,7 @@ export class Register extends Block<RegisterProps> {
 
       onSwitch: (event : Event) => {
         event.preventDefault();
-        Router.go(Routes.Login);
+        Router.go(routes.Login);
       },
     });
   }

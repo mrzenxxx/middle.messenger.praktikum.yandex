@@ -1,4 +1,4 @@
-export enum Routes {
+enum routes {
     Navigation = '/navigation',
     Register = '/sign-up',
     Login = '/',
@@ -7,3 +7,5 @@ export enum Routes {
     ServerError = '/500',
     NotFound = '/404'
 }
+
+export default routes;
