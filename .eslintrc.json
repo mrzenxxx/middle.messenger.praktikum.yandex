@@ -29,5 +29,12 @@
             "paths": ["src"]
           }
         }
+    },
+    "globals" : {
+        "StringIndexed" : "readonly",
+        "Nullable" : "readonly",
+        "Indexed" : "readonly",
+        "PlainObject" : "readonly",
+        "NodeJS" : "readonly"
     }
 }
