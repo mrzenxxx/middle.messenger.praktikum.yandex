@@ -6,7 +6,7 @@ import { NotFound } from './NotFound/NotFound';
 import { ServerError } from './ServerError/ServerError';
 import { Navigation } from './Navigation/Navigation';
 
-const pages = {
+const pages : StringIndexed = {
   LogIn,
   Messenger,
   NotFound,

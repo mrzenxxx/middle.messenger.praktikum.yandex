@@ -6,6 +6,6 @@ enum routes {
     Messenger = '/messenger',
     ServerError = '/500',
     NotFound = '/404'
-}
+};
 
 export default routes;

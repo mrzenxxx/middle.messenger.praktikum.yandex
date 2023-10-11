@@ -1,8 +1,14 @@
 import Block from '../../core/Block';
 import template from './ChatWindow.hbs?raw';
+import { withStore } from '../../hocs/withStore';
 import './ChatWindow.scss';
 
-export class ChatWindow extends Block<ChatWindowProps> {
+interface ChatWindowProps {
+    id: number,
+    title: string, 
+}
+
+export class ChatWindowBase extends Block<ChatWindowProps> {
   constructor(props: ChatWindowProps) {
     super({
       ...props,
@@ -13,3 +19,5 @@ export class ChatWindow extends Block<ChatWindowProps> {
     return this.compile(template, this.props);
   }
 }
+
+export const ChatWindow = withStore((state)=>({...state.currentChat}))(ChatWindowBase);

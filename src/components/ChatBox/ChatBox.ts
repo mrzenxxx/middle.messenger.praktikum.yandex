@@ -5,6 +5,7 @@ import store from '../../core/Store';
 import { Chat } from '../../types/interfacesAPI';
 
 interface ChatBoxProps extends Chat{
+    chat: StringIndexed;
     isActive: boolean,
     events: { click : () => void };
 }
@@ -13,6 +14,7 @@ export class ChatBox extends Block<ChatBoxProps> {
   constructor(props: ChatBoxProps) {
     super({
       ...props,
+      isActive: props.id === store.getState().currentChat?.id,
       events: {
         click: () => {
           this.onSelect();
@@ -22,9 +24,8 @@ export class ChatBox extends Block<ChatBoxProps> {
   }
 
   protected onSelect() {
-    store.set('activeChat', this.props.id);
-    this.props.isActive = this.props.id === store.getState().activeChat;
-    console.log('Click!!!', this, this.props.isActive);
+    store.set('currentChat', this.props.chat);
+    this.props.isActive = true;
   }
 
   render() {

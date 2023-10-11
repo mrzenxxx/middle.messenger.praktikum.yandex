@@ -15,6 +15,11 @@
     border-collapse: collapse;
     margin: -1px 0;
 
+    &__active {
+        background-color: $secondary-background;
+        border: 1px solid $secondary-lines;
+    }
+
     &__text {
         display: flex;
         flex-direction: column;
