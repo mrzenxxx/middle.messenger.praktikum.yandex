@@ -5,7 +5,7 @@ import './ChatWindow.scss';
 
 interface ChatWindowProps {
     id: number,
-    title: string, 
+    title: string,
 }
 
 export class ChatWindowBase extends Block<ChatWindowProps> {
@@ -20,4 +20,4 @@ export class ChatWindowBase extends Block<ChatWindowProps> {
   }
 }
 
-export const ChatWindow = withStore((state)=>({...state.currentChat}))(ChatWindowBase);
+export const ChatWindow = withStore((state) => ({ ...state.currentChat }))(ChatWindowBase);
