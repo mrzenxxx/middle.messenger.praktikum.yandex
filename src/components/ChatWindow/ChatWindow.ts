@@ -3,10 +3,10 @@ import template from './ChatWindow.hbs?raw';
 import { withStore } from '../../hocs/withStore';
 import './ChatWindow.scss';
 import MessagesController from '../../controllers/MessagesController';
-import AuthController from '../../controllers/AuthController';
 
 interface ChatWindowProps {
   id: number,
+  currentChat: object;
   title: string,
   value: string,
   error: Nullable<string>,
@@ -20,8 +20,9 @@ export class ChatWindowBase extends Block<ChatWindowProps> {
       ...props,
       onSend: (event: Event) => {
         event.preventDefault();
+        const chatId = props.currentChat.id||null;
         const message = this.refs.messageBar.value()!;
-        MessagesController.postMessage(props.id, message);
+        MessagesController.postMessage(chatId, message);
         this.refs.messageBar.setProps({
           ...props,
           value: '',
@@ -37,7 +38,7 @@ export class ChatWindowBase extends Block<ChatWindowProps> {
   }
 }
 
-const withСurrentChatMessages = withStore(state => {
+const withСurrentChatMessages = withStore((state) => {
   const currentChatId = state.currentChat?.id||null;
 
   if (!currentChatId) {
