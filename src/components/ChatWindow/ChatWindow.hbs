@@ -1,5 +1,9 @@
 <section class="chat-window">
-    {{{ChatHeader title=title avatar=avatar}}}
-    {{{ChatFeed messages=messages}}}
-    {{{ChatMessageBar}}}
+    {{#unless currentChat.id}}
+        <section class="chat-window__stab">Выберите или создайте новый чат.</section>
+    {{else}}
+        {{{ChatHeader title=currentChat.title avatar=currentChat.avatar}}}
+        {{{ChatFeed currentChat=currentChat.id messages=messages}}}
+        {{{ChatMessageBar ref="messageBar" onSend=onSend}}}
+    {{/unless}}
 </section>

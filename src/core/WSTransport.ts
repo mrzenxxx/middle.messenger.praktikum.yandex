@@ -62,8 +62,8 @@ export default class WSTransport extends EventBus {
       this.emit(WSEvents.Close);
     });
 
-    socket.addEventListener('error', (e) => {
-      this.emit(WSEvents.Error, e);
+    socket.addEventListener('error', (error) => {
+      this.emit(WSEvents.Error, error);
     });
 
     socket.addEventListener('message', (message) => {

@@ -5,10 +5,10 @@ import router from '../../core/Router';
 import AuthController from '../../controllers/AuthController';
 import routes from '../../core/constants/routes';
 
-type LogInProps = Record<string, unknown>;
+type LoginProps = Record<string, unknown>;
 
-export class LogIn extends Block<LogInProps> {
-  constructor(props: LogInProps) {
+export class Login extends Block<LoginProps> {
+  constructor(props: LoginProps) {
     super({
       ...props,
 

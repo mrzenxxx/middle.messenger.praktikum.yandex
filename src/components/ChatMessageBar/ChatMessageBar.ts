@@ -29,23 +29,6 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
         this.validate();
       },
 
-      onSend: (event : Event) => {
-        event.preventDefault();
-        const { name } = this.refs.messageInput.element! as HTMLInputElement;
-        const value = this.value();
-        console.info({
-          [name]: value,
-        });
-
-        if (this.validate()) {
-          this.setProps({
-            ...props,
-            value: '',
-            error: null,
-            placeholder: 'Введите сообщение...',
-          });
-        }
-      },
       onFocus: () => {
         this.refs.errorMessage.setProps({
           ...this.props,
@@ -65,8 +48,6 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
         ...this.props,
         placeholder: '',
         events: {
-          // к описаному выше, всё работает только когда я явно передаю
-          // события сюда явно (иначе при перерендеренге они отваливаются)
           focus: this.props.onFocus,
           blur: this.props.onBlur,
         },

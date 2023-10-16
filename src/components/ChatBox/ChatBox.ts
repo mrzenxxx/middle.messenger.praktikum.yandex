@@ -25,7 +25,6 @@ export class ChatBox extends Block<ChatBoxProps> {
 
   protected onSelect() {
     store.set('currentChat', this.props.chat);
-    this.props.isActive = true;
   }
 
   render() {
