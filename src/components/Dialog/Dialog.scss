@@ -4,7 +4,7 @@
 
     &__window {
         min-width: 280px;
-        min-height: 180px;
+        min-height: 150px;
         height: auto;
         background-color: $base-background;
         box-shadow: (0 0 256px 50px $base-shadow), (0 0 6px 0px $dark-background);
@@ -12,7 +12,7 @@
         border: none;
         position: absolute;
         opacity: 1;
-        z-index: 1;
+        z-index: 1000;
         margin-top: 40dvh;
         animation: fade-in 0.3s ease-in-out forwards;
 

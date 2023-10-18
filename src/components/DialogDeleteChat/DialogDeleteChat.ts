@@ -1,18 +1,18 @@
-import template from './DialogCreateChat.hbs?raw';
+import template from './DialogDeleteChat.hbs?raw';
 import Block from '../../core/Block';
 import store from '../../core/Store';
 import chatsController from '../../controllers/ChatsController';
 import { withStore } from '../../hocs/withStore';
 
-interface DialogCreateChatProps {
+interface DialogDeleteChatProps {
   isOpen: boolean,
   error: Nullable<string>,
   onSubmit: (event: Event) => void,
   onClose: (event: Event) => void,
 }
 
-export class DialogCreateChatBase extends Block<DialogCreateChatProps> {
-  constructor(props: DialogCreateChatProps) {
+export class DialogDeleteChatBase extends Block<DialogDeleteChatProps> {
+  constructor(props: DialogDeleteChatProps) {
     super({
       ...props,
       onSubmit: (event) => {
@@ -29,7 +29,7 @@ export class DialogCreateChatBase extends Block<DialogCreateChatProps> {
   }
 
   public closeDialog() {
-    store.set('isOpenDialogChat', false);
+    store.set('isOpenDialogDelete', false);
   }
 
   public getChatTitle() {
@@ -49,4 +49,4 @@ export class DialogCreateChatBase extends Block<DialogCreateChatProps> {
   }
 }
 
-export const DialogCreateChat = withStore((state) => ({ isOpen: state.isOpenDialogChat }))(DialogCreateChatBase);
+export const DialogDeleteChat = withStore((state) => ({ isOpen: state.isOpenDialogDelete }))(DialogDeleteChatBase);

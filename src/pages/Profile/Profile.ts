@@ -4,13 +4,15 @@ import template from './profile.hbs?raw';
 import { withStore } from '../../hocs/withStore';
 import AuthController from '../../controllers/AuthController';
 import { User } from '../../api/AuthAPI';
-
-// import { user } from '../../../assets/mocks';
+import router from '../../core/Router';
+import routes from '../../core/constants/routes';
+import store from '../../core/Store';
 
 interface ProfileProps extends User {
   onSaveChanges : (event : Event) => void,
   onChangePassword: (event : Event) => void,
   onLogout : (event : Event) => void,
+  onGoBack: () => void,
 }
 
 export class ProfilePageBase extends Block<ProfileProps> {
@@ -30,6 +32,17 @@ export class ProfilePageBase extends Block<ProfileProps> {
       onLogout: (event : Event) => {
         event.preventDefault();
         AuthController.logout();
+      },
+      onGoBack: ()  => {
+        router.go(routes.Messenger);
+      },
+      onChangeAvatar: (event: Event) => {
+        event.preventDefault();
+        store.set('isOpenDialogUpload', true);
+      },
+      onChangePassword: (event: Event) => {
+        event.preventDefault();
+        store.set('isOpenDialogPassword', true);
       },
     });
     AuthController.getUser();

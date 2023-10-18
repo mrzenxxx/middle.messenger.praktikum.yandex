@@ -1,6 +1,8 @@
 <main class='profile'>
+    {{{Button className="profile__back-button" type="button" onClick=onGoBack}}}
     {{#Form type='profile' onSubmit=onSaveChanges}}
         {{{Avatar size='large' src=avatar alt="Current user profile avatar picture"}}}
+        {{{Button label='Сменить аватар' type='button' style='secondary' onClick=onChangeAvatar}}}
         <span class='profile__profile_name'>
             {{display_name}}
         </span>
@@ -18,4 +20,6 @@
             {{{Button label = 'Выйти' type='link' style='danger' onClick=onLogout}}}
         <div>
     {{/Form}}
+    {{{DialogUploadMedia}}}
+    {{{DialogChangePassword}}}
 </main>

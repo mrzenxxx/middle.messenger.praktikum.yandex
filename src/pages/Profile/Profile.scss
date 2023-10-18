@@ -3,7 +3,30 @@
 
 .profile {
     @include default-main;
-    
+
+    &__back-button {
+        border: none;
+        margin: auto 2px;
+        min-width: 32px;
+        height: 32px;
+        position: absolute;
+        top: calc(50dvh - 16px);
+        left: 12px;
+        background: url("../../../assets/img/icons/backward.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            opacity: 0.9;
+            transition: 0.25s;
+        }
+    }
+
     &__form_fields {
         display: flex;
         flex-direction: column;

@@ -1,4 +1,5 @@
 import Block from '../../core/Block';
+import store from '../../core/Store';
 import template from './ChatMessageBar.hbs?raw';
 import './ChatMessageBar.scss';
 
@@ -10,6 +11,7 @@ interface ChatMessageBarProps extends Record<string, unknown> {
   onBlur: () => void,
   onSend: (event: Event) => void,
   onFocus: () => void,
+  onAttach: () => void,
   events?: {
     submit?: (event: Event) => void,
     blur?: () => void,
@@ -35,6 +37,10 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
           error: null,
         });
       },
+
+      onAttach: () => {
+        store.set('isOpenDialogUpload', true);
+      }
     });
   }
 

@@ -8,7 +8,11 @@ import { ChatWindow } from './ChatWindow/ChatWindow';
 import { ChatBox } from './ChatBox/ChatBox';
 import { ChatFeed } from './ChatFeed/ChatFeed';
 import { Dialog } from './Dialog/Dialog';
+import { DialogAddUser } from './DialogAddUser/DialogAddUser';
 import { DialogCreateChat } from './DialogCreateChat/DialogCreateChat';
+import { DialogDeleteChat } from './DialogDeleteChat/DialogDeleteChat';
+import { DialogChangePassword } from './DialogChangePassword/DialogChangePassword';
+import { DialogUploadMedia } from './DialogUploadMedia/DialogUploadMedia';
 import { Form } from './Form/Form';
 import { ChatMessageBar } from './ChatMessageBar/ChatMessageBar';
 import { ChatSettingsBar } from './ChatSettingsBar/ChatSettingsBar';
@@ -31,7 +35,11 @@ const components : StringIndexed = {
   ChatSideBar,
   ChatWindow,
   Dialog,
+  DialogAddUser,
   DialogCreateChat,
+  DialogDeleteChat,
+  DialogChangePassword,
+  DialogUploadMedia,
   Form,
   FormField,
   ErrorMessage,

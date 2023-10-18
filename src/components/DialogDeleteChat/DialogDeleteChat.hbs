@@ -1,14 +1,12 @@
 {{#Dialog open=isOpen}}
 <form method="dialog">
-    <h4>Создать новую переписку</h4>
-    {{{ FormField label="Название чата" name="chat_title" ref="chatTitle"}}}
-    {{{ ErrorLine error=error ref="errorMessage"}}}
+    <h4>Вы уверены?</h4>
     <div>
         {{{ Button
-        label="Cоздать"
+        label="Удалить чат"
         type="submit"
         style="primary"
-        onClick=onSubmit
+        onClick=onDeleteChat
         }}}
         {{{ Button
         label="Отменить"

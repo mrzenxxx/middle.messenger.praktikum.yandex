@@ -5,8 +5,9 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        overflow: visible;
+        overflow-y: scroll;
         height: calc(100dvh - 88px);
+        max-width: 320px;
 
         &__item {
                 overflow: visible;

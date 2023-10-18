@@ -38,5 +38,45 @@
             scale: 1.1;
             transition: 0.25s;
         }
+
+        &__add-user {
+            border: none;
+            margin: auto 4px;
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: url("../../../assets/img/icons/add-user.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-color: transparent;
+    
+            &:hover {
+                cursor: pointer;
+                scale: 1.05;
+                opacity: 0.9;
+                transition: 0.25s;
+            }
+        }
+
+        &__delete-chat {
+            border: none;
+            margin: auto 4px;
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: url("../../../assets/img/icons/delete-chat.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-color: transparent;
+    
+            &:hover {
+                cursor: pointer;
+                scale: 1.05;
+                opacity: 0.9;
+                transition: 0.25s;
+            }
+        }
     }
 }
