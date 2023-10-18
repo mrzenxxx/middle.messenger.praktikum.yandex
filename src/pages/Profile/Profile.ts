@@ -33,7 +33,7 @@ export class ProfilePageBase extends Block<ProfileProps> {
         event.preventDefault();
         AuthController.logout();
       },
-      onGoBack: ()  => {
+      onGoBack: () => {
         router.go(routes.Messenger);
       },
       onChangeAvatar: (event: Event) => {

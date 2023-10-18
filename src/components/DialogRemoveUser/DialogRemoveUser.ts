@@ -41,4 +41,4 @@ class DialogRemoveUserBase extends Block<DialogRemoveUserProps> {
   }
 }
 
-export const DialogRemoveUser = withStore((state) => ({ isOpen : state.isOpenDialogRemoveUser }))(DialogRemoveUserBase)
+export const DialogRemoveUser = withStore((state) => ({ isOpen: state.isOpenDialogRemoveUser }))(DialogRemoveUserBase);

@@ -41,4 +41,4 @@ class DialogAddUserBase extends Block<DialogAddUserProps> {
   }
 }
 
-export const DialogAddUser = withStore((state) => ({ isOpen : state.isOpenDialogAddUser }))(DialogAddUserBase)
+export const DialogAddUser = withStore((state) => ({ isOpen: state.isOpenDialogAddUser }))(DialogAddUserBase);

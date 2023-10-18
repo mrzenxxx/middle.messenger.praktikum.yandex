@@ -30,4 +30,4 @@ class DialogChangePasswordBase extends Block<DialogChangePasswordProps> {
   }
 }
 
-export const DialogChangePassword = withStore((state) => ({ isOpen : state.isOpenDialogPassword }))(DialogChangePasswordBase)
+export const DialogChangePassword = withStore((state) => ({ isOpen: state.isOpenDialogPassword }))(DialogChangePasswordBase);

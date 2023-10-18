@@ -20,7 +20,7 @@ export class ChatWindowBase extends Block<ChatWindowProps> {
       ...props,
       onSend: (event: Event) => {
         event.preventDefault();
-        const chatId = props.currentChat.id||null;
+        const chatId = props.currentChat.id || null;
         const message = this.refs.messageBar.value()!;
         MessagesController.postMessage(chatId, message);
         this.refs.messageBar.setProps({
@@ -29,7 +29,7 @@ export class ChatWindowBase extends Block<ChatWindowProps> {
           error: null,
           placeholder: 'Введите сообщение...',
         });
-      }
+      },
     });
   }
 
@@ -39,20 +39,20 @@ export class ChatWindowBase extends Block<ChatWindowProps> {
 }
 
 const withСurrentChatMessages = withStore((state) => {
-  const currentChatId = state.currentChat?.id||null;
+  const currentChatId = state.currentChat?.id || null;
 
   if (!currentChatId) {
     return {
       messages: [],
       currentChat: undefined,
-      userId: state.user?.id||undefined
+      userId: state.user?.id || undefined,
     };
   }
 
   return {
     messages: (state.messages || {})[currentChatId] || [],
     currentChat: state.currentChat,
-    userId: state.user.id
+    userId: state.user.id,
   };
 });
 

@@ -40,7 +40,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
 
       onAttach: () => {
         store.set('isOpenDialogUpload', true);
-      }
+      },
     });
   }
 
