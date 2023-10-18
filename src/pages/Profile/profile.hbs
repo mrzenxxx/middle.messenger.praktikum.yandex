@@ -20,6 +20,6 @@
             {{{Button label = 'Выйти' type='link' style='danger' onClick=onLogout}}}
         <div>
     {{/Form}}
-    {{{DialogUploadMedia}}}
-    {{{DialogChangePassword}}}
+    {{{DialogUploadMedia onUpload=onChangeAvatar}}}
+    {{{DialogChangePassword onSubmit=onSubmitNewPassword}}}
 </main>
