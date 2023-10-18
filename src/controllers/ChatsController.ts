@@ -32,8 +32,9 @@ class ChatsController {
 
   async delete(id: number) {
     await this.api.delete(id);
-
     this.getChats();
+    store.set('isOpenDialogDelete', false);
+    store.set('currentChat', null);
   }
 
   getToken(id: number) {

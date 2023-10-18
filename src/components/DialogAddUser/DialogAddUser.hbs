@@ -1,14 +1,14 @@
 {{#Dialog open=isOpen}}
 <form method="dialog">
     <h4>Добавить пользователя в чат</h4>
-    {{{ FormField label="Логин пользователя" name="add_user_login" ref="addUserLogin"}}}
+    {{{ FormField label="ID пользователя" name="add_user_login" ref="addUserLogin"}}}
     {{{ ErrorLine error=error ref="errorMessage"}}}
     <div>
         {{{ Button
         label="Добавить"
         type="submit"
         style="primary"
-        onClick=onSubmit
+        onClick=onAddUser
         }}}
         {{{ Button
         label="Отменить"

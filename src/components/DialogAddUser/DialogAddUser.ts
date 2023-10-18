@@ -1,13 +1,11 @@
 import template from './DialogAddUser.hbs?raw';
 import Block from '../../core/Block';
 import store from '../../core/Store';
-import chatsController from '../../controllers/ChatsController';
 import { withStore } from '../../hocs/withStore';
 
 interface DialogAddUserProps {
   isOpen: boolean,
   error: Nullable<string>,
-  onSubmit: (event: Event) => void,
   onClose: (event: Event) => void,
 }
 
@@ -15,12 +13,6 @@ class DialogAddUserBase extends Block<DialogAddUserProps> {
   constructor(props: DialogAddUserProps) {
     super({
       ...props,
-      onSubmit: (event) => {
-        event.preventDefault();
-        const title = this.refs.chatTitle.value();
-        chatsController.create(title!).catch((error) => this.setError(error));
-        this.closeDialog();
-      },
       onClose: (event) => {
         event.preventDefault();
         this.closeDialog();
@@ -32,8 +24,8 @@ class DialogAddUserBase extends Block<DialogAddUserProps> {
     store.set('isOpenDialogAddUser', false);
   }
 
-  public getChatTitle() {
-    return this.refs.chatTitle.value();
+  public getUserInput() {
+    return this.refs.addUserLogin.value();
   }
 
   // TODO Не работает, выкидывает ошибку только в консоли
