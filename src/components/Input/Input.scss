@@ -20,27 +20,4 @@
         &:focus {
             outline: none;
         }
-
-        &__chat-message-bar_message {
-            margin: auto 0;
-            width: calc(100% - 80px);
-            height: 32px;
-            flex-shrink: 0;
-            border-radius: 30px;
-            padding: 6px 0 6px 12px;
-            box-sizing: border-box;
-            border: 1px solid $secondary-lines;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 1.21;
-            background-color: $secondary-background;
-            color: $base-text;
-        
-            &:focus {
-                background-color: $base-background;
-                outline: auto;
-                outline-color: $base-shadow;
-            }
-        }
-
 }

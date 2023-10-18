@@ -18,17 +18,13 @@ interface InputProps {
 export class Input extends Block<InputProps | any> {
   constructor(props: InputProps) {
     super({
+      ...props,
       events: {
         blur: props?.onBlur,
         change: props?.onChange,
         focus: props?.onFocus,
         input: props?.onInput,
       },
-      name: props.name,
-      style: props.style,
-      type: props.type,
-      value: props.value,
-      placeholder: props.placeholder,
     });
   }
 

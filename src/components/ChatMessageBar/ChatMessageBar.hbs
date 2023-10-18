@@ -1,6 +1,8 @@
-{{#Form customStyle='chat-message-bar' onSubmit=onSend}}
-    {{{Button style='chat-message-bar_attach' type='button' onClick=onAttach}}}
-    {{{Input style='chat-message-bar_message' type='text' ref='messageInput' name='message' value=value onBlur=onBlur onFocus=onFocus placeholder=placeholder}}}
-    {{{ErrorMessage style='chat-message-bar' ref='errorMessage' error=error}}}
-    {{{Button style='chat-message-bar_send' type='submit' onClick=onSend}}}
-{{/Form}}
+<div class='chat-message-bar'>
+    {{{Button className='chat-message-bar__attach-button' type='button' onClick=onAttach}}}
+    {{#Form customStyle='chat-message-bar__form' onSubmit=onSend}}
+        {{{Input className='chat-message-bar__message' type='text' ref='messageInput' name='message' autocomplete='off' value=value onBlur=onBlur onFocus=onFocus placeholder=placeholder}}}
+        {{{ErrorMessage className='chat-message-bar__input-error' ref='errorMessage' error=error}}}
+        {{{Button className='chat-message-bar__send-button' type='submit'}}}
+    {{/Form}}
+</div>

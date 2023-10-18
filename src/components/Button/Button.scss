@@ -23,44 +23,6 @@
         color: $danger-text;
     }
 
-    &__chat-message-bar_attach {
-        border: none;
-        margin: auto 2px;
-        min-width: 32px;
-        height: 32px;
-        background: url("../../../assets/img/icons/attach.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-color: transparent;
-
-        &:hover {
-            cursor: pointer;
-            scale: 1.05;
-            opacity: 0.9;
-            transition: 0.25s;
-        }
-    }
-
-    &__chat-message-bar_send {
-        border: none;
-        margin: auto;
-        min-width: 32px;
-        height: 32px;
-        background: url("../../../assets/img/icons/forward.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-color: transparent;
-
-        &:hover {
-            cursor: pointer;
-            scale: 1.05;
-            transition: 0.25s;
-        }
-
-    }
-
     &:hover {
         cursor: pointer;
         scale: 1.05;
