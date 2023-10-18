@@ -1,16 +1,16 @@
-import template from './DialogAddUser.hbs?raw';
+import template from './DialogRemoveUser.hbs?raw';
 import Block from '../../core/Block';
 import store from '../../core/Store';
 import { withStore } from '../../hocs/withStore';
 
-interface DialogAddUserProps {
+interface DialogRemoveUserProps {
   isOpen: boolean,
   error: Nullable<string>,
   onClose: (event: Event) => void,
 }
 
-class DialogAddUserBase extends Block<DialogAddUserProps> {
-  constructor(props: DialogAddUserProps) {
+class DialogRemoveUserBase extends Block<DialogRemoveUserProps> {
+  constructor(props: DialogRemoveUserProps) {
     super({
       ...props,
       onClose: (event) => {
@@ -21,11 +21,11 @@ class DialogAddUserBase extends Block<DialogAddUserProps> {
   }
 
   public closeDialog() {
-    store.set('isOpenDialogAddUser', false);
+    store.set('isOpenDialogRemoveUser', false);
   }
 
   public getUserInput() {
-    return this.refs.addUserID.value();
+    return this.refs.removeUserID.value();
   }
 
   // TODO Не работает, выкидывает ошибку только в консоли
@@ -41,4 +41,4 @@ class DialogAddUserBase extends Block<DialogAddUserProps> {
   }
 }
 
-export const DialogAddUser = withStore((state) => ({ isOpen : state.isOpenDialogAddUser }))(DialogAddUserBase)
+export const DialogRemoveUser = withStore((state) => ({ isOpen : state.isOpenDialogRemoveUser }))(DialogRemoveUserBase)

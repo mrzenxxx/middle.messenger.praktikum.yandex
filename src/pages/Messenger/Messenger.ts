@@ -4,7 +4,6 @@ import template from './Messenger.hbs?raw';
 import './Messenger.scss';
 import ChatsController from '../../controllers/ChatsController';
 import AuthController from '../../controllers/AuthController';
-import Store from '../../core/Store';
 
 interface MessengerProps extends Record<string, unknown> {
   chats: Nullable<StringIndexed>,
@@ -22,12 +21,15 @@ class MessengerBase extends Block<MessengerProps> {
         const chatId = this.props.currentChat?.id;
         ChatsController.addUserToChat(chatId, userLogin);
       },
-      // onCreateChat: (event) => {
-      //   event.preventDefault();
-      //   const title = this.refs.chatTitle.value();
-      //   chatsController.create(title!).catch((error) => this.setError(error));
-      //   this.closeDialog();
-      // },
+      onRemoveUser: () => {
+        const userLogin = this.refs.removeUserDialog.getUserInput();
+        const chatId = this.props.currentChat?.id;
+        ChatsController.removeUserFromChat(chatId, userLogin);
+      },
+      onCreateChat: () => {
+        const title = this.refs.createChatDialog.getChatTitle();
+        ChatsController.create(title!);
+      },
       onDeleteChat: () => {
         const chatId = this.props.currentChat?.id;
         ChatsController.delete(chatId);

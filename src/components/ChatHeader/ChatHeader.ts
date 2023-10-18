@@ -7,6 +7,7 @@ interface ChatHeaderProps {
   title: string,
   onAddUser: () => void,
   onDeleteChat: () => void,
+  onRemoveUser: () => void,
 }
 
 export class ChatHeader extends Block<ChatHeaderProps> {
@@ -18,6 +19,9 @@ export class ChatHeader extends Block<ChatHeaderProps> {
       },
       onDeleteChat: () => {
         store.set('isOpenDialogDelete', true);
+      },
+      onRemoveUser: () => {
+        store.set('isOpenDialogRemoveUser', true);
       },
     });
   }

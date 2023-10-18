@@ -30,6 +30,10 @@ class ChatsController {
     this.api.addUsers(id, [userId]);
   }
 
+  removeUserFromChat(id: number, userId: number) {
+    this.api.removeUsers(id, [userId]);
+  }
+
   async delete(id: number) {
     await this.api.delete(id);
     this.getChats();
@@ -47,8 +51,5 @@ class ChatsController {
 }
 
 const chatsController = new ChatsController();
-
-// @ts-ignore
-window.chatsController = chatsController;
 
 export default chatsController;

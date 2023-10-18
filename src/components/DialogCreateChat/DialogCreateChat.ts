@@ -15,12 +15,6 @@ export class DialogCreateChatBase extends Block<DialogCreateChatProps> {
   constructor(props: DialogCreateChatProps) {
     super({
       ...props,
-      onSubmit: (event) => {
-        event.preventDefault();
-        const title = this.refs.chatTitle.value();
-        chatsController.create(title!).catch((error) => this.setError(error));
-        this.closeDialog();
-      },
       onClose: (event) => {
         event.preventDefault();
         this.closeDialog();

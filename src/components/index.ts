@@ -11,6 +11,7 @@ import { Dialog } from './Dialog/Dialog';
 import { DialogAddUser } from './DialogAddUser/DialogAddUser';
 import { DialogCreateChat } from './DialogCreateChat/DialogCreateChat';
 import { DialogDeleteChat } from './DialogDeleteChat/DialogDeleteChat';
+import { DialogRemoveUser } from './DialogRemoveUser/DialogRemoveUser';
 import { DialogChangePassword } from './DialogChangePassword/DialogChangePassword';
 import { DialogUploadMedia } from './DialogUploadMedia/DialogUploadMedia';
 import { Form } from './Form/Form';
@@ -36,9 +37,10 @@ const components : StringIndexed = {
   ChatWindow,
   Dialog,
   DialogAddUser,
+  DialogChangePassword,
   DialogCreateChat,
   DialogDeleteChat,
-  DialogChangePassword,
+  DialogRemoveUser,
   DialogUploadMedia,
   Form,
   FormField,
