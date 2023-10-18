@@ -10,7 +10,6 @@ interface MessengerProps extends Record<string, unknown> {
   currentChat: number,
   user : number,
   messages: [],
-  isOpenDialogChat : boolean,
 }
 
 class MessengerBase extends Block<MessengerProps> {
