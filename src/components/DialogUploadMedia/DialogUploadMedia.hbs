@@ -1,14 +1,14 @@
 {{#Dialog open=isOpen}}
 <form method="dialog">
     <h4>Загрузить изображение</h4>
-    {{{FileInput}}}    
-    {{{ ErrorLine error=error ref="errorMessage"}}}
+    {{{FileInput ref="fileInput"}}}    
+    {{{ErrorLine error=error ref="errorMessage"}}}
     <div>
         {{{ Button
         label="Загрузить"
         type="submit"
         style="primary"
-        onClick=onSubmit
+        onClick=onSubmitMedia
         }}}
         {{{ Button
         label="Отменить"

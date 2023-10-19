@@ -3,26 +3,31 @@ import template from './FileInput.hbs?raw';
 import './FileInput.scss';
 
 interface FileInputProps {
-    name: string;
     label: string;
-    className?: string;
-    onBlur?: () => void;
-    onChange?: () => void;
-    onFocus?: () => void;
-    onInput?: () => void;
+    onSelectFile?: () => void;
 }
 
 export class FileInput extends Block<FileInputProps | any> {
   constructor(props: FileInputProps) {
     super({
       ...props,
-      label: 'Выберите файл',
-      events: {
-        blur: props?.onBlur,
-        change: props?.onChange,
-        focus: props?.onFocus,
-        input: props?.onInput,
-      },
+      onSelectFile: () => this.changeLabel(),
+    });
+    this.changeLabel();
+  }
+
+  private _fileName() {
+    const selectedFile = (this.refs.fileInput.element! as HTMLInputElement)?.files[0];
+    if (!selectedFile){
+      return 'Выберите файл';
+    }
+    return selectedFile.name;
+  }
+
+  protected changeLabel() {
+    this.setProps({
+      ...this.props,
+      label: this._fileName(),
     });
   }
 

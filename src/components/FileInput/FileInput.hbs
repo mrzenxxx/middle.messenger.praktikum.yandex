@@ -1,4 +1,4 @@
 <label class="file-input__container">
         <span class="file-input__text">{{label}}</span>
-        <input class="file-input" ref="fileInput" {{#if name}}name={{name}}{{/if}} type="file" {{#if value}}value={{value}}{{/if}} {{#if placeholder}}placeholder={{placeholder}}{{/if}}></input>
+        {{{Input className="file-input" type="file" ref="fileInput" onChange=onSelectFile}}}
 </label>
