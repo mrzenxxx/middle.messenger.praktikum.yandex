@@ -20,6 +20,7 @@ import { ChatSettingsBar } from './ChatSettingsBar/ChatSettingsBar';
 import { ChatSearchBar } from './ChatSearchBar/ChatSearchBar';
 import { ChatSideBar } from './ChatSideBar/ChatSideBar';
 import { FormField } from './FormField/FormField';
+import { FileInput } from './FileInput/FileInput';
 import { ErrorMessage } from './ErrorMessage/ErrorMessage';
 
 const components : StringIndexed = {
@@ -42,6 +43,7 @@ const components : StringIndexed = {
   DialogDeleteChat,
   DialogRemoveUser,
   DialogUploadMedia,
+  FileInput,
   Form,
   FormField,
   ErrorMessage,

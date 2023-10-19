@@ -1,12 +1,7 @@
 {{#Dialog open=isOpen}}
 <form method="dialog">
-    <h4>Загрузить файл</h4>
-    {{{ Button
-        label="Выбрать файл"
-        type="button"
-        style="secondary"
-        onClick=onClose
-        }}}
+    <h4>Загрузить изображение</h4>
+    {{{FileInput}}}    
     {{{ ErrorLine error=error ref="errorMessage"}}}
     <div>
         {{{ Button
