@@ -23,6 +23,16 @@
         color: $danger-text;
     }
 
+    &:disabled {
+        background: $base-shadow;
+
+        &:hover {
+            scale: 1;
+            opacity: 1;
+            cursor: not-allowed;
+        }
+    }
+
     &:hover {
         cursor: pointer;
         scale: 1.05;

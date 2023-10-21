@@ -45,3 +45,8 @@ export interface Message {
       upload_date: string;
     }
   }
+
+export interface ChangePasswordRequestData {
+    oldPassword : string,
+    newPassword : string,
+}

@@ -8,7 +8,7 @@ interface FormFieldProps {
   value : string,
   error : string | null,
   isActive: boolean,
-  onBlur?: () => void,
+  onChange?: () => void,
 }
 
 export class FormField extends Block<FormFieldProps|any> {
@@ -16,7 +16,7 @@ export class FormField extends Block<FormFieldProps|any> {
     super({
       ...props,
       error: null,
-      onBlur: () => this.validate(),
+      onChange: () => this.validate(),
     });
   }
 

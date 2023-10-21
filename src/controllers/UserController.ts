@@ -1,5 +1,5 @@
 import API, { UserAPI } from "../api/UserApi";
-import { User } from "../types/interfacesAPI";
+import { User, ChangePasswordRequestData } from "../types/interfacesAPI";
 
 class UserController {
 
@@ -13,7 +13,7 @@ class UserController {
   
     public updateAvatar = (data: FormData) => this.api.updateAvatar(data);
 
-    public updatePassword = (data: {password: string}) => this.api.updatePassword(data)
+    public updatePassword = (data: ChangePasswordRequestData) => this.api.updatePassword(data);
 }     
   
   export default new UserController();

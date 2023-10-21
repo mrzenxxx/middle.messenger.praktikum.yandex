@@ -1,5 +1,6 @@
 import API, { ChatsAPI } from '../api/ChatsAPI';
 import store from '../core/Store';
+import { Chat } from '../types/interfacesAPI';
 import MessagesController from './MessagesController';
 
 class ChatsController {
@@ -17,7 +18,7 @@ class ChatsController {
 
   async getChats() {
     const chats = await this.api.read();
-    chats.map(async (chat) => {
+    chats.map(async (chat: Chat) => {
       const token = await this.getToken(chat.id);
       await MessagesController.connect(chat?.id, token);
     });

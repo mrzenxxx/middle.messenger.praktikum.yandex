@@ -1,9 +1,14 @@
 @import "../../../assets/styles/color-scheme";
 
 .error-message {
-    font-size: 24px;
+    display: flex;
+    font-size: 14px;
     line-height: 8px;
     font-weight: 400;
+    width: 100%;
     color: $danger-text;
     word-break: break-all;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
 }

@@ -16,8 +16,13 @@ interface ProfileProps extends User {
   onEditProfile : (event : Event) => void,
   onSaveChanges : (event : Event) => void,
   onChangePassword: (event : Event) => void,
+  onSubmitNewPassword: (event : Event) => void,
   onLogout : (event : Event) => void,
   onGoBack: () => void,
+  getPasswords: () => {
+    oldPassword : string,
+    newPassword : string,
+  }
 }
 
 export class ProfilePageBase extends Block<ProfileProps> {
@@ -25,16 +30,6 @@ export class ProfilePageBase extends Block<ProfileProps> {
     super({
       ...props,
       isEditable: false,
-      // onSaveChanges: (event : Event) => {
-      //   event.preventDefault();
-      //   const form: Record<string, string | null> = {};
-      //   const keys = Object.keys(this.refs);
-      //   keys.forEach((key) => {
-      //     form[key] = this.refs[key].value();
-      //   });
-      //   AuthController.getUser();
-      //   console.table(form);
-      // },
       onLogout: (event : Event) => {
         event.preventDefault();
         AuthController.logout();
@@ -50,6 +45,12 @@ export class ProfilePageBase extends Block<ProfileProps> {
         event.preventDefault();
         store.set('isOpenDialogPassword', true);
       },
+      onSubmitNewPassword: (event) => {
+        event.preventDefault();
+        const passwords = this.refs.dialogChangePassword.getPasswords();
+        UserController.updatePassword(passwords);
+        store.set('isOpenDialogPassword', false);
+      },
       onEditProfile: (event) => {
         event.preventDefault();
         this.setProps({
@@ -59,11 +60,19 @@ export class ProfilePageBase extends Block<ProfileProps> {
       },
       onSaveChanges: (event) => {
         event.preventDefault();
-        this.setProps({
-          ...props,
-          isEditable: false,
-        })
-      },
+        const form: User = {};
+        const keys = Object.keys(this.refs);
+        keys.forEach((key) => {
+          form[key] = this.refs[key].value();
+        });
+        UserController.updateProfile(form)
+          .then(()=>AuthController.getUser())
+          .then(()=>
+            this.setProps({
+              ...props,
+              isEditable: false,
+            }))
+          },
       onUploadAvatar: () => {
         const file = store.getState().file;
         const data = new FormData();
