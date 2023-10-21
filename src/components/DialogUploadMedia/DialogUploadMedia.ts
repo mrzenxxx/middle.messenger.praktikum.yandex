@@ -7,6 +7,7 @@ import { withStore } from '../../hocs/withStore';
 interface DialogUploadMediaProps {
   isOpen: boolean,
   error: Nullable<string>,
+  file: File,
   onSubmit: (event: Event) => void,
   onClose: (event: Event) => void,
 }
@@ -30,10 +31,11 @@ class DialogUploadMediaBase extends Block<DialogUploadMediaProps> {
 
   public closeDialog() {
     store.set('isOpenDialogUpload', false);
+    store.set('file', null);
   }
 
-  public getChatTitle() {
-    return this.refs.chatTitle.value();
+  public getFile() {
+    return this.refs.fileInput.getFile();
   }
 
   // TODO Не работает, выкидывает ошибку только в консоли

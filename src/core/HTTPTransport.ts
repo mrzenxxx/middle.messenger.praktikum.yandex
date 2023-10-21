@@ -64,13 +64,15 @@ export class HTTPTransport {
       xhr.onerror = () => reject(new Error(`Request error. ${onRequestError(xhr)}`));
       xhr.ontimeout = () => reject(new Error(`Request timeout. ${onRequestError(xhr)}`));
 
-      xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.withCredentials = true;
       xhr.responseType = 'json';
 
-      if (method === METHODS.GET || !data || (data instanceof FormData)) {
+      if (method === METHODS.GET || !data) {
         xhr.send();
+      } else if (data instanceof FormData) {
+        xhr.send(data);
       } else {
+        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(data));
       }
     });

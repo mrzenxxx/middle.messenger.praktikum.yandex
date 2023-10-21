@@ -1,23 +1,26 @@
 @import "../../../assets/styles/color-scheme";
 
 .input {
-        box-sizing: border-box;
-        border-style: none;
-        border-bottom: 1px solid $base-lines;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1.21;
-        background-color: $base-input-background;
-        color: $base-text;
-        padding-bottom: 3px;
+    box-sizing: border-box;
+    border-style: none;
+    border-bottom: 1px solid $base-lines;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.21;
+    background-color: $base-input-background;
+    color: $base-text;
+    padding-bottom: 3px;
 
-        &__profile {
-            color: $faded-text;
-            text-align: right;
+    &__profile {
+        text-align: right;
+    }
 
-        }
+    &:focus {
+        outline: none;
+    }
 
-        &:focus {
-            outline: none;
-        }
+    &:disabled {
+        color: $faded-text;
+        cursor: not-allowed;
+    }
 }

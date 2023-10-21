@@ -7,8 +7,13 @@ import { User } from '../../api/AuthAPI';
 import router from '../../core/Router';
 import routes from '../../core/constants/routes';
 import store from '../../core/Store';
+import UserController from '../../controllers/UserController';
 
 interface ProfileProps extends User {
+  isEditable: boolean,
+  onUploadAvatar : () => void,
+  onChangeAvatar : (event: Event) => void,
+  onEditProfile : (event : Event) => void,
   onSaveChanges : (event : Event) => void,
   onChangePassword: (event : Event) => void,
   onLogout : (event : Event) => void,
@@ -19,16 +24,17 @@ export class ProfilePageBase extends Block<ProfileProps> {
   constructor(props: ProfileProps) {
     super({
       ...props,
-      onSaveChanges: (event : Event) => {
-        event.preventDefault();
-        const form: Record<string, string | null> = {};
-        const keys = Object.keys(this.refs);
-        keys.forEach((key) => {
-          form[key] = this.refs[key].value();
-        });
-        AuthController.getUser();
-        console.table(form);
-      },
+      isEditable: false,
+      // onSaveChanges: (event : Event) => {
+      //   event.preventDefault();
+      //   const form: Record<string, string | null> = {};
+      //   const keys = Object.keys(this.refs);
+      //   keys.forEach((key) => {
+      //     form[key] = this.refs[key].value();
+      //   });
+      //   AuthController.getUser();
+      //   console.table(form);
+      // },
       onLogout: (event : Event) => {
         event.preventDefault();
         AuthController.logout();
@@ -44,6 +50,29 @@ export class ProfilePageBase extends Block<ProfileProps> {
         event.preventDefault();
         store.set('isOpenDialogPassword', true);
       },
+      onEditProfile: (event) => {
+        event.preventDefault();
+        this.setProps({
+          ...props,
+          isEditable: true,
+        })
+      },
+      onSaveChanges: (event) => {
+        event.preventDefault();
+        this.setProps({
+          ...props,
+          isEditable: false,
+        })
+      },
+      onUploadAvatar: () => {
+        const file = store.getState().file;
+        const data = new FormData();
+        data.append('avatar', file);
+        console.log('DATA', data);
+        UserController.updateAvatar(data);
+        this.refs.dialogUploadAvatar.closeDialog();
+        AuthController.getUser();
+      }
     });
     AuthController.getUser();
   }

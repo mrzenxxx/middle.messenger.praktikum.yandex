@@ -1,8 +1,8 @@
 <main class="login">
     {{#Form type="login" title="Вход" onSubmit=onLogin}}
         <div class="login__form_fields">
-            {{{FormField label="Логин" ref="login" name="login" type="text"}}}
-            {{{FormField label="Пароль" ref="password" name="password" type="password"}}}
+            {{{FormField label="Логин" ref="login" name="login" type="text" isActive="true"}}}
+            {{{FormField label="Пароль" ref="password" name="password" type="password" isActive="true"}}}
         </div>
         {{{Button label="Войти" style="primary" type="submit"}}}
         {{{Button label="Еще не зарегистрированы?" style="secondary" type="button" onClick=onSwitch}}}
