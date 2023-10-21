@@ -68,10 +68,8 @@ export class ProfilePageBase extends Block<ProfileProps> {
         const file = store.getState().file;
         const data = new FormData();
         data.append('avatar', file);
-        console.log('DATA', data);
-        UserController.updateAvatar(data);
+        UserController.updateAvatar(data).then(() => AuthController.getUser());
         this.refs.dialogUploadAvatar.closeDialog();
-        AuthController.getUser();
       }
     });
     AuthController.getUser();

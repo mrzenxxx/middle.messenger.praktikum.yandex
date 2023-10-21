@@ -1,6 +1,7 @@
 import { Message } from '../types/interfacesAPI';
 import WSTransport, { WSEvents } from '../core/WSTransport';
 import store from '../core/Store';
+import { BASE_URL_WS } from '../core/constants/baseURL';
 
 class MessagesController {
   private sockets : Map<Number, WSTransport> = new Map();
@@ -79,4 +80,4 @@ class MessagesController {
   }
 }
 
-export default new MessagesController('wss://ya-praktikum.tech/ws/chats/');
+export default new MessagesController(`${BASE_URL_WS}/chats/`);

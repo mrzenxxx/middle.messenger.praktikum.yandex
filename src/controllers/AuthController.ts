@@ -2,6 +2,8 @@ import store from '../core/Store';
 import API, { AuthAPI, LoginData, RegisterData } from '../api/AuthAPI';
 import router from '../core/Router';
 import routes from '../core/constants/routes';
+import { transformUserFromApi } from '../core/utils/transformers';
+import { User } from '../types/interfacesAPI';
 
 class AuthController {
   private readonly api : AuthAPI;
@@ -31,8 +33,8 @@ class AuthController {
   }
 
   public async getUser() {
-    const user = await this.api.read();
-    store.set('user', user);
+    const user : User = await this.api.read();
+    store.set('user', transformUserFromApi(user));
   }
 
   public async logout() {

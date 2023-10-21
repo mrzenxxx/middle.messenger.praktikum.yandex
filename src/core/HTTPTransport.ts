@@ -1,5 +1,6 @@
 import onRequestError from './utils/onRequestError';
 import queryStringify from './utils/queryStringify';
+import { BASE_URL } from './constants/baseURL';
 
 interface RequestOptions {
     method?: string;
@@ -20,12 +21,11 @@ enum METHODS {
 }
 
 export class HTTPTransport {
-  static BASE_URL = 'https://ya-praktikum.tech/api/v2';
 
   protected endpoint: string;
 
   constructor(endpoint: string) {
-    this.endpoint = `${HTTPTransport.BASE_URL}${endpoint}`;
+    this.endpoint = `${BASE_URL}${endpoint}`;
   }
 
   get : HTTPMethod = (path, options = {}) => this.request(`${this.endpoint + path}${queryStringify(options.data)}`, { method: METHODS.GET });
