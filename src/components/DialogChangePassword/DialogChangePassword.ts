@@ -30,12 +30,12 @@ class DialogChangePasswordBase extends Block<DialogChangePasswordProps> {
   public compareEntries() {
     const newPassword = this.refs.newPassword.value();
     const newPasswordConfirm = this.refs.newPasswordConfirm.value();
-    console.log({newPassword, newPasswordConfirm}, this, this.refs, this.refs.errorMessage);
-    if ( newPassword && newPasswordConfirm && newPassword !== newPasswordConfirm) {
+
+    if (newPassword && newPasswordConfirm && newPassword !== newPasswordConfirm) {
       this.refs.errorMessage.setProps({
         ...this.props,
         error: 'Пароли не совпадают',
-      }); 
+      });
     } else {
       this.refs.errorMessage.setProps({
         ...this.props,
@@ -51,8 +51,7 @@ class DialogChangePasswordBase extends Block<DialogChangePasswordProps> {
     return {
       oldPassword,
       newPassword,
-    }
-
+    };
   }
 
   render() {

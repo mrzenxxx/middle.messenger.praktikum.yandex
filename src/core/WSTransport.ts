@@ -12,7 +12,7 @@ export default class WSTransport extends EventBus {
 
   private ping: Nullable<NodeJS.Timeout | number>;
 
-  constructor(private url: string) {
+  constructor(private websocketUrl: string) {
     super();
   }
 
@@ -25,7 +25,7 @@ export default class WSTransport extends EventBus {
   }
 
   public connect(): Promise<void> {
-    this.socket = new WebSocket(this.url);
+    this.socket = new WebSocket(this.websocketUrl);
 
     this.subscribe(this.socket as WebSocket);
 

@@ -5,7 +5,7 @@ export enum StoreEvents {
     Updated = 'updated'
 }
 
-class Store extends EventBus {
+export class Store extends EventBus {
   private state: StringIndexed = {};
 
   constructor() {

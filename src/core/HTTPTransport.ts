@@ -12,7 +12,6 @@ interface RequestOptions {
 
 type HTTPMethod = (path: string, options?: RequestOptions) => Promise<XMLHttpRequest>
 
-// eslint-disable-next-line no-shadow
 enum METHODS {
     GET = 'GET',
     POST = 'POST',
@@ -21,7 +20,6 @@ enum METHODS {
 }
 
 export class HTTPTransport {
-
   protected endpoint: string;
 
   constructor(endpoint: string) {
@@ -36,7 +34,6 @@ export class HTTPTransport {
 
   delete : HTTPMethod = (path, options = {}) => this.request(this.endpoint + path, { ...options, method: METHODS.DELETE });
 
-  // eslint-disable-next-line class-methods-use-this
   request = (url: string, options: RequestOptions) => {
     const { method = 'GET', data, headers } = options as RequestOptions;
     console.warn('REQUEST', url, options);

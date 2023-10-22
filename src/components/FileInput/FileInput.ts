@@ -19,7 +19,7 @@ export class FileInput extends Block<FileInputProps | any> {
 
   private _fileName() {
     const selectedFile = this.getFile();
-    if (!selectedFile){
+    if (!selectedFile) {
       return 'Выберите файл';
     }
     return selectedFile.name;
@@ -36,11 +36,11 @@ export class FileInput extends Block<FileInputProps | any> {
     const selectedFile = (this.refs.fileInput.element! as HTMLInputElement).files[0];
 
     // При вызове changeLabel() компонент переририсовывается и файл теряется, поэтому сделал через стор.
-    if (selectedFile){
+    if (selectedFile) {
       Store.set('file', selectedFile);
     }
     return selectedFile;
-  } 
+  }
 
   render() {
     return this.compile(template, this.props);

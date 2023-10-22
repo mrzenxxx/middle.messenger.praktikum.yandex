@@ -1,45 +1,6 @@
-import Block from './Block';
-import isEqual from './utils/isEqual';
-import render from './utils/render';
-
-interface BlockConstructable {
-  new(props: StringIndexed): Block<StringIndexed>;
-}
-
-class Route {
-  private block: Nullable<Block<StringIndexed>> = null;
-
-  private _pathname: string;
-
-  private readonly _blockClass: BlockConstructable;
-
-  private readonly _root: string;
-
-  constructor(pathname: string, view: BlockConstructable, rootQuery: string) {
-    this._pathname = pathname;
-    this._blockClass = view;
-    this._root = rootQuery;
-  }
-
-  leave() {
-    this.block = null;
-  }
-
-  match(pathname: string) {
-    return isEqual(pathname, this._pathname);
-  }
-
-  render() {
-    if (!this.block) {
-      this.block = new this._blockClass({});
-    }
-    render(this._root, this.block);
-  }
-}
+import Route, { BlockConstructable } from './Route';
 
 class Router {
-  private static __instance: Router;
-
   private routes: Route[] = [];
 
   private currentRoute: Nullable<Route> = null;
@@ -47,13 +8,7 @@ class Router {
   private history = window.history;
 
   constructor(private readonly rootQuery: string) {
-    if (Router.__instance) {
-      return Router.__instance;
-    }
-
     this.routes = [];
-
-    Router.__instance = this;
   }
 
   private _onRoute(pathname: string) {

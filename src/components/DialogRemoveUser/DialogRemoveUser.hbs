@@ -1,8 +1,8 @@
 {{#Dialog open=isOpen}}
 <form method="dialog">
     <h4>Удалить пользователя из чата</h4>
-    {{{ FormField label="ID пользователя" name="remove_user_id" ref="removeUserID"}}}
-    {{{ ErrorLine error=error ref="errorMessage"}}}
+    {{{ FormField label="ID пользователя" name="remove_user_id" ref="removeUserID" isActive="true"}}}
+    {{{ ErrorMessage error=error ref="errorMessage"}}}
     <div>
         {{{ Button
         label="Удалить"

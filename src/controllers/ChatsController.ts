@@ -1,5 +1,6 @@
 import API, { ChatsAPI } from '../api/ChatsAPI';
 import store from '../core/Store';
+import { transformChatsFromApi } from '../core/utils/transformers';
 import { Chat } from '../types/interfacesAPI';
 import MessagesController from './MessagesController';
 
@@ -11,9 +12,15 @@ class ChatsController {
   }
 
   async create(title: string) {
-    await this.api.create(title);
-
+    let newChatId : number;
+    await this.api.create(title).then((res) => { newChatId = res.id; }).finally(() => store.set('isOpenDialogChat', false));
+    this.setNewChat(newChatId);
     this.getChats();
+  }
+
+  async setNewChat(newChatId) {
+    const chats = await this.api.read();
+    store.set('currentChat', chats.filter((chat) => chat.id === newChatId)[0]);
   }
 
   async getChats() {
@@ -23,7 +30,7 @@ class ChatsController {
       await MessagesController.connect(chat?.id, token);
     });
 
-    store.set('chats', chats);
+    store.set('chats', transformChatsFromApi(chats));
   }
 
   addUserToChat(id: number, userId: number) {

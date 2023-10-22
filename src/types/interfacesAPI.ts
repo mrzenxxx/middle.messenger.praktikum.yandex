@@ -33,8 +33,10 @@ export interface Message {
     chat_id: number;
     time: string;
     type: string;
+    id: string;
     user_id: number;
     content: string;
+    is_read: boolean;
     file?: {
       id: number;
       user_id: number;

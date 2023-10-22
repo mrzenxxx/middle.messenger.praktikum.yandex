@@ -12,6 +12,8 @@ function isEqual<T extends StringIndexed | string>(obj1: T, obj2: T): boolean {
     return false;
   }
 
+  // не получается переписать на forEach, начинает неправильно работать
+  // eslint-disable-next-line no-restricted-syntax
   for (const key of keys1) {
     if (!isEqual(obj1[key], obj2[key])) {
       return false;

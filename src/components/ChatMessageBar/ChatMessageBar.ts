@@ -11,7 +11,7 @@ interface ChatMessageBarProps extends Record<string, unknown> {
   onBlur: () => void,
   onSend: (event: Event) => void,
   onFocus: () => void,
-  onAttach: () => void,
+  onAttachImage: () => void,
   events?: {
     submit?: (event: Event) => void,
     blur?: () => void,
@@ -38,7 +38,7 @@ export class ChatMessageBar extends Block<ChatMessageBarProps> {
         });
       },
 
-      onAttach: () => {
+      onAttachImage: () => {
         store.set('isOpenDialogUpload', true);
       },
     });

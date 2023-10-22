@@ -14,9 +14,9 @@ export class Avatar extends Block<AvatarProps> {
   constructor(props: AvatarProps) {
     super({
       ...props,
-      events : {
-        click : props?.onClick,
-      }
+      events: {
+        click: props?.onClick,
+      },
     });
   }
 

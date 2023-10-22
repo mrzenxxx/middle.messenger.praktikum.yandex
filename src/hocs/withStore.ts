@@ -9,7 +9,7 @@ interface State {
 
 export function withStore(mapStateToProps: (state: State) => Partial<State>) {
   return function<P extends object, R extends StringIndexed> (Component: typeof Block<P, R>) {
-    return class WithStore extends Component<PageTransitionEvent, R> {
+    return class extends Component<PageTransitionEvent, R> {
       public onChangeStoreCallback: () => void;
 
       constructor(props: P) {

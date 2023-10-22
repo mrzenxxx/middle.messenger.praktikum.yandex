@@ -1,7 +1,7 @@
 <div class='chat-message-bar'>
-    {{{Button className='chat-message-bar__attach-button' type='button' onClick=onAttach}}}
+    {{!-- {{{Button className='chat-message-bar__attach-button' type='button' onClick=onAttachImage}}} --}}
     {{#Form customStyle='chat-message-bar__form' onSubmit=onSend}}
-        {{{Input className='chat-message-bar__message' type='text' ref='messageInput' name='message' autocomplete='off' value=value onBlur=onBlur onFocus=onFocus placeholder=placeholder}}}
+        {{{Input className='chat-message-bar__message' type='text' ref='messageInput' name='message' autocomplete='off' value=value onBlur=onBlur onFocus=onFocus placeholder=placeholder isActive='true'}}}
         {{{ErrorMessage className='chat-message-bar__input-error' ref='errorMessage' error=error}}}
         {{{Button className='chat-message-bar__send-button' type='submit'}}}
     {{/Form}}

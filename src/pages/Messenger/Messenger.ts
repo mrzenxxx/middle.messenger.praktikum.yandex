@@ -35,6 +35,7 @@ class MessengerBase extends Block<MessengerProps> {
         ChatsController.delete(chatId);
       },
     });
+
     ChatsController.getChats();
     AuthController.getUser();
   }

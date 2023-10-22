@@ -1,17 +1,4 @@
 import BaseAPI from './BaseAPI';
-import { User } from './AuthAPI';
-
-export interface ChatInfo {
-  id: number;
-  title: string;
-  avatar: string;
-  unread_count: number;
-  last_message: {
-    user: User,
-    time: string;
-    content: string;
-  }
-}
 
 export class ChatsAPI extends BaseAPI {
   constructor() {

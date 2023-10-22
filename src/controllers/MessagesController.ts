@@ -2,6 +2,7 @@ import { Message } from '../types/interfacesAPI';
 import WSTransport, { WSEvents } from '../core/WSTransport';
 import store from '../core/Store';
 import { BASE_URL_WS } from '../core/constants/baseURL';
+import { transformMessagesFromApi } from '../core/utils/transformers';
 
 class MessagesController {
   private sockets : Map<Number, WSTransport> = new Map();
@@ -69,7 +70,7 @@ class MessagesController {
     let messagesToAdd: Message[] = [];
 
     if (Array.isArray(messages)) {
-      messagesToAdd = messages.reverse();
+      messagesToAdd = (messages.reverse());
     } else {
       messagesToAdd.push(messages);
     }

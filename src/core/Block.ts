@@ -1,7 +1,6 @@
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 import { EventBus } from './EventBus';
-// import deepEqual from './utils/deepEqual';
 
 export default class Block<P extends Record<string, unknown>> {
   static EVENTS = {
@@ -33,7 +32,6 @@ export default class Block<P extends Record<string, unknown>> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   private _getChildrenAndProps(childrenAndProps: P) : {props: P, children: Record<string, Block<P> | Block<P>[]>} {
     const props: Record<string, unknown> = {};
     const children: Record<string, Block<P> | Block<P>[]> = {};

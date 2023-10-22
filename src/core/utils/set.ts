@@ -14,12 +14,13 @@ export default function set(object: Indexed | unknown, path: string, value: unkn
   const lastKey = segments.pop();
 
   let nestedObj: Indexed = result;
-  for (const key of segments) {
+
+  segments.forEach((key) => {
     if (!isPlainObject(nestedObj[key])) {
       (nestedObj as Indexed)[key] = {};
     }
     nestedObj = (nestedObj as Indexed)[key] as Indexed;
-  }
+  });
 
   if (lastKey) {
     (nestedObj as Indexed)[lastKey] = value;

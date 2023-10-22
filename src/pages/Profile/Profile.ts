@@ -56,7 +56,7 @@ export class ProfilePageBase extends Block<ProfileProps> {
         this.setProps({
           ...props,
           isEditable: true,
-        })
+        });
       },
       onSaveChanges: (event) => {
         event.preventDefault();
@@ -66,20 +66,19 @@ export class ProfilePageBase extends Block<ProfileProps> {
           form[key] = this.refs[key].value();
         });
         UserController.updateProfile(form)
-          .then(()=>AuthController.getUser())
-          .then(()=>
-            this.setProps({
-              ...props,
-              isEditable: false,
-            }))
-          },
+          .then(() => AuthController.getUser())
+          .then(() => this.setProps({
+            ...props,
+            isEditable: false,
+          }));
+      },
       onUploadAvatar: () => {
-        const file = store.getState().file;
+        const { file } = store.getState();
         const data = new FormData();
         data.append('avatar', file);
         UserController.updateAvatar(data).then(() => AuthController.getUser());
         this.refs.dialogUploadAvatar.closeDialog();
-      }
+      },
     });
     AuthController.getUser();
   }
