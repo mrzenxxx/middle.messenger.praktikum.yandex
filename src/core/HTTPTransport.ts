@@ -1,14 +1,7 @@
 import onRequestError from './utils/onRequestError';
 import queryStringify from './utils/queryStringify';
 import { BASE_URL } from './constants/baseURL';
-
-interface RequestOptions {
-    method?: string;
-    data?: any;
-    headers?: { [key: string]: string };
-    timeout?: number;
-    retries?: number;
-}
+import { RequestOptions } from '../types/interfacesAPI';
 
 type HTTPMethod = (path: string, options?: RequestOptions) => Promise<XMLHttpRequest>
 

@@ -1,7 +1,6 @@
 import template from './DialogUploadMedia.hbs?raw';
 import Block from '../../core/Block';
 import store from '../../core/Store';
-import chatsController from '../../controllers/ChatsController';
 import { withStore } from '../../hocs/withStore';
 
 interface DialogUploadMediaProps {

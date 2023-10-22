@@ -1,8 +1,17 @@
 import { EventBus } from './EventBus';
+import { Chat, Message, User } from '../types/interfacesAPI';
 import set from './utils/set';
 
 export enum StoreEvents {
     Updated = 'updated'
+}
+
+export interface State {
+  user: Nullable<User>,
+  currentChat: Nullable<Chat>,
+  messages: Record<number,Nullable<Message[]>>,
+  error: Nullable<string>,
+  isOpen: Nullable<boolean>,
 }
 
 export class Store extends EventBus {
@@ -10,6 +19,7 @@ export class Store extends EventBus {
 
   constructor() {
     super();
+    // TODO в вебинаре показывали
     window.store = this;
   }
 

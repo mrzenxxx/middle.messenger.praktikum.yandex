@@ -15,13 +15,13 @@ export class Register extends Block<RegisterProps> {
 
       onRegister: (event : Event) => {
         event.preventDefault();
-        const form: Nullable<RegisterData> = {};
+        const form: { [key: string]: string } = {};
         const keys = Object.keys(this.refs);
-        keys.forEach((key) => {
+        keys!.forEach((key) => {
           form[key] = this.refs[key].value()!;
         });
         console.table(form);
-        AuthController.register(form);
+        AuthController.register(form as RegisterData);
       },
 
       onSwitch: (event : Event) => {

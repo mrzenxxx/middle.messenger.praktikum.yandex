@@ -52,3 +52,11 @@ export interface ChangePasswordRequestData {
     oldPassword : string,
     newPassword : string,
 }
+
+export interface RequestOptions {
+    method?: string;
+    data?: any;
+    headers?: { [key: string]: string };
+    timeout?: number;
+    retries?: number;
+}
