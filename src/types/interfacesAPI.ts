@@ -1,4 +1,4 @@
-export interface User {
+export interface User extends StringIndexed {
         id: number,
         first_name: string,
         second_name: string,

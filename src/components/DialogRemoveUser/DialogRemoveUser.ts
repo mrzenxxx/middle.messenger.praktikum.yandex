@@ -1,9 +1,9 @@
 import template from './DialogRemoveUser.hbs?raw';
 import Block from '../../core/Block';
-import store from '../../core/Store';
+import store, { State } from '../../core/Store';
 import { withStore } from '../../hocs/withStore';
 
-interface DialogRemoveUserProps {
+interface DialogRemoveUserProps extends StringIndexed {
   isOpen: boolean,
   error: Nullable<string>,
   onClose: (event: Event) => void,

@@ -4,20 +4,19 @@ import isEqual from '../core/utils/isEqual';
 
 
 export function withStore(mapStateToProps: (state: State) => Partial<State>) {
-  return function<P extends object, R extends StringIndexed> (Component: typeof Block<P, R>) {
-    return class extends Component<PageTransitionEvent, R> {
+  return function<P extends StringIndexed, R extends State> (Component: new <P,R>(props: P|R) => Block<StringIndexed>) {
+    return class extends Component<P, R> {
       public onChangeStoreCallback: () => void;
 
       constructor(props: P) {
-        // const store = window.store;
-        let state = mapStateToProps(store.getState());
+        let state = mapStateToProps((store as unknown as State).getState());
 
         super({ ...props, ...state });
 
         this.onChangeStoreCallback = () => {
-          const newState = mapStateToProps(store.getState());
+          const newState = mapStateToProps((store as unknown as State).getState());
           if (!isEqual(state, newState)) {
-            this.setProps({ ...newState });
+            this.setProps({ ...newState as P | R });
           }
 
           state = newState;

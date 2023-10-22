@@ -6,7 +6,7 @@ import AuthController from '../../controllers/AuthController';
 import { withStore } from '../../hocs/withStore';
 import { Chat } from '../../types/interfacesAPI';
 
-interface MessengerProps extends Record<string, unknown> {
+interface MessengerProps extends StringIndexed {
   chats: Nullable<StringIndexed>,
   currentChat: Chat,
   user : number,
@@ -19,14 +19,14 @@ class MessengerBase extends Block<MessengerProps> {
     super({
       ...props,
       onAddUser: () => {
-        const userLogin = this.refs.addUserDialog.getUserInput();
+        const userId = this.refs.addUserDialog.getUserInput();
         const chatId = this.props.currentChat?.id;
-        ChatsController.addUserToChat(chatId, userLogin);
+        ChatsController.addUserToChat(chatId, userId as unknown as number);
       },
       onRemoveUser: () => {
-        const userLogin = this.refs.removeUserDialog.getUserInput();
+        const userId = this.refs.removeUserDialog.getUserInput();
         const chatId = this.props.currentChat?.id;
-        ChatsController.removeUserFromChat(chatId, userLogin);
+        ChatsController.removeUserFromChat(chatId, userId as unknown as number);
       },
       onCreateChat: () => {
         const title = this.refs.createChatDialog.getChatTitle();

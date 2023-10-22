@@ -3,14 +3,13 @@ import './Profile.scss';
 import template from './profile.hbs?raw';
 import { withStore } from '../../hocs/withStore';
 import AuthController from '../../controllers/AuthController';
-import { User } from '../../api/AuthAPI';
+import { ChangePasswordRequestData, User } from '../../types/interfacesAPI';
 import router from '../../core/Router';
 import routes from '../../core/constants/routes';
 import store from '../../core/Store';
 import UserController from '../../controllers/UserController';
 
 interface ProfileProps extends User {
-  [key: string]: unknown,
   isEditable: boolean,
   onUploadAvatar : () => void,
   onChangeAvatar : (event: Event) => void,
@@ -49,7 +48,7 @@ export class ProfilePageBase extends Block<ProfileProps> {
       onSubmitNewPassword: (event) => {
         event.preventDefault();
         const passwords = this.refs.dialogChangePassword.getPasswords();
-        UserController.updatePassword(passwords);
+        UserController.updatePassword(passwords as unknown as ChangePasswordRequestData);
         store.set('isOpenDialogPassword', false);
       },
       onEditProfile: (event) => {
@@ -66,7 +65,7 @@ export class ProfilePageBase extends Block<ProfileProps> {
         keys.forEach((key) => {
           form[key] = this.refs[key].value();
         });
-        UserController.updateProfile(form)
+        UserController.updateProfile(form as User)
           .then(() => AuthController.getUser())
           .then(() => this.setProps({
             ...props,

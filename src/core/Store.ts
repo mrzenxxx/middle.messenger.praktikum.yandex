@@ -6,10 +6,10 @@ export enum StoreEvents {
     Updated = 'updated'
 }
 
-export interface State {
+export interface State extends StringIndexed {
   user: Nullable<User>,
   currentChat: Nullable<Chat>,
-  messages: Record<number,Nullable<Message[]>>,
+  messages?: Record<number,Nullable<Message[]>>,
   error: Nullable<string>,
   isOpen: Nullable<boolean>,
   isOpenDialogChat: Nullable<boolean>,
