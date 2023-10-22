@@ -1,22 +1,22 @@
 <main class='profile'>
     {{{Button className="profile__back-button" type="button" onClick=onGoBack}}}
     {{#Form type='profile' onSubmit=onSaveChanges}}
-    {{{Avatar size='large' src=avatar alt="Current user profile avatar picture" onClick=onChangeAvatar}}}
+    {{{Avatar size='large' src=user.avatar alt="Current user profile avatar picture" onClick=onChangeAvatar}}}
     <span class='profile__profile_name'>
-        {{display_name}}
+        {{user.display_name}}
         <br/>
-        ID: {{id}}
+        ID: {{user.id}}
     </span>
     <div class='profile__form_fields'>
-        {{{FormField label='Почта' ref='email' name='email' value=email style='profile' isActive=isEditable}}}
-        {{{FormField label='Логин' ref='login' name='login' value=login style='profile' isActive=isEditable}}}
-        {{{FormField label='Имя' ref='first_name' name='first_name' value=first_name style='profile'
+        {{{FormField label='Почта' ref='email' name='email' value=user.email style='profile' isActive=isEditable}}}
+        {{{FormField label='Логин' ref='login' name='login' value=user.login style='profile' isActive=isEditable}}}
+        {{{FormField label='Имя' ref='first_name' name='first_name' value=user.first_name style='profile'
         isActive=isEditable}}}
-        {{{FormField label='Фамилия' ref='second_name' name='second_name' value=second_name style='profile'
+        {{{FormField label='Фамилия' ref='second_name' name='second_name' value=user.second_name style='profile'
         isActive=isEditable}}}
-        {{{FormField label='Имя в чате' ref='display_name' name='display_name' value=display_name style='profile'
+        {{{FormField label='Имя в чате' ref='display_name' name='display_name' value=user.display_name style='profile'
         isActive=isEditable}}}
-        {{{FormField label='Телефон' ref='phone' name='phone' type='phone' value=phone style='profile'
+        {{{FormField label='Телефон' ref='phone' name='phone' type='phone' value=user.phone style='profile'
         isActive=isEditable}}}
     </div>
     <div class='profile__buttons_wrapper'>

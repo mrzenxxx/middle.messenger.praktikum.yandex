@@ -12,6 +12,12 @@ export interface State {
   messages: Record<number,Nullable<Message[]>>,
   error: Nullable<string>,
   isOpen: Nullable<boolean>,
+  isOpenDialogChat: Nullable<boolean>,
+  isOpenDialogDelete: Nullable<boolean>,
+  isOpenDialogPassword: Nullable<boolean>,
+  isOpenDialogUpload: Nullable<boolean>,
+  isOpenDialogAddUser: Nullable<boolean>,
+  isOpenDialogRemoveUser: Nullable<boolean>,
 }
 
 export class Store extends EventBus {

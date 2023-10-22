@@ -2,7 +2,7 @@ import Block from '../../core/Block';
 import template from './ChatFeed.hbs?raw';
 import './ChatFeed.scss';
 
-interface ChatFeedProps {
+interface ChatFeedProps extends StringIndexed {
   currentChat: number,
   messages: object[];
 }

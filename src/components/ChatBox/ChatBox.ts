@@ -5,6 +5,7 @@ import store from '../../core/Store';
 import { Chat } from '../../types/interfacesAPI';
 
 interface ChatBoxProps extends Chat{
+    [key: string]: unknown,
     chat: StringIndexed;
     isActive: boolean,
     events: { click : () => void };

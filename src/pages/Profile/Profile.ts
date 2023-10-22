@@ -10,6 +10,7 @@ import store from '../../core/Store';
 import UserController from '../../controllers/UserController';
 
 interface ProfileProps extends User {
+  [key: string]: unknown,
   isEditable: boolean,
   onUploadAvatar : () => void,
   onChangeAvatar : (event: Event) => void,
@@ -60,7 +61,7 @@ export class ProfilePageBase extends Block<ProfileProps> {
       },
       onSaveChanges: (event) => {
         event.preventDefault();
-        const form: User = {};
+        const form: {[key: string]: unknown} = {};
         const keys = Object.keys(this.refs);
         keys.forEach((key) => {
           form[key] = this.refs[key].value();
@@ -88,6 +89,6 @@ export class ProfilePageBase extends Block<ProfileProps> {
   }
 }
 
-const withUser = withStore((state) => ({ ...state.user }));
+const withUser = withStore((state) => ({ user: state.user }));
 
 export const Profile = withUser(ProfilePageBase);

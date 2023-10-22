@@ -3,7 +3,7 @@ import store from '../../core/Store';
 import template from './ChatHeader.hbs?raw';
 import './ChatHeader.scss';
 
-interface ChatHeaderProps {
+interface ChatHeaderProps extends StringIndexed {
   title: string,
   onAddUser: () => void,
   onDeleteChat: () => void,
