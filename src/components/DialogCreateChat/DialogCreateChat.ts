@@ -11,7 +11,7 @@ interface DialogCreateChatProps {
 }
 
 export class DialogCreateChatBase extends Block<DialogCreateChatProps> {
-  constructor(props: DialogCreateChatProps) {
+  constructor(props: DialogCreateChatProps, state: State) {
     super({
       ...props,
       onClose: (event) => {

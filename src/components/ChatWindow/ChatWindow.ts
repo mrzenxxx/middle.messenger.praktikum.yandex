@@ -16,7 +16,7 @@ interface ChatWindowProps extends StringIndexed {
   onSend: (event: Event) => void;
 }
 
-export class ChatWindowBase extends Block<ChatWindowProps|State> {
+export class ChatWindowBase extends Block<ChatWindowProps> {
   constructor(props: ChatWindowProps) {
     super({
       ...props,
@@ -41,20 +41,20 @@ export class ChatWindowBase extends Block<ChatWindowProps|State> {
 }
 
 const withСurrentChatMessages = withStore((state) => {
-  const currentChatId = (state.currentChat as Chat).id || null;
+  const currentChatId = (state.currentChat as Chat)?.id || null;
 
   if (!currentChatId) {
     return {
       messages: [],
       currentChat: null,
-      userId: (state.user as User).id || null,
+      userId: (state.user as User)?.id || null,
     };
   }
 
   return {
     messages: (state.messages || {})[currentChatId] || [],
     currentChat: state.currentChat,
-    userId: (state.user as User).id || null,
+    userId: (state.user as User)?.id || null,
   };
 });
 

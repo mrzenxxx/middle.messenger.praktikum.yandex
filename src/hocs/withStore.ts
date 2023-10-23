@@ -3,20 +3,20 @@ import Block from '../core/Block';
 import isEqual from '../core/utils/isEqual';
 
 
-export function withStore(mapStateToProps: (state: State) => Partial<State>) {
-  return function<P extends StringIndexed, R extends State> (Component: new <P,R>(props: P|R) => Block<StringIndexed>) {
-    return class extends Component<P, R> {
+export function withStore<SP>(mapStateToProps: (state: State) => SP) {
+  return function<P extends StringIndexed> (Component: new <P extends StringIndexed>(props: P) => Block<P>) {
+    return class extends Component<P> {
       public onChangeStoreCallback: () => void;
 
-      constructor(props: P) {
-        let state = mapStateToProps((store as unknown as State).getState());
+      constructor(props: Omit<P, keyof P>) {
+        let state = mapStateToProps(store.getState());
 
-        super({ ...props, ...state });
+        super({ ...(props as P), ...state });
 
         this.onChangeStoreCallback = () => {
-          const newState = mapStateToProps((store as unknown as State).getState());
+          const newState = mapStateToProps(store.getState());
           if (!isEqual(state, newState)) {
-            this.setProps({ ...newState as P | R });
+            (this as unknown as Block<P|R>).setProps({ ...newState as P|R });
           }
 
           state = newState;

@@ -17,11 +17,6 @@ export class Login extends Block<LoginProps> {
         const login = this.refs.login.value()!;
         const password = this.refs.password.value()!;
 
-        console.table({
-          login,
-          password,
-        });
-
         AuthController.login({
           login,
           password,

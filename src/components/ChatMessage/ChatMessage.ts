@@ -11,7 +11,7 @@ export class ChatMessage extends Block<ChatMessageProps> {
   constructor(props: ChatMessageProps) {
     super({
       ...props,
-      isOwn: props.author === store.state.user.id,
+      isOwn: props.author === store.getState().user.id,
     });
   }
 
