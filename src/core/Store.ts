@@ -23,9 +23,14 @@ export interface State extends StringIndexed {
 export class Store extends EventBus {
   private state: Nullable<State> = {};
 
+  constructor(){
+    super();
+    this.on(StoreEvents.Updated, () => null);
+  }
+
   public set(keypath: string, data: unknown) {
     set(this.state, keypath, data);
-    console.warn(this, `.set ${keypath}:`, data);
+    console.warn(`Store: ${this} .set('${keypath}'):`, data);
     this.emit(StoreEvents.Updated, this.getState());
   }
 
