@@ -21,11 +21,11 @@ export interface State extends StringIndexed {
 }
 
 export class Store extends EventBus {
-  private state: StringIndexed = {};
+  private state: Nullable<State> = {};
 
   constructor() {
     super();
-    // TODO в вебинаре показывали
+    // TODO в вебинаре показывали, но не понятно зачем вообще это
     window.store = this;
   }
 
@@ -35,7 +35,7 @@ export class Store extends EventBus {
     this.emit(StoreEvents.Updated, this.getState());
   }
 
-  public getState() {
+  public getState(): Nullable<State> {
     return this.state;
   }
 }
