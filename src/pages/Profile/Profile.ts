@@ -49,7 +49,7 @@ export class ProfilePageBase extends Block<ProfileProps> {
         event.preventDefault();
         const passwords = this.refs.dialogChangePassword.getPasswords();
         UserController.updatePassword(passwords as unknown as ChangePasswordRequestData)
-          .finally(()=> store.set('isOpenDialogPassword', false));
+          .finally(() => store.set('isOpenDialogPassword', false));
       },
       onEditProfile: (event) => {
         event.preventDefault();

@@ -23,7 +23,7 @@ export interface State extends StringIndexed {
 export class Store extends EventBus {
   private state: Nullable<State> = {};
 
-  constructor(){
+  constructor() {
     super();
     this.on(StoreEvents.Updated, () => null);
   }

@@ -32,7 +32,7 @@ class AuthController {
       router.go(routes.Profile);
     } catch (error) {
       console.error(error);
-      store.set('error', error)
+      store.set('error', error);
     }
   }
 

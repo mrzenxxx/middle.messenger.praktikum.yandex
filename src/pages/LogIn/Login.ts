@@ -9,7 +9,7 @@ interface LoginProps extends StringIndexed{
   error: string,
   onLogin: (event: Event) => void;
   onSwitch: (event: Event) => void;
-};
+}
 
 export class Login extends Block<LoginProps> {
   constructor(props: LoginProps) {

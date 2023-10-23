@@ -19,4 +19,4 @@ class ApiErrorMessageBase extends Block<ApiErrorMessageProps> {
   }
 }
 
-export const ApiErrorMessage = withStore((state)=>({error: state.error}))(ApiErrorMessageBase);
+export const ApiErrorMessage = withStore((state) => ({ error: state.error }))(ApiErrorMessageBase);
