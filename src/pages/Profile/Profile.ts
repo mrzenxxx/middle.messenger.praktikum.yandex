@@ -48,8 +48,8 @@ export class ProfilePageBase extends Block<ProfileProps> {
       onSubmitNewPassword: (event) => {
         event.preventDefault();
         const passwords = this.refs.dialogChangePassword.getPasswords();
-        UserController.updatePassword(passwords as unknown as ChangePasswordRequestData);
-        store.set('isOpenDialogPassword', false);
+        UserController.updatePassword(passwords as unknown as ChangePasswordRequestData)
+          .finally(()=> store.set('isOpenDialogPassword', false));
       },
       onEditProfile: (event) => {
         event.preventDefault();
@@ -76,8 +76,9 @@ export class ProfilePageBase extends Block<ProfileProps> {
         const { file } = store.getState();
         const data = new FormData();
         data.append('avatar', file);
-        UserController.updateAvatar(data).then(() => AuthController.getUser());
-        this.refs.dialogUploadAvatar.closeDialog();
+        UserController.updateAvatar(data)
+          .then(() => AuthController.getUser())
+          .finally(() => this.refs.dialogUploadAvatar.closeDialog());
       },
     });
     AuthController.getUser();

@@ -15,6 +15,7 @@ class DialogRemoveUserBase extends Block<DialogRemoveUserProps> {
       ...props,
       onClose: (event) => {
         event.preventDefault();
+        store.set('error', null);
         this.closeDialog();
       },
     });

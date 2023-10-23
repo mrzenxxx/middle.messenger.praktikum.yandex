@@ -23,6 +23,7 @@ class DialogUploadMediaBase extends Block<DialogUploadMediaProps> {
   }
 
   public closeDialog() {
+    store.set('error', null);
     store.set('isOpenDialogUpload', false);
     store.set('file', null);
   }
@@ -30,14 +31,6 @@ class DialogUploadMediaBase extends Block<DialogUploadMediaProps> {
   public getFile() {
     return this.refs.fileInput.getFile();
   }
-
-  // TODO Не работает, выкидывает ошибку только в консоли
-  // public setError(error: string) {
-  //   this.refs.errorLine.setProps({
-  //     ...this.refs.errorLine.props,
-  //     error,
-  //   });
-  // }
 
   render() {
     return this.compile(template, this.props);

@@ -23,6 +23,7 @@ export class DialogDeleteChatBase extends Block<DialogDeleteChatProps> {
       },
       onClose: (event) => {
         event.preventDefault();
+        store.set('error', null);
         this.closeDialog();
       },
     });

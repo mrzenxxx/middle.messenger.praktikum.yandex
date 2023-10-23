@@ -1,3 +1,4 @@
+import { ApiErrorMessage } from './ApiErrorMessage/ApiErrorMessage';
 import { Button } from './Button/Button';
 import { Input } from './Input/Input';
 import { Avatar } from './Avatar/Avatar';
@@ -25,6 +26,7 @@ import { ErrorMessage } from './ErrorMessage/ErrorMessage';
 
 const components : StringIndexed = {
   Avatar,
+  ApiErrorMessage,
   Button,
   ChatBox,
   ChatFeed,

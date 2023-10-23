@@ -21,19 +21,12 @@ class DialogAddUserBase extends Block<DialogAddUserProps> {
   }
 
   public closeDialog() {
+    store.set('error', null);
     store.set('isOpenDialogAddUser', false);
   }
 
   public getUserInput() {
     return this.refs.addUserID.value();
-  }
-
-  // TODO Не работает, выкидывает ошибку только в консоли
-  public setError(error: string) {
-    this.refs.errorLine.setProps({
-      ...this.props,
-      error,
-    });
   }
 
   render() {

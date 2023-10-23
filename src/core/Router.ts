@@ -1,4 +1,5 @@
 import Route, { BlockConstructable } from './Route';
+import store from './Store';
 
 class Router {
   private routes: Route[] = [];
@@ -13,6 +14,7 @@ class Router {
 
   private _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
+    store.set('error', null);
 
     if (!route) {
       return;
@@ -37,7 +39,6 @@ class Router {
   public start() {
     window.onpopstate = (event: PopStateEvent) => {
       const target = event.currentTarget as Window;
-
       this._onRoute(target.location.pathname);
     };
 

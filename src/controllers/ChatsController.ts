@@ -13,7 +13,10 @@ class ChatsController {
 
   async create(title: string) {
     let newChatId : Nullable<number> = null;
-    await this.api.create(title).then((res) => { newChatId = (res as unknown as Chat).id; }).finally(() => store.set('isOpenDialogChat', false));
+    await this.api.create(title)
+      .then((res) => { newChatId = (res as unknown as Chat).id; })
+      .catch( error => store.set('error', error))
+      .finally(() => store.set('isOpenDialogChat', false));
     this.setNewChat(newChatId as unknown as number);
     this.getChats();
   }
@@ -34,15 +37,20 @@ class ChatsController {
   }
 
   addUserToChat(id: number, userId: number) {
-    this.api.addUsers(id, [userId]);
+    this.api.addUsers(id, [userId]).catch((error) => store.set('error', error));
   }
 
   removeUserFromChat(id: number, userId: number) {
-    this.api.removeUsers(id, [userId]);
+    this.api.removeUsers(id, [userId]).catch((error) => store.set('error', error));
   }
 
   async delete(id: number) {
-    await this.api.delete(id);
+    try {
+      await this.api.delete(id);
+    } catch (error) {
+      store.set('error', error);
+    }
+    
     this.getChats();
     store.set('isOpenDialogDelete', false);
     store.set('currentChat', null);

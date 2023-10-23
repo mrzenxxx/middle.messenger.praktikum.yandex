@@ -20,7 +20,6 @@ export class Register extends Block<RegisterProps> {
         keys!.forEach((key) => {
           form[key] = this.refs[key].value()!;
         });
-        console.table(form);
         AuthController.register(form as RegisterData);
       },
 

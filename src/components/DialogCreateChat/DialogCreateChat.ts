@@ -22,6 +22,7 @@ export class DialogCreateChatBase extends Block<DialogCreateChatProps> {
   }
 
   public closeDialog() {
+    store.set('error', null);
     store.set('isOpenDialogChat', false);
   }
 

@@ -1,10 +1,10 @@
 @import "../../../assets/styles/color-scheme";
 
-.error-message {
+.api-error-message {
     display: flex;
     font-size: 12px;
     line-height: 16px; 
-    font-weight: 400;
+    font-weight: 600;
     width: 100%;
     color: $danger-text;
     word-break: break-word;
