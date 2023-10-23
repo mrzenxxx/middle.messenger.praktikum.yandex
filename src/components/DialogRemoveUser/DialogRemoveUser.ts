@@ -1,6 +1,6 @@
 import template from './DialogRemoveUser.hbs?raw';
 import Block from '../../core/Block';
-import store, { State } from '../../core/Store';
+import store from '../../core/Store';
 import { withStore } from '../../hocs/withStore';
 
 interface DialogRemoveUserProps extends StringIndexed {

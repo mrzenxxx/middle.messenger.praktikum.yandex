@@ -31,7 +31,7 @@ class DialogAddUserBase extends Block<DialogAddUserProps> {
   // TODO Не работает, выкидывает ошибку только в консоли
   public setError(error: string) {
     this.refs.errorLine.setProps({
-      ...this.refs.errorLine.props,
+      ...this.props,
       error,
     });
   }

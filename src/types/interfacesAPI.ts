@@ -17,8 +17,10 @@ export interface Chat {
     created_by: number,
     last_message: {
         user: {
+            id: number,
             first_name: string,
             second_name: string,
+            display_name: string,
             avatar: string,
             email: string,
             login: string,

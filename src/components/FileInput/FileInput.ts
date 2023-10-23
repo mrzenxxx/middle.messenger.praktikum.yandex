@@ -33,13 +33,17 @@ export class FileInput extends Block<FileInputProps | any> {
   }
 
   public getFile() {
-    const selectedFile = (this.refs.fileInput.element! as HTMLInputElement).files[0];
-
-    // При вызове changeLabel() компонент переририсовывается и файл теряется, поэтому сделал через стор.
-    if (selectedFile) {
-      Store.set('file', selectedFile);
+    const fileInput = this.refs?.fileInput?.element as HTMLInputElement | undefined;
+    if (fileInput) {
+      const selectedFile = fileInput.files?.[0];
+      // При вызове changeLabel() компонент переририсовывается и файл теряется, поэтому сделал через стор.
+      if (selectedFile) {
+        Store.set('file', selectedFile);
+      }
+      return selectedFile;
     }
-    return selectedFile;
+
+    return null;
   }
 
   render() {

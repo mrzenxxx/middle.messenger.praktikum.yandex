@@ -1,4 +1,4 @@
-import API, { UserAPI } from '../api/UserApi';
+import API, { UserAPI } from '../api/UserAPI';
 import { User, ChangePasswordRequestData } from '../types/interfacesAPI';
 
 class UserController {

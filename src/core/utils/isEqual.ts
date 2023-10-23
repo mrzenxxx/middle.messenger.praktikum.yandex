@@ -1,6 +1,6 @@
 import { isPlainObject } from './isPlainObject';
 
-function isEqual<T extends StringIndexed>(obj1: T, obj2: T): boolean {
+function isEqual<T extends StringIndexed|string>(obj1: T, obj2: T): boolean {
   if (!isPlainObject(obj1) || !isPlainObject(obj2)) {
     return obj1 === obj2;
   }

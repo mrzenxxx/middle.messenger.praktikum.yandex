@@ -1,6 +1,6 @@
 import template from './DialogCreateChat.hbs?raw';
 import Block from '../../core/Block';
-import store, {State} from '../../core/Store';
+import store, { State } from '../../core/Store';
 import { withStore } from '../../hocs/withStore';
 
 interface DialogCreateChatProps {
@@ -28,7 +28,6 @@ export class DialogCreateChatBase extends Block<DialogCreateChatProps> {
   public getChatTitle() {
     return this.refs.chatTitle.value();
   }
-
 
   render() {
     return this.compile(template, this.props);

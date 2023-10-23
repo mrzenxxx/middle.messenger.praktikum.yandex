@@ -4,7 +4,6 @@ import template from './ChatWindow.hbs?raw';
 import { withStore } from '../../hocs/withStore';
 import MessagesController from '../../controllers/MessagesController';
 import { Chat, User } from '../../types/interfacesAPI';
-import { State } from '../../core/Store';
 
 interface ChatWindowProps extends StringIndexed {
   id: number,

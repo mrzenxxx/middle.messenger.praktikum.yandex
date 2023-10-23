@@ -12,25 +12,25 @@ class ChatsController {
   }
 
   async create(title: string) {
-    let newChatId : number;
-    await this.api.create(title).then((res) => { newChatId = res.id; }).finally(() => store.set('isOpenDialogChat', false));
-    this.setNewChat(newChatId);
+    let newChatId : Nullable<number> = null;
+    await this.api.create(title).then((res) => { newChatId = (res as unknown as Chat).id; }).finally(() => store.set('isOpenDialogChat', false));
+    this.setNewChat(newChatId as unknown as number);
     this.getChats();
   }
 
-  async setNewChat(newChatId) {
+  async setNewChat(newChatId : number) {
     const chats = await this.api.read();
-    store.set('currentChat', chats.filter((chat) => chat.id === newChatId)[0]);
+    store.set('currentChat', (chats as unknown as Chat[]).filter((chat) => chat.id === newChatId)[0]);
   }
 
   async getChats() {
     const chats = await this.api.read();
-    chats.map(async (chat: Chat) => {
+    (chats as unknown as Chat[]).map(async (chat: Chat) => {
       const token = await this.getToken(chat.id);
       await MessagesController.connect(chat?.id, token);
     });
 
-    store.set('chats', transformChatsFromApi(chats));
+    store.set('chats', transformChatsFromApi(chats as unknown as Chat[]));
   }
 
   addUserToChat(id: number, userId: number) {

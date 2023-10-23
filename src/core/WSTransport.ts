@@ -21,7 +21,7 @@ export default class WSTransport extends EventBus {
       throw new Error('Socket is not connected');
     }
 
-    this.socket.send(JSON.stringify(data));
+    (this.socket as WebSocket).send(JSON.stringify(data));
   }
 
   public connect(): Promise<void> {
@@ -39,7 +39,7 @@ export default class WSTransport extends EventBus {
   }
 
   public close() {
-    this.socket?.close();
+    (this.socket as WebSocket)?.close();
   }
 
   private setupPing() {
@@ -48,9 +48,14 @@ export default class WSTransport extends EventBus {
     }, 5000);
 
     this.on(WSEvents.Close, () => {
-      clearInterval(this.ping);
+      clearInterval(this.ping as number);
 
-      this.ping = 0;
+      this.on(WSEvents.Close, () => {
+        if (this.ping) {
+          clearInterval(this.ping as number);
+          this.ping = 0;
+        }
+      });
     });
   }
 

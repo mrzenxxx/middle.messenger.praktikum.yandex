@@ -1,8 +1,8 @@
-import { Message } from '../types/interfacesAPI';
+import { Message, User } from '../types/interfacesAPI';
 import WSTransport, { WSEvents } from '../core/WSTransport';
 import store from '../core/Store';
 import { BASE_URL_WS } from '../core/constants/baseURL';
-import { transformMessagesFromApi } from '../core/utils/transformers';
+// import { transformMessagesFromApi } from '../core/utils/transformers';
 
 class MessagesController {
   private sockets : Map<Number, WSTransport> = new Map();
@@ -23,7 +23,7 @@ class MessagesController {
       return;
     }
 
-    const userId = store.getState().user.id;
+    const userId = (store.getState().user as User)?.id;
     const wsTransport = new WSTransport(`${this.baseURL}${userId}/${chatId}/${token}`);
     this.sockets.set(chatId, wsTransport);
 
@@ -76,7 +76,7 @@ class MessagesController {
     }
 
     const currentMessages = (store.getState().messages || {})[chatId] || [];
-    messagesToAdd = [...currentMessages, ...messagesToAdd];
+    messagesToAdd = [...currentMessages as Message[], ...messagesToAdd];
     store.set(`messages.${chatId}`, messagesToAdd);
   }
 }

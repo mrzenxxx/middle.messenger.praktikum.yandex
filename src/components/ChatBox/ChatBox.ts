@@ -15,7 +15,7 @@ export class ChatBox extends Block<ChatBoxProps> {
   constructor(props: ChatBoxProps) {
     super({
       ...props,
-      isActive: props.id === store.getState().currentChat?.id,
+      isActive: props.id === (store.getState().currentChat as Chat)?.id,
       events: {
         click: () => {
           this.onSelect();

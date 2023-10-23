@@ -9,7 +9,7 @@ export enum StoreEvents {
 export interface State extends StringIndexed {
   user: Nullable<User>,
   currentChat: Nullable<Chat>,
-  messages?: Record<number,Nullable<Message[]>>,
+  messages?: Record<number, Nullable<Message[]>>,
   error: Nullable<string>,
   isOpen: Nullable<boolean>,
   isOpenDialogChat: Nullable<boolean>,
@@ -23,20 +23,14 @@ export interface State extends StringIndexed {
 export class Store extends EventBus {
   private state: Nullable<State> = {};
 
-  constructor() {
-    super();
-    // TODO в вебинаре показывали, но не понятно зачем вообще это
-    window.store = this;
-  }
-
   public set(keypath: string, data: unknown) {
     set(this.state, keypath, data);
     console.warn(this, `.set ${keypath}:`, data);
     this.emit(StoreEvents.Updated, this.getState());
   }
 
-  public getState(): Nullable<State> {
-    return this.state;
+  public getState(): State {
+    return this.state as State;
   }
 }
 

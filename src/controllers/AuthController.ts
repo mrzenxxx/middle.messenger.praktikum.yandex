@@ -33,8 +33,8 @@ class AuthController {
   }
 
   public async getUser() {
-    const user : User = await this.api.read();
-    store.set('user', transformUserFromApi(user));
+    const user = await this.api.read();
+    store.set('user', transformUserFromApi(user as unknown as User));
   }
 
   public async logout() {
