@@ -30,12 +30,24 @@ export class Store extends EventBus {
 
   public set(keypath: string, data: unknown) {
     set(this.state, keypath, data);
-    console.warn(`Store: ${this} .set('${keypath}'):`, data);
+    console.warn(`Store:`, this, `.set('${keypath}'):`, data);
     this.emit(StoreEvents.Updated, this.getState());
   }
 
   public getState(): State {
     return this.state as State;
+  }
+
+  public nullifyError() {
+    this.set('error', null);
+  }
+
+  public resetFile() {
+    this.set('file', null);
+  }
+
+  public resetChat() {
+    this.set('currentChat', null);
   }
 }
 

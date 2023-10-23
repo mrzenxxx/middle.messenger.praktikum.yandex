@@ -23,9 +23,9 @@ class DialogUploadMediaBase extends Block<DialogUploadMediaProps> {
   }
 
   public closeDialog() {
-    store.set('error', null);
+    store.nullifyError();
+    store.resetFile();
     store.set('isOpenDialogUpload', false);
-    store.set('file', null);
   }
 
   public getFile() {

@@ -11,7 +11,7 @@ import UserController from '../../controllers/UserController';
 
 interface ProfileProps extends User {
   isEditable: boolean,
-  onUploadAvatar : () => void,
+  onUploadAvatar : (event: Event) => void,
   onChangeAvatar : (event: Event) => void,
   onEditProfile : (event : Event) => void,
   onSaveChanges : (event : Event) => void,
@@ -49,7 +49,12 @@ export class ProfilePageBase extends Block<ProfileProps> {
         event.preventDefault();
         const passwords = this.refs.dialogChangePassword.getPasswords();
         UserController.updatePassword(passwords as unknown as ChangePasswordRequestData)
-          .finally(() => store.set('isOpenDialogPassword', false));
+          .catch((error) => store.set('error', error))
+          .finally(() => {
+            if(!store.getState().error){
+              store.set('isOpenDialogPassword', false)
+            }}
+          );
       },
       onEditProfile: (event) => {
         event.preventDefault();
@@ -67,18 +72,24 @@ export class ProfilePageBase extends Block<ProfileProps> {
         });
         UserController.updateProfile(form as User)
           .then(() => AuthController.getUser())
-          .then(() => this.setProps({
+          .finally(() => this.setProps({
             ...props,
             isEditable: false,
           }));
       },
-      onUploadAvatar: () => {
+      onUploadAvatar: (event: Event) => {
+        event.preventDefault();
         const { file } = store.getState();
         const data = new FormData();
         data.append('avatar', file);
         UserController.updateAvatar(data)
-          .then(() => AuthController.getUser())
-          .finally(() => this.refs.dialogUploadAvatar.closeDialog());
+          .catch((error) => store.set('error', error))
+          .finally(() => {
+            if (!store.getState().error){
+              store.set('isOpenDialogUpload', false)
+              AuthController.getUser();
+            }
+          });
       },
     });
     AuthController.getUser();

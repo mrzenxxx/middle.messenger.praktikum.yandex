@@ -20,6 +20,7 @@ export class ChatSettingsBar extends Block<ChatSettingsBarProps | any> {
       // Был вариант пропсами тянуть в компонент SideBar, затем в Messenger,
       // Но логичнее в одном месте чтобы было всё, поэтому решил через Store передавать состояние.
       onCreateChat: () => {
+        store.nullifyError(),
         store.set('isOpenDialogChat', true);
       },
     });

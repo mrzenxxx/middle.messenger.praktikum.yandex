@@ -53,7 +53,7 @@ class ChatsController {
 
     this.getChats();
     store.set('isOpenDialogDelete', false);
-    store.set('currentChat', null);
+    store.resetChat();
   }
 
   getToken(id: number) {
