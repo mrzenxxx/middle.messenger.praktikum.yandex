@@ -24,7 +24,8 @@
         "no-use-before-define": "off",
         "no-return-assign": "off",
         "no-shadow": "off",
-        "class-methods-use-this": "off"
+        "class-methods-use-this": "off",
+        "eol-last":  2
     },
     "settings": {
         "import/resolver": {
