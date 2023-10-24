@@ -8,5 +8,10 @@
     height: 100dvh;
     border-right: 1px solid $base-lines;
     background-color: $base-background;
-    overflow: auto;
+    overflow-x: visible;
+    overflow-y: scroll;
+
+    &__list-wrapper {
+        position: absolute;
+    }
 }

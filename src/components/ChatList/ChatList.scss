@@ -4,13 +4,14 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        overflow-y: scroll;
         height: calc(100dvh - 88px);
         max-width: 320px;
+        overflow-x: visible;
+        overflow-y: auto;
 
         &__item {
-                overflow: visible;
-                display: block;
-                position: unset;
+                // overflow: visible;
+                // display: block;
+                // position: unset;
         }
 }
