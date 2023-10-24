@@ -49,7 +49,6 @@ class AuthController {
     } catch (error) {
       store.set('error', error);
     }
-
   }
 }
 
