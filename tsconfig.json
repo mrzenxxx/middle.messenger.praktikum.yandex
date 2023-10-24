@@ -16,7 +16,7 @@
       "ESNext",
       "DOM"
     ],
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "strict": true,
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
