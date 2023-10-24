@@ -42,9 +42,14 @@ class AuthController {
   }
 
   public async logout() {
-    await this.api.logout();
-    store.set('user', {});
-    router.go(routes.Login);
+    try {
+      await this.api.logout();
+      store.set('user', {});
+      router.go(routes.LoginPage);
+    } catch (error) {
+      store.set('error', error);
+    }
+
   }
 }
 

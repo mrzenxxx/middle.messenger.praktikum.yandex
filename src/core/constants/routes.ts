@@ -1,7 +1,7 @@
 const routes : Record<string, string> = {
   Navigation: '/navigation',
   Register: '/sign-up',
-  Login: '/',
+  LoginPage: '/',
   Profile: '/settings',
   Messenger: '/messenger',
   ServerError: '/500',

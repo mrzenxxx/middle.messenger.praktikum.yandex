@@ -1,18 +1,18 @@
 import Block from '../../core/Block';
-import template from './login.hbs?raw';
-import './Login.scss';
+import template from './LoginPage.hbs?raw';
+import './LoginPage.scss';
 import router from '../../core/Router';
 import AuthController from '../../controllers/AuthController';
 import routes from '../../core/constants/routes';
 
-interface LoginProps extends StringIndexed{
+interface LoginPageProps extends StringIndexed{
   error: string,
   onLogin: (event: Event) => void;
   onSwitch: (event: Event) => void;
 }
 
-export class Login extends Block<LoginProps> {
-  constructor(props: LoginProps) {
+export class LoginPage extends Block<LoginPageProps> {
+  constructor(props: LoginPageProps) {
     super({
       ...props,
 

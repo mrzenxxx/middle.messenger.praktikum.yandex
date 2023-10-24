@@ -25,7 +25,7 @@ export class Register extends Block<RegisterProps> {
 
       onSwitch: (event : Event) => {
         event.preventDefault();
-        Router.go(routes.Login);
+        Router.go(routes.LoginPagePage);
       },
     });
   }
