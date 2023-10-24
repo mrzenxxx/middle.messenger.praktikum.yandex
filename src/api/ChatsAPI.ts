@@ -1,4 +1,5 @@
 import BaseAPI from './BaseAPI';
+import Store from '../core/Store';
 
 interface GetTokenHttpResponse extends XMLHttpRequest {
   token: string,

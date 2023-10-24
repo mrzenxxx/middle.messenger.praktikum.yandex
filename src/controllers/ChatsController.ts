@@ -16,9 +16,13 @@ class ChatsController {
     await this.api.create(title)
       .then((res) => { newChatId = (res as unknown as Chat).id; })
       .catch((error) => store.set('error', error))
-      .finally(() => store.set('isOpenDialogChat', false));
-    this.setNewChat(newChatId as unknown as number);
-    this.getChats();
+      .finally(() => {
+        if(!store.getState().error){
+          store.set('isOpenDialogChat', false);
+          this.setNewChat(newChatId as unknown as number);
+          this.getChats();
+        }
+    });
   }
 
   async setNewChat(newChatId : number) {
@@ -36,24 +40,39 @@ class ChatsController {
     store.set('chats', transformChatsFromApi(chats as unknown as Chat[]));
   }
 
-  addUserToChat(id: number, userId: number) {
-    this.api.addUsers(id, [userId]).catch((error) => store.set('error', error));
+  async addUserToChat(id: number, userId: number) {
+    try {
+      await this.api.addUsers(id, [userId]);
+    } catch (error) {
+      store.set('error', error);
+    } finally {
+      store.set('isOpenDialogRemoveUser', false);
+    }
   }
 
-  removeUserFromChat(id: number, userId: number) {
-    this.api.removeUsers(id, [userId]).catch((error) => store.set('error', error));
-  }
+  async removeUserFromChat(id: number, userId: number) {
+    try {
+      await this.api.removeUsers(id, [userId]);
+    } catch (error) {
+      store.set('error', error);
+    } finally {
+      store.set('isOpenDialogAddUser', false);
+    }
+    
+  }  
 
   async delete(id: number) {
     try {
       await this.api.delete(id);
     } catch (error) {
       store.set('error', error);
+    } finally {
+      if (!store.getState().error) {
+        store.set('isOpenDialogDelete', false);
+        store.resetChat();
+        this.getChats();
+      }
     }
-
-    this.getChats();
-    store.set('isOpenDialogDelete', false);
-    store.resetChat();
   }
 
   getToken(id: number) {

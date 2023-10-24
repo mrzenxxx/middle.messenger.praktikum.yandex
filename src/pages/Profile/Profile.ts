@@ -51,10 +51,10 @@ export class ProfilePageBase extends Block<ProfileProps> {
         UserController.updatePassword(passwords as unknown as ChangePasswordRequestData)
           .catch((error) => store.set('error', error))
           .finally(() => {
-            if(!store.getState().error){
-              store.set('isOpenDialogPassword', false)
-            }}
-          );
+            if (!store.getState().error) {
+              store.set('isOpenDialogPassword', false);
+            }
+          });
       },
       onEditProfile: (event) => {
         event.preventDefault();
@@ -85,8 +85,8 @@ export class ProfilePageBase extends Block<ProfileProps> {
         UserController.updateAvatar(data)
           .catch((error) => store.set('error', error))
           .finally(() => {
-            if (!store.getState().error){
-              store.set('isOpenDialogUpload', false)
+            if (!store.getState().error) {
+              store.set('isOpenDialogUpload', false);
               AuthController.getUser();
             }
           });

@@ -2,6 +2,7 @@
 
 .api-error-message {
     display: flex;
+    min-height: 32px;
     font-size: 12px;
     line-height: 16px; 
     font-weight: 600;
@@ -11,6 +12,5 @@
     align-items: center;
     padding: auto;
     justify-content: center;
-    margin-bottom: 8px;
     text-align: center;
 }

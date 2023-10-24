@@ -5,40 +5,44 @@ import ChatsController from '../../controllers/ChatsController';
 import AuthController from '../../controllers/AuthController';
 import { withStore } from '../../hocs/withStore';
 import { Chat } from '../../types/interfacesAPI';
+import store from '../../core/Store';
 
 interface MessengerProps extends StringIndexed {
   chats: Nullable<StringIndexed>,
   currentChat: Chat,
-  user : number,
+  user: number,
   messages: [],
-  getUserInput: () => string,
 }
 
 class MessengerBase extends Block<MessengerProps> {
   constructor(props: MessengerProps) {
     super({
       ...props,
-      onAddUser: () => {
+      onAddUser: (event: Event) => {
+        event.preventDefault();
         const userId = this.refs.addUserDialog.getUserInput();
         const chatId = this.props.currentChat?.id;
         ChatsController.addUserToChat(chatId, userId as unknown as number);
       },
-      onRemoveUser: () => {
+      onRemoveUser: (event: Event) => {
+        event.preventDefault();
         const userId = this.refs.removeUserDialog.getUserInput();
         const chatId = this.props.currentChat?.id;
         ChatsController.removeUserFromChat(chatId, userId as unknown as number);
       },
-      onCreateChat: () => {
+      onCreateChat: (event: Event) => {
+        event.preventDefault();
         const title = this.refs.createChatDialog.getChatTitle();
         ChatsController.create(title!);
       },
-      onDeleteChat: () => {
+      onDeleteChat: (event: Event) => {
+        event.preventDefault();
         const chatId = this.props.currentChat.id;
         ChatsController.delete(chatId);
       },
     });
 
-    ChatsController.getChats();
+    ChatsController.getChats().catch((error) => store.set('error', error));
     AuthController.getUser();
   }
 
@@ -47,4 +51,4 @@ class MessengerBase extends Block<MessengerProps> {
   }
 }
 
-export const Messenger = withStore((state) => ({ ...state }))(MessengerBase);
+export const Messenger = withStore((state) => ({ ...state, error: null }))(MessengerBase);

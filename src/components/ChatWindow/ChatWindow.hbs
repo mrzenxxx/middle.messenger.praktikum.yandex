@@ -1,6 +1,10 @@
 <section class="chat-window">
     {{#unless currentChat.id}}
-        <section class="chat-window__stab">Выберите или создайте новый чат.</section>
+        <section class="chat-window__stab">
+            Выберите или создайте новый чат.
+            {{{ApiErrorMessage}}}  
+        </section>
+        
     {{else}}
         {{{ChatHeader title=currentChat.title avatar=currentChat.avatar}}}
         {{{ChatFeed currentChat=currentChat.id messages=messages}}}

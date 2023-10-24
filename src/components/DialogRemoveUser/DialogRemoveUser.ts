@@ -30,14 +30,6 @@ class DialogRemoveUserBase extends Block<DialogRemoveUserProps> {
     return this.refs.removeUserID.value();
   }
 
-  // TODO Не работает, выкидывает ошибку только в консоли
-  public setError(error: string) {
-    this.refs.errorLine.setProps({
-      ...this.props,
-      error,
-    });
-  }
-
   render() {
     return this.compile(template, this.props);
   }
