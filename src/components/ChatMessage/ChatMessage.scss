@@ -10,8 +10,37 @@
     margin: 4px 0;
     border-radius: 4px;
 
+    &__own {
+        padding: 8px ;
+        display: inline-block;
+        width: auto;
+        max-width: 55%;
+        height: auto;
+        margin: 4px 0;
+        border-radius: 4px;
+        background-color: $dark-background;
+        justify-self: end;
+
+        &__wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+
+        &__text {
+            font-size: 12px;
+            line-height: 8px;
+            font-weight: 400;
+            color: $button-primary-text;
+            word-break: break-all;
+        }
+
+    }
+
     &__wrapper {
         display: block;
+        width: 100%;
     }
 
     &__info_wrapper {

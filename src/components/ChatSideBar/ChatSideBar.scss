@@ -1,0 +1,12 @@
+@import "../../../assets/styles/color-scheme";
+
+.chat-sidebar {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 100dvh;
+    border-right: 1px solid $base-lines;
+    background-color: $base-background;
+    overflow: auto;
+}

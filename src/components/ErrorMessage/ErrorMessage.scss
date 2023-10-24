@@ -1,9 +1,16 @@
 @import "../../../assets/styles/color-scheme";
 
 .error-message {
-    font-size: 24px;
-    line-height: 8px;
+    display: flex;
+    font-size: 12px;
+    line-height: 16px; 
     font-weight: 400;
+    width: 100%;
     color: $danger-text;
-    word-break: break-all;
+    word-break: break-word;
+    align-items: center;
+    padding: auto;
+    justify-content: center;
+    margin-bottom: 8px;
+    text-align: center;
 }

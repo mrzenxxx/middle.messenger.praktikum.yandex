@@ -15,8 +15,16 @@
     border-collapse: collapse;
     margin: -1px 0;
 
-    &__wrapper {
-        display: block;
+    &__last-message_author {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 4px;
+    }
+
+    &__active {
+        background-color: $secondary-background;
+        border: 1px solid $secondary-lines;
     }
 
     &__text {

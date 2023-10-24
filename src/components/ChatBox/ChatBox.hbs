@@ -1,23 +1,27 @@
-<li class="chatbox__wrapper">
-<button class="chatbox">
-    {{>Avatar size="normal" src=./avatar alt="Chat avatar picture"}}
+<button class="chatbox {{#if isActive}}chatbox__active{{/if}}">
+    {{{Avatar size="normal" src=chat.avatar alt="Chat avatar picture"}}}
     <div class="chatbox__text">
         <div class="chatbox__text_header">
-            {{header}}
+            {{chat.title}}
         </div>
         <div class="chatbox__text_content">
-            {{content}}
+            {{#if chat.last_message}}                
+                <strong class="chatbox__last-message_author">
+                    {{{Avatar size="xxsmall" src=chat.last_message.user.avatar}}}
+                    {{chat.last_message.user.display_name}}:
+                </strong>
+                {{chat.last_message.content}}
+            {{/if}}
         </div>
     </div>
     <div class="chatbox__info">
         <div class="chatbox__info_time">
-            {{time}}
+            {{chat.last_message.time}}
         </div>
-        {{#if unread}}
+        {{#if unread_count}}
             <div class="chatbox__info_unread">
-                {{unread}}
+                {{chat.unread_count}}
             </div>
         {{/if}}
     </div>
 </button>
-</li>

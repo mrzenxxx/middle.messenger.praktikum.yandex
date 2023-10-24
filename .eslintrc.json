@@ -21,7 +21,11 @@
         "no-underscore-dangle": "off",
         "func-names": "off",
         "no-unused-vars": "off",
-        "no-use-before-define": "off"
+        "no-use-before-define": "off",
+        "no-return-assign": "off",
+        "no-shadow": "off",
+        "class-methods-use-this": "off",
+        "eol-last":  2
     },
     "settings": {
         "import/resolver": {
@@ -29,5 +33,12 @@
             "paths": ["src"]
           }
         }
+    },
+    "globals" : {
+        "StringIndexed" : "readonly",
+        "Nullable" : "readonly",
+        "Indexed" : "readonly",
+        "PlainObject" : "readonly",
+        "NodeJS" : "readonly"
     }
 }

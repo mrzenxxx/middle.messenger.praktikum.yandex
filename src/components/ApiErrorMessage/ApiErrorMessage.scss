@@ -1,0 +1,16 @@
+@import "../../../assets/styles/color-scheme";
+
+.api-error-message {
+    display: flex;
+    min-height: 32px;
+    font-size: 12px;
+    line-height: 16px; 
+    font-weight: 600;
+    width: 100%;
+    color: $danger-text;
+    word-break: break-word;
+    align-items: center;
+    padding: auto;
+    justify-content: center;
+    text-align: center;
+}

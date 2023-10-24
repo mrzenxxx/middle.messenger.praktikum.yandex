@@ -1,3 +1,4 @@
-<button class="button button__{{style}} type={{type}}"> 
-    {{label}}
+<button {{#if style}}class="button button__{{style}}"{{/if}} {{#if className}}class="{{className}}"{{/if}}type={{type}} {{#if disabled}}disabled="true"{{/if}}> 
+    {{#if label}}{{label}}{{/if}}
+    {{children}}
 </button>

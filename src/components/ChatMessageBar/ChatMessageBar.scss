@@ -10,13 +10,87 @@
     border-top: 1px solid $base-lines;
     box-sizing: border-box;
     position: relative;
+    margin: 0;
+    justify-content: center;
+    align-items: flex-end;
 
-    &_input-error {
+    &__form {
+        display: flex;
+        height: 48px;
+        width: 100%;
+        margin: auto 0;
+        padding: 0;
+        gap: 2px;
+    }
+
+    &__input-error {
         display: block;
         position: absolute;
         right: 50px;
         top: 14px;
         font-size: 12px;
         color: $danger-text;
+    }
+
+    &__message {
+        margin: auto 0;
+        width: calc(100% - 40px);
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        padding: 6px 0 6px 12px;
+        box-sizing: border-box;
+        border: 1px solid $secondary-lines;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.21;
+        background-color: $secondary-background;
+        color: $base-text;
+    
+        &:focus {
+            background-color: $base-background;
+            outline: auto;
+            outline-color: $base-shadow;
+        }
+    }
+
+    &__attach-button {
+        border: none;
+        margin: auto 2px;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        background: url("../../../assets/img/icons/attach.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            opacity: 0.9;
+            transition: 0.25s;
+        }
+    }
+
+    &__send-button {
+        border: none;
+        margin: auto 2px;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        background: url("../../../assets/img/icons/forward.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+
     }
 }
