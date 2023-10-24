@@ -1,4 +1,4 @@
-import { User, Chat } from '../../types/interfacesAPI';
+import { User, Chat, Message } from '../../types/interfacesAPI';
 import { BASE_URL } from '../constants/baseURL';
 import { defaultAvatarSrc, defaultChatAvatarSrc } from '../constants/defaultSources';
 import formatDate from './formatDate';
@@ -44,17 +44,28 @@ export const transformChatsFromApi = (data: Chat[]): Chat[] => data?.map((chat :
   },
 }));
 
-// export const transformMessagesFromApi = (data: Message[]|Message): Message[]| Message => {
-//   if (Array.isArray(data)) {
-//     data.map((message) => ({
-//       chat_id: message.chat_id,
-//       content: message.content,
-//       file: message.file || null,
-//       id: message.id,
-//       is_read: message.is_read,
-//       time: formatDate(message.time),
-//       type: message.type,
-//       user_id: message.user_id,
-//     }));
-//   }
-// };
+export const transformMessagesFromApi = (data: Message[]|Message) => {
+  if (Array.isArray(data)) {
+    return data.map((message) => ({
+      chat_id: message.chat_id,
+      content: message.content,
+      file: message.file || null,
+      id: message.id,
+      is_read: message.is_read,
+      time: formatDate(message.time),
+      type: message.type,
+      user_id: message.user_id,
+    }));
+  } else {
+    return {
+      chat_id: data.chat_id,
+      content: data.content,
+      file: data.file || null,
+      id: data.id,
+      is_read: data.is_read,
+      time: formatDate(data.time),
+      type: data.type,
+      user_id: data.user_id,  
+    }
+  }
+};
