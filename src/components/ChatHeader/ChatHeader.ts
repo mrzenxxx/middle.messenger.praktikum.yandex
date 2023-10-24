@@ -15,15 +15,15 @@ export class ChatHeader extends Block<ChatHeaderProps> {
     super({
       ...props,
       onAddUser: () => {
-        store.nullifyError(),
+        store.nullifyError();
         store.set('isOpenDialogAddUser', true);
       },
       onDeleteChat: () => {
-        store.nullifyError(),
+        store.nullifyError();
         store.set('isOpenDialogDelete', true);
       },
       onRemoveUser: () => {
-        store.nullifyError(),
+        store.nullifyError();
         store.set('isOpenDialogRemoveUser', true);
       },
     });

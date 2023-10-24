@@ -24,7 +24,7 @@ class DialogChangePasswordBase extends Block<DialogChangePasswordProps> {
   }
 
   public closeDialog() {
-    store.nullifyError(),
+    store.nullifyError();
     store.set('isOpenDialogPassword', false);
   }
 

@@ -17,12 +17,12 @@ class ChatsController {
       .then((res) => { newChatId = (res as unknown as Chat).id; })
       .catch((error) => store.set('error', error))
       .finally(() => {
-        if(!store.getState().error){
+        if (!store.getState().error) {
           store.set('isOpenDialogChat', false);
           this.setNewChat(newChatId as unknown as number);
           this.getChats();
         }
-    });
+      });
   }
 
   async setNewChat(newChatId : number) {
@@ -58,8 +58,7 @@ class ChatsController {
     } finally {
       store.set('isOpenDialogAddUser', false);
     }
-    
-  }  
+  }
 
   async delete(id: number) {
     try {

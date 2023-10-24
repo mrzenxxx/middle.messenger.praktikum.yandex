@@ -22,7 +22,7 @@ class DialogRemoveUserBase extends Block<DialogRemoveUserProps> {
   }
 
   public closeDialog() {
-    store.nullifyError(),
+    store.nullifyError();
     store.set('isOpenDialogRemoveUser', false);
   }
 
