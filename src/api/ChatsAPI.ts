@@ -11,7 +11,7 @@ export class ChatsAPI extends BaseAPI {
 
   public create = (title: string) => this.http.post('/', { data: { title } });
 
-  public read = () => this.http.get('/');
+  public read = () => this.http.get('/?limit=50');
 
   public delete = (id: number) => this.http.delete('/', { data: { chatId: id } });
 

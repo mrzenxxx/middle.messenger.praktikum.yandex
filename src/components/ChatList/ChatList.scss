@@ -3,15 +3,22 @@
 .chat-list {
         margin: 0;
         padding: 0;
-        list-style: none;
         height: calc(100dvh - 88px);
         max-width: 320px;
-        overflow-x: visible;
-        overflow-y: auto;
+        overflow-x: visible!important;
+        overflow-y: scroll;
+
+        &__wrapper {
+                margin: 0;
+                padding: 0;
+                position: relative;
+                list-style: none;
+
+        }
+
 
         &__item {
-                // overflow: visible;
-                // display: block;
-                // position: unset;
+                position: relative;
+                display: block;
         }
 }

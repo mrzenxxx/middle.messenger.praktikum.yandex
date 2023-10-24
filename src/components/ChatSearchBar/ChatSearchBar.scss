@@ -3,11 +3,13 @@
 .chat-search-bar {
     display: flex;
     flex-direction: row;
+    max-width: 260px;
     width: 100%;
     height: 40px;
     background-color: $base-background;
     border-bottom: 1px solid $base-lines;
     box-sizing: border-box;
+    margin: 0 10px;
 
     &__input {
         margin: auto 0;
@@ -25,8 +27,8 @@
         color: $base-text;
 
         // НЕ ПОЛУЧАЕТСЯ В ЭТОМ МЕСТЕ НАРИСОВАТЬ ИКОНКУ
-        &::after {
-            content: "";
+        &:after {
+            content: "тест";
             display: inline-block;
             position: absolute;
             top: 0;

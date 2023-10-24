@@ -5,12 +5,12 @@
             {{chat.title}}
         </div>
         <div class="chatbox__text_content">
-            {{#if chat.last_message}}                
-                <strong class="chatbox__last-message_author">
-                    {{{Avatar size="xxsmall" src=chat.last_message.user.avatar}}}
-                    {{chat.last_message.user.display_name}}:
-                </strong>
-                {{chat.last_message.content}}
+            {{#if chat.last_message.content}}
+            <strong class="chatbox__last-message_author">
+                {{{Avatar size="xxsmall" src=chat.last_message.user.avatar}}}
+                {{chat.last_message.user.display_name}}:
+            </strong>
+            {{chat.last_message.content}}
             {{/if}}
         </div>
     </div>
@@ -19,9 +19,9 @@
             {{chat.last_message.time}}
         </div>
         {{#if unread_count}}
-            <div class="chatbox__info_unread">
-                {{chat.unread_count}}
-            </div>
+        <div class="chatbox__info_unread">
+            {{chat.unread_count}}
+        </div>
         {{/if}}
     </div>
 </button>

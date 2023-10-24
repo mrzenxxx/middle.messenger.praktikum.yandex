@@ -6,10 +6,9 @@
     justify-content: center;
     align-items: center;
     margin: auto 0;
-    cursor: pointer;
     background: $secondary-background;
     overflow: hidden;
-    box-shadow: 0 0 3px $dark-background;
+    box-shadow: 0 0 5px $base-shadow;
 
     &_image {
         width: 100%;

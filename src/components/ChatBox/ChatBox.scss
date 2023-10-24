@@ -4,15 +4,19 @@
     &_active {
         background-color: $dark-background;
         border: 1px solid $base-lines;
-        // box-shadow: -5px 0px 5px $dark-background, 5px 0px 5px $dark-background;
+        border-radius: 5px;
+        max-width: 270px;
+        margin: -1px 5px;
+        z-index: 1;
 
     }
 
-    padding: 8px 0;
+    padding: 8px 4px;
     display: flex;
     flex-direction: row;
     position: relative;
     width: 100%;
+    max-width: 260px;
     height: 72px;
     border: none;
     background-color: $base-background;
@@ -20,13 +24,16 @@
     border-top: 1px solid $secondary-lines;
     box-sizing: border-box;
     border-collapse: collapse;
-    margin: -1px 0;
+    margin: -1px 10px;
 
     &__last-message_author {
         display: flex;
+        padding: 3px;
+        height: 16px;
         flex-direction: row;
         width: 100%;
         gap: 4px;
+        align-items: center;
     }
 
     &__text {
@@ -48,7 +55,6 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            margin-bottom: 4px;
 
             &_active {
                 color: white;
@@ -61,7 +67,6 @@
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                margin-bottom: 4px;
             }
         }
 
@@ -119,7 +124,7 @@
         border-bottom: 1px solid $base-lines;
         border-top: 1px solid $base-lines;
         z-index: 1000;
-        scale: 1.05;
+        scale: 1.025;
         transition: 0.25s;
     }
 
