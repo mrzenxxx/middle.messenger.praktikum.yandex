@@ -20,7 +20,6 @@ export class LoginPage extends Block<LoginPageProps> {
         event.preventDefault();
         const login = this.refs.login.value()!;
         const password = this.refs.password.value()!;
-
         AuthController.login({
           login,
           password,
