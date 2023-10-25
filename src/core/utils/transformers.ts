@@ -56,16 +56,15 @@ export const transformMessagesFromApi = (data: Message[]|Message) => {
       type: message.type,
       user_id: message.user_id,
     }));
-  } else {
-    return {
-      chat_id: data.chat_id,
-      content: data.content,
-      file: data.file || null,
-      id: data.id,
-      is_read: data.is_read,
-      time: formatDate(data.time),
-      type: data.type,
-      user_id: data.user_id,  
-    }
   }
+  return {
+    chat_id: data.chat_id,
+    content: data.content,
+    file: data.file || null,
+    id: data.id,
+    is_read: data.is_read,
+    time: formatDate(data.time),
+    type: data.type,
+    user_id: data.user_id,
+  };
 };

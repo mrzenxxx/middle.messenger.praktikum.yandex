@@ -27,7 +27,7 @@
         color: $base-text;
 
         // НЕ ПОЛУЧАЕТСЯ В ЭТОМ МЕСТЕ НАРИСОВАТЬ ИКОНКУ
-        &:after {
+        &::after {
             content: "тест";
             display: inline-block;
             position: absolute;
