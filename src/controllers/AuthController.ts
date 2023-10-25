@@ -21,9 +21,7 @@ class AuthController {
       router.go(routes.Profile);
     } catch (error) {
       console.error(error);
-      // не понимаю почему, но с оператором === не работает корректно
-      // eslint-disable-next-line
-      if (error == redirectErrors.ALREADY_IN_SYSTEM) {
+      if (String(error) === redirectErrors.ALREADY_IN_SYSTEM) {
         router.go(routes.Messenger);
       } else {
         store.set('error', error);
@@ -63,8 +61,7 @@ class AuthController {
       router.go(routes.LoginPage);
     } catch (error) {
       console.error(error);
-      // eslint-disable-next-line
-      if (error == redirectErrors.BAD_USER_COOKIE) {
+      if (String(error) === redirectErrors.BAD_USER_COOKIE) {
         router.go(routes.LoginPage);
       } else {
         store.set('error', error);

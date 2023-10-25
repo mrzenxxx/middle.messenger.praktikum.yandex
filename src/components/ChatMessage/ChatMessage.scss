@@ -1,36 +1,38 @@
 @import "../../../assets/styles/color-scheme";
 
 .chat-message {
-    padding: 8px ;
+    padding: 4px 8px;
     display: inline-block;
     width: auto;
+    min-width: 25%;
     max-width: 55%;
     height: auto;
     background-color: $secondary-background;
-    margin: 4px 0;
+    margin: 2px 0;
     border-radius: 4px;
 
     &__own {
-        padding: 8px ;
+        padding: 4px 8px;
         display: inline-block;
         width: auto;
+        min-width: 25%;
         max-width: 55%;
         height: auto;
-        margin: 4px 0;
-        border-radius: 4px;
+        margin: 2px 0;
+        border-radius: 5px;
         background-color: $dark-background;
         justify-self: end;
 
         &__wrapper {
             display: flex;
             flex-direction: row;
-            align-items: flex-start;
+            align-items: center;
             justify-content: flex-end;
         }
 
         &__text {
             font-size: 12px;
-            line-height: 8px;
+            line-height: 16px;
             font-weight: 400;
             color: $button-primary-text;
             word-break: break-all;
@@ -43,27 +45,23 @@
         width: 100%;
     }
 
-    &__info_wrapper {
+    &__author {
         display: flex;
-        flex-direction: row;
-        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0;
+        color: $faded-text;
         margin-bottom: 4px;
     }
 
-    &__separator {
-        width: 100%;
-    }
-
-    &__author {
-        text-align: left;
-        font-size: 12px;
-        font-weight: 400;
-        margin: 0 6px;
-        color: $faded-text;
-    }
-
     &__time {
-        text-align: left;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        width: 100%;
+        text-align: right;
         font-size: 12px;
         font-weight: 400;
         color: $faded-text;
@@ -71,7 +69,7 @@
 
     &__text {
         font-size: 12px;
-        line-height: 8px;
+        line-height: 16px;
         font-weight: 400;
         color: $base-text;
         word-break: break-all;
