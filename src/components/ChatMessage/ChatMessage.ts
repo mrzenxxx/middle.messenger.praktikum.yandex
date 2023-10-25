@@ -1,5 +1,22 @@
-import Handlebars from 'handlebars';
+import Block from '../../core/Block';
 import template from './ChatMessage.hbs?raw';
 import './ChatMessage.scss';
+import store from '../../core/Store';
+import { User } from '../../api/AuthAPI';
 
-export default Handlebars.compile(template);
+interface ChatMessageProps extends StringIndexed {
+    isOwn: boolean,
+}
+
+export class ChatMessage extends Block<ChatMessageProps> {
+  constructor(props: ChatMessageProps) {
+    super({
+      ...props,
+      isOwn: props.author === (store.getState().user as User).id,
+    });
+  }
+
+  render() {
+    return this.compile(template, this.props);
+  }
+}

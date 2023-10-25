@@ -1,0 +1,21 @@
+{{#Dialog open=isOpen}}
+<form method="dialog">
+    <h4>Создать новую переписку</h4>
+    {{{ FormField label="Название чата" name="chat_title" ref="chatTitle" isActive="true"}}}
+    {{{ ApiErrorMessage }}}
+    <div>
+        {{{ Button
+        label="Cоздать"
+        type="submit"
+        style="primary"
+        onClick=onCreateChat
+        }}}
+        {{{ Button
+        label="Отменить"
+        type="button"
+        style="secondary"
+        onClick=onClose
+        }}}
+    </div>
+</form>
+{{/Dialog}}

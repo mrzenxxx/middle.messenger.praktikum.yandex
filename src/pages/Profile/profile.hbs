@@ -1,21 +1,35 @@
 <main class='profile'>
+    {{{Button className="profile__back-button" type="button" onClick=onGoBack}}}
     {{#Form type='profile' onSubmit=onSaveChanges}}
-        {{>Avatar size='large' src=user.avatar alt="Current user profile avatar picture"}}
-        <span class='profile__profile_name'>
-            {{user.display_name}}
-        </span>
-        <div class='profile__form_fields'>
-            {{{FormField label='Почта' ref='email' name='email' value=user.email style='profile'}}}
-            {{{FormField label='Логин' ref='login' name='login' value=user.login style='profile'}}}
-            {{{FormField label='Имя' ref='first_name' name='first_name' value=user.first_name style='profile'}}}
-            {{{FormField label='Фамилия' ref='second_name' name='second_name' value=user.second_name style='profile'}}}
-            {{{FormField label='Имя в чате' ref='display_name' name='display_name' value=user.display_name style='profile'}}}
-            {{{FormField label='Телефон' ref='phone' name='phone' type='phone' value=user.phone style='profile'}}}
-        </div>
-        <div class='profile__buttons_wrapper'>
-            {{{Button label = 'Изменить данные' type='submit' style='primary'}}}
-            {{{Button label = 'Изменить пароль' type='button' style='secondary'}}}
-            {{{Button label = 'Выйти' type='button' style='danger'}}}
-        <div>
+    {{{Avatar size='large' src=user.avatar alt="Current user profile avatar picture" onClick=onChangeAvatar}}}
+    <span class='profile__profile_name'>
+        {{user.display_name}}
+        <br/>
+        ID: {{user.id}}
+    </span>
+    <div class='profile__form_fields'>
+        {{{FormField label='Почта' ref='email' name='email' value=user.email style='profile' isActive=isEditable}}}
+        {{{FormField label='Логин' ref='login' name='login' value=user.login style='profile' isActive=isEditable}}}
+        {{{FormField label='Имя' ref='first_name' name='first_name' value=user.first_name style='profile'
+        isActive=isEditable}}}
+        {{{FormField label='Фамилия' ref='second_name' name='second_name' value=user.second_name style='profile'
+        isActive=isEditable}}}
+        {{{FormField label='Имя в чате' ref='display_name' name='display_name' value=user.display_name style='profile'
+        isActive=isEditable}}}
+        {{{FormField label='Телефон' ref='phone' name='phone' type='phone' value=user.phone style='profile'
+        isActive=isEditable}}}
+    </div>
+    {{{ApiErrorMessage}}}
+    <div class='profile__buttons_wrapper'>
+        {{#if isEditable}}
+        {{{Button label = 'Сохранить изменения' type='submit' style='primary'}}}
+        {{else}}
+        {{{Button label = 'Изменить данные' type='button' style='secondary' onClick=onEditProfile}}}
+        {{/if}}
+        {{{Button label = 'Изменить пароль' type='button' style='secondary' onClick=onChangePassword}}}
+        {{{Button label = 'Выйти' type='link' style='danger' onClick=onLogout}}}
+    </div>
     {{/Form}}
+    {{{DialogUploadMedia ref="dialogUploadAvatar" onSubmitMedia=onUploadAvatar }}}
+    {{{DialogChangePassword ref="dialogChangePassword" onSubmit=onSubmitNewPassword}}}
 </main>

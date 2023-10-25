@@ -1,7 +1,12 @@
-<aside class="chat-list">
-    {{{ChatSearchBar}}}
+<div class="chat-list">
     <ul class="chat-list__wrapper">
-        {{>@partial-block}}
+        {{#each chats}}
+        <li class="chat-list__item">
+            {{{ChatBox
+            chat=this
+            id=this.id
+            }}}
+        </li>
+        {{/each}}
     </ul>
-    {{{ChatSettingsBar}}}
-</aside>
+</div>

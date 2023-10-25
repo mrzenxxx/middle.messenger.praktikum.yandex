@@ -1,0 +1,9 @@
+<main class="messenger-page">
+  {{{ChatSideBar chats=chats onClickProfileButton=switchToProfile onClickCreateChatButton=openDialog}}}
+  {{{ChatWindow onSend=onSendMessage}}}
+  {{{DialogCreateChat onCreateChat=onCreateChat ref="createChatDialog"}}}
+  {{{DialogAddUser onAddUser=onAddUser ref="addUserDialog"}}}
+  {{{DialogRemoveUser onRemoveUser=onRemoveUser ref="removeUserDialog"}}}
+  {{{DialogDeleteChat onDeleteChat=onDeleteChat}}}
+  {{{DialogUploadMedia onSubmit=onSendImage ref="dialogUploadMedia"}}}
+</main>

@@ -1,5 +1,5 @@
 <label class="form-field_label">
     <span class="form-field_label-text {{#if style}}form-field_label-text__{{style}}{{/if}}">{{label}}</span>
-    {{{Input name=name type=type style=style ref="input" value=value onBlur=onBlur}}}
+    {{{Input name=name type=type style=style ref="input" value=value onBlur=onBlur onChange=onChange isActive=isActive}}}
     {{{ErrorMessage style="form-field" ref="errorMessage"}}}
 </label>

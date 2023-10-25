@@ -9,7 +9,7 @@ interface FormProps {
     onSubmit: () => void;
 }
 
-export default class Form extends Block<FormProps | any> {
+export class Form extends Block<FormProps | any> {
   constructor(props: FormProps) {
     super({
       ...props,

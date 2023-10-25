@@ -1,11 +1,12 @@
 {
   "include": [
     "src"
-  ],
+, "src/types/.d.ts"  ],
   "exclude": [
     "node_modules"
   ],
   "compilerOptions": {
+    "typeRoots": ["node_modules/@types", "src/types/global.d.ts"], 
     "outDir": "dist",
     "declaration": true,
     "target": "ESNext",
@@ -15,8 +16,9 @@
       "ESNext",
       "DOM"
     ],
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "strict": true,
+    "strictPropertyInitialization": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,

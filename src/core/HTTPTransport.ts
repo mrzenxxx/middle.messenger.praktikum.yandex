@@ -1,12 +1,10 @@
-interface RequestOptions {
-    method?: string;
-    data?: any;
-    headers?: { [key: string]: string };
-    timeout?: number;
-    retries?: number;
-}
+import onRequestError from './utils/onRequestError';
+import queryStringify from './utils/queryStringify';
+import { BASE_URL } from './constants/baseURL';
+import { RequestOptions } from '../types/interfacesAPI';
 
-// eslint-disable-next-line no-shadow
+type HTTPMethod = (path: string, options?: RequestOptions) => Promise<XMLHttpRequest>
+
 enum METHODS {
     GET = 'GET',
     POST = 'POST',
@@ -14,41 +12,23 @@ enum METHODS {
     DELETE = 'DELETE'
 }
 
-function queryStringify(data: { [key: string]: unknown }): string {
-  let resultQueryParams: string = '';
-  let paramsList: Array<[string, unknown]> = [];
-
-  if (!data) {
-    return resultQueryParams;
-  }
-  paramsList = Object.entries(data);
-  resultQueryParams += '?';
-
-  // eslint-disable-next-line no-restricted-syntax
-  for (const param of paramsList) {
-    const [key, value] = param;
-    resultQueryParams += `${key}=${value!.toString()}`;
-
-    if (paramsList.indexOf(param) !== paramsList.length - 1) {
-      resultQueryParams += '&';
-    }
-  }
-
-  return resultQueryParams;
-}
-
 export class HTTPTransport {
-  get = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(`${url}${queryStringify(options.data)}`, { method: METHODS.GET });
+  protected endpoint: string;
 
-  post = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.POST });
+  constructor(endpoint: string) {
+    this.endpoint = `${BASE_URL}${endpoint}`;
+  }
 
-  put = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.PUT });
+  get : HTTPMethod = (path, options = {}) => this.request(`${this.endpoint + path}${queryStringify(options.data)}`, { method: METHODS.GET });
 
-  delete = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.DELETE });
+  post : HTTPMethod = (path, options = {}) => this.request(this.endpoint + path, { ...options, method: METHODS.POST });
 
-  // eslint-disable-next-line class-methods-use-this
-  request = (url: string, options: RequestOptions): Promise<XMLHttpRequest> => {
-    const { method = 'GET', data, headers } = options;
+  put : HTTPMethod = (path, options = {}) => this.request(this.endpoint + path, { ...options, method: METHODS.PUT });
+
+  delete : HTTPMethod = (path, options = {}) => this.request(this.endpoint + path, { ...options, method: METHODS.DELETE });
+
+  request = (url: string, options: RequestOptions) => {
+    const { method = 'GET', data, headers } = options as RequestOptions;
     console.warn('REQUEST', url, options);
 
     return new Promise<XMLHttpRequest>((resolve, reject) => {
@@ -57,42 +37,34 @@ export class HTTPTransport {
       xhr.open(method, url);
 
       if (headers) {
-        // eslint-disable-next-line no-restricted-syntax
-        for (const [key, value] of Object.entries(headers)) {
-          xhr.setRequestHeader(key, value);
-        }
+        Object.entries(headers).forEach(([key, value]) => {
+          xhr.setRequestHeader(key, value as string);
+        });
       }
 
-      xhr.onload = function () {
-        resolve(xhr);
+      xhr.onload = () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          resolve(xhr.response);
+        } else {
+          reject(new Error(`Request failed with status ${xhr.status}, ${xhr.response?.reason || 'Unexpected error.'}`));
+        }
       };
 
-      xhr.onabort = reject;
-      xhr.onerror = reject;
-      xhr.ontimeout = reject;
+      xhr.onabort = () => reject(new Error(`Request aborted. ${onRequestError(xhr)}`));
+      xhr.onerror = () => reject(new Error(`Request error. ${onRequestError(xhr)}`));
+      xhr.ontimeout = () => reject(new Error(`Request timeout. ${onRequestError(xhr)}`));
+
+      xhr.withCredentials = true;
+      xhr.responseType = 'json';
 
       if (method === METHODS.GET || !data) {
         xhr.send();
-      } else {
+      } else if (data instanceof FormData) {
         xhr.send(data);
+      } else {
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(data));
       }
     });
   };
-}
-
-export const xhrUtil = new HTTPTransport();
-
-export function fetchWithRetry(url : string, options : RequestOptions) : Promise<XMLHttpRequest> {
-  const { retries = 1 } = options;
-
-  function handleError(error: Error) {
-    const triesLeft = retries - 1;
-    if (!triesLeft) {
-      throw error;
-    }
-
-    return fetchWithRetry(url, { ...options, retries: triesLeft });
-  }
-
-  return xhrUtil.request(url, options).catch(handleError);
 }

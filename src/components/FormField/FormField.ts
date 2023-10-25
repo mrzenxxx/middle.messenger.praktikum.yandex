@@ -4,9 +4,11 @@ import './FormField.scss';
 import { VALIDATION_RULES, VALIDATION_ERRORS } from '../../core/constants/validation';
 
 interface FormFieldProps {
-  value : string;
-  error : string | null;
-  onBlur?: () => void;
+  name : string,
+  value : string,
+  error : string | null,
+  isActive: boolean,
+  onChange?: () => void,
 }
 
 export class FormField extends Block<FormFieldProps|any> {
@@ -14,7 +16,7 @@ export class FormField extends Block<FormFieldProps|any> {
     super({
       ...props,
       error: null,
-      onBlur: () => this.validate(),
+      onChange: () => this.validate(),
     });
   }
 
@@ -22,18 +24,18 @@ export class FormField extends Block<FormFieldProps|any> {
     return (this.refs.input.element! as HTMLInputElement).value;
   }
 
-  private conditionCheck() {
-    return VALIDATION_RULES[(this.refs.input.element! as HTMLInputElement).name].test((this.refs.input.element! as HTMLInputElement).value);
+  private conditionCheck() : boolean {
+    return VALIDATION_RULES[(this.refs.input.element! as HTMLInputElement).name]?.test((this.refs.input.element! as HTMLInputElement).value);
   }
 
   public value() {
     if (!this.validate()) {
-      return 'Validation Failed';
+      return '';
     }
     return this._value();
   }
 
-  public validate(): boolean {
+  public validate() : boolean {
     if (!this.conditionCheck()) {
       this.refs.errorMessage.setProps({
         ...this.props,

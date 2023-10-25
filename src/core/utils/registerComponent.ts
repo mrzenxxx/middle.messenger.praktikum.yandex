@@ -1,7 +1,7 @@
 import Handlebars, { HelperOptions } from 'handlebars';
 import Block from '../Block';
 
-export function registerComponent(name: string, Component: typeof Block) {
+export default function registerComponent(name: string, Component: typeof Block) {
   if (name in Handlebars.helpers) {
     throw new Error(`The ${name} component is already registered!`);
   }
