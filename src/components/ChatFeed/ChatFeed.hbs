@@ -1,3 +1,9 @@
 <div class="chat-feed">
-    {{>@partial-block}}
+    {{#each messages}}
+    {{{ChatMessage
+    author=this.user_id
+    time=this.time
+    text=this.content
+    }}}
+    {{/each}}
 </div>

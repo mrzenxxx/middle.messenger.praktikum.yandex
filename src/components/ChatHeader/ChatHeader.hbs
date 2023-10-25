@@ -1,7 +1,9 @@
 <div class="chat-header">
-    {{>Avatar size="small" src="assets/img/mocks/chad.png" alt="Selected chat avatar picture"}}
+    {{{Avatar size="small" src=avatar alt="Selected chat avatar picture"}}}
     <span class="chat-header__text">
-        {{header}}
+        {{title}}
     </span>
-    <button class="chat-header__button"/>
+    {{{Button className='chat-header__button__add-user' type='button' onClick=onAddUser}}}
+    {{{Button className='chat-header__button__remove-user' type='button' onClick=onRemoveUser}}}
+    {{{Button className='chat-header__button__delete-chat' type='button' onClick=onDeleteChat}}}
 </div> 

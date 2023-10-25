@@ -1,14 +1,15 @@
 <main class="register">
     {{#Form type="register" title="Регистрация" onSubmit=onRegister}}
         <div class="register__form_fields">
-            {{{FormField label="Почта" ref="email" name="email" type="email"}}}
-            {{{FormField label="Логин" ref="login" name="login" type="text" }}}
-            {{{FormField label="Имя" ref="first_name" name="first_name" type="text" }}}
-            {{{FormField label="Фамилия" ref="second_name" name="second_name" type="text" }}}
-            {{{FormField label="Телефон" ref="phone" name="phone" type="phone" type="phone"}}}
-            {{{FormField label="Пароль" ref="password" name="password" type="password" type="password"}}}
-            {{{FormField label="Подтвердите пароль" ref="password_confirm" name="password_confirm" type="password"}}}
+            {{{FormField label="Почта" ref="email" name="email" type="email" isActive="true"}}}
+            {{{FormField label="Логин" ref="login" name="login" type="text" isActive="true"}}}
+            {{{FormField label="Имя" ref="first_name" name="first_name" type="text" isActive="true"}}}
+            {{{FormField label="Фамилия" ref="second_name" name="second_name" type="text" isActive="true"}}}
+            {{{FormField label="Телефон" ref="phone" name="phone" type="phone" type="phone" isActive="true"}}}
+            {{{FormField label="Пароль" ref="password" name="password" type="password" type="password" isActive="true"}}}
+            {{{FormField label="Подтвердите пароль" ref="password_confirm" name="password_confirm" type="password" isActive="true"}}}
         </div>
+        {{{ApiErrorMessage}}}
         {{{Button label="Зарегистрироваться" style="primary" type="submit"}}}
         {{{Button label="Уже есть аккаунт?" style="secondary" type="button" onClick=onSwitch}}}
     {{/Form}}
