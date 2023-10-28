@@ -30,5 +30,10 @@
     "noImplicitAny": true,
     "sourceMap": true,
     "strictNullChecks": true
+  },
+  "ts-node" : {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true
   }
 }
