@@ -1,11 +1,9 @@
-import { expect } from "chai";
-import sinon from "sinon";
-import router from "../Router";
-import Block from "../Block";
+import { expect } from 'chai';
+import sinon from 'sinon';
+import router from '../Router';
+import Block from '../Block';
 
 describe('Router', () => {
-  
-
   // beforeEach(() => {
   //   const dom = new JSDOM('<!DOCTYPE html><div id="app"></div>');
   //   global.window = dom.window;
