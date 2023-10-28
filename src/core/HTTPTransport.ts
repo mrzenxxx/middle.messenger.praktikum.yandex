@@ -5,7 +5,7 @@ import { RequestOptions } from '../types/interfacesAPI';
 
 type HTTPMethod = (path: string, options?: RequestOptions) => Promise<XMLHttpRequest>
 
-enum METHODS {
+export enum METHODS {
     GET = 'GET',
     POST = 'POST',
     PUT = 'PUT',
@@ -29,7 +29,7 @@ export class HTTPTransport {
 
   request = (url: string, options: RequestOptions) => {
     const { method = 'GET', data, headers } = options as RequestOptions;
-    console.warn('REQUEST', url, options);
+    // console.warn('REQUEST', url, options);
 
     return new Promise<XMLHttpRequest>((resolve, reject) => {
       const xhr = new XMLHttpRequest();

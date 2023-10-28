@@ -1,9 +1,9 @@
 import { JSDOM } from 'jsdom';
-import { expect } from 'chai';
+import { XMLHttpRequest } from 'node-xmlhttprequest';
 
 const jsdom = new JSDOM('<body></body>');
 
-global.expect = expect;
+global.XMLHttpRequest = XMLHttpRequest;
 global.window = jsdom.window;
 global.document = jsdom.document;
 global.Node = jsdom.window.Node;

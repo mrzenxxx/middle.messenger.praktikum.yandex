@@ -5,8 +5,7 @@
         padding: 0;
         height: calc(100dvh - 88px);
         max-width: 320px;
-        overflow-x: visible!important;
-        overflow-y: scroll;
+        overflow: visible scroll;
 
         &__wrapper {
                 margin: 0;
