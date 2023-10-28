@@ -26,4 +26,14 @@ describe('HTTPTransport', () => {
             expect(errorMessage).to.equal(testErrors.BAD_COOKIE);
         });
   });
+
+  it('Must return error on try to login with wrong data', async () => {
+    const http = new HTTPTransport('/auth');
+
+    await http.post("/signin", {})
+        .catch((error) => {
+            const errorMessage = error.message.toString();
+            expect(errorMessage).to.equal(testErrors.EMPTY_LOGIN);
+        });
+  });
 });
