@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import sinon, { SinonStub } from 'sinon';
+import { SinonStub, stub } from 'sinon';
 import router from '../Router';
 import Block from '../Block';
 
@@ -10,11 +10,13 @@ class Test extends Block<StringIndexed> {
 }
 
 describe('core/Router', () => {
-  let pushStateStub: SinonStub;
+  const pushStateStub : SinonStub = stub(window.history, 'pushState');
+  const historyBackStub : SinonStub = stub(history, 'back');
+  const historyForwardStub : SinonStub = stub(history, 'forward');
 
   before(() => {
-    pushStateStub = sinon.stub(window.history, 'pushState');
     router.use('/test-1', Test).use('/test-2', Test).start();
+    router.go('/');
   });
 
   after(() => {
@@ -24,6 +26,16 @@ describe('core/Router', () => {
   it('Must return correct history length', () => {
     router.go('/test-1');
     router.go('/test-2');
-    expect(pushStateStub.callCount).to.equal(2);
+    expect(pushStateStub.callCount).to.equal(3);
+  });
+
+  it('Must navigate back in history', () => {
+    router.back();
+    expect(historyBackStub.calledOnce).to.be.true;
+  });
+
+  it('Must navigate forward in history', () => {
+    router.forward();
+    expect(historyForwardStub.calledOnce).to.be.true;
   });
 });
