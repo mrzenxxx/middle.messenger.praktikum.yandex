@@ -35,7 +35,7 @@ export default class Block<P extends StringIndexed> {
 
   private _element: HTMLElement | null = null;
 
-  protected props: P;
+  public props: P;
 
   protected refs: Record<string, Block<P>> = {};
 

@@ -10,9 +10,11 @@ class Test extends Block<StringIndexed> {
 }
 
 describe('Router', () => {
-  const pushStateStub : SinonStub = stub(window.history, 'pushState');
-  const historyBackStub : SinonStub = stub(history, 'back');
-  const historyForwardStub : SinonStub = stub(history, 'forward');
+  const pushStateStub: SinonStub = stub(window.history, 'pushState');
+  // eslint-disable-next-line
+  const historyBackStub: SinonStub = stub(history, 'back');
+  // eslint-disable-next-line
+  const historyForwardStub: SinonStub = stub(history, 'forward');
 
   before(() => {
     router.use('/test-1', Test).use('/test-2', Test).start();
@@ -31,11 +33,15 @@ describe('Router', () => {
 
   it('Must navigate back in history', () => {
     router.back();
+
+    // eslint-disable-next-line
     expect(historyBackStub.calledOnce).to.be.true;
   });
 
   it('Must navigate forward in history', () => {
     router.forward();
+
+    // eslint-disable-next-line
     expect(historyForwardStub.calledOnce).to.be.true;
   });
 });
