@@ -173,8 +173,8 @@ export default class Block<P extends StringIndexed> {
     return temp.content;
   }
 
-  protected render(): DocumentFragment|string {
-    return (new DocumentFragment()) || '';
+  protected render(): DocumentFragment {
+    return new DocumentFragment();
   }
 
   public dispatchComponentDidMount(): void {

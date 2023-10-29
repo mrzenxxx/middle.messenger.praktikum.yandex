@@ -5,7 +5,7 @@ import { BASE_URL } from '../constants/baseURL';
 import { testErrors } from '../constants/testErrors';
 
 describe('HTTPTransport', () => {
-  it('Checking corretly builded query string', async () => {
+  it('Must build query string correctly', async () => {
     const http = new HTTPTransport('/test');
     const stub = sinon.stub(http, 'request').resolves();
     const method = METHODS.GET;

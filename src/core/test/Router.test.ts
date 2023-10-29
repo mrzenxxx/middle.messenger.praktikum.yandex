@@ -5,11 +5,11 @@ import Block from '../Block';
 
 class Test extends Block<StringIndexed> {
   protected render() {
-    return '<p>Dummy</p>';
+    return this.compile('<p>Dummy</p>', {});
   }
 }
 
-describe('core/Router', () => {
+describe('Router', () => {
   const pushStateStub : SinonStub = stub(window.history, 'pushState');
   const historyBackStub : SinonStub = stub(history, 'back');
   const historyForwardStub : SinonStub = stub(history, 'forward');
