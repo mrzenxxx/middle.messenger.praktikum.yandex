@@ -23,4 +23,23 @@
         box-shadow: none;
         border-radius: 0;
     }
+
+    &__dialog {
+        display: block;
+        padding: 8px 16px;
+        width: 280px;
+        min-height: 150px;
+        height: auto;
+        box-shadow: 0 0 6px 0 $base-shadow;
+        background-color: $base-background;
+        border-radius: 12px;
+        border: none;
+        z-index: 100;
+
+        h4 {
+            text-align: center;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+    }
 }

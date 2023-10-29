@@ -1,5 +1,5 @@
 {{#Dialog open=isOpen}}
-<form method="dialog">
+{{#Form type="dialog"}}
     <h4>Удалить пользователя из чата</h4>
     {{{ FormField label="ID пользователя" name="remove_user_id" ref="removeUserID" isActive="true"}}}
     {{{ ApiErrorMessage }}}
@@ -17,5 +17,5 @@
         onClick=onClose
         }}}
     </div>
-</form>
+{{/Form}}
 {{/Dialog}}
