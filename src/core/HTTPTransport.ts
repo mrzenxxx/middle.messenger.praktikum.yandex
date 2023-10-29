@@ -57,6 +57,10 @@ export class HTTPTransport {
       xhr.withCredentials = true;
       xhr.responseType = 'json';
 
+      xhr.setRequestHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'");
+      xhr.setRequestHeader('X-XSS-Protection', '1; mode=block');
+      xhr.setRequestHeader('X-Content-Type-Options', 'nosniff');
+
       if (method === METHODS.GET || !data) {
         xhr.send();
       } else if (data instanceof FormData) {
