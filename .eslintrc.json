@@ -15,9 +15,10 @@
     "rules": {
         "max-len": [2, 180],
         "import/prefer-default-export": "off",
-        "no-console": ["error", { "allow": ["warn", "table", "error", "info"] }],
         "import/extensions": "off",
         "import/no-unresolved": "off",
+        "import/no-extraneous-dependencies" : "off",
+        "no-console": ["error", { "allow": ["warn", "table", "error", "info"] }],
         "no-underscore-dangle": "off",
         "func-names": "off",
         "no-unused-vars": "off",
@@ -34,11 +35,15 @@
           }
         }
     },
-    "globals" : {
+    "globals": {
         "StringIndexed" : "readonly",
         "Nullable" : "readonly",
         "Indexed" : "readonly",
         "PlainObject" : "readonly",
-        "NodeJS" : "readonly"
+        "NodeJS" : "readonly",
+        "describe" : "readonly",
+        "it" : "readonly",
+        "before" : "readonly",
+        "after" : "readonly"
     }
 }

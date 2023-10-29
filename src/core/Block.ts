@@ -35,7 +35,7 @@ export default class Block<P extends StringIndexed> {
 
   private _element: HTMLElement | null = null;
 
-  protected props: P;
+  public props: P;
 
   protected refs: Record<string, Block<P>> = {};
 
@@ -133,7 +133,7 @@ export default class Block<P extends StringIndexed> {
   private _render(): void {
     const fragment = this.render();
     this._removeEvents();
-    const newElement = fragment.firstElementChild as HTMLElement;
+    const newElement = (fragment as unknown as HTMLElement).firstElementChild as HTMLElement;
 
     if (newElement && this._element) {
       this._element.replaceWith(newElement);
