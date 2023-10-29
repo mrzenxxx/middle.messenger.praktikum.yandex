@@ -4,7 +4,7 @@
         margin: 0;
         padding: 0;
         height: calc(100dvh - 88px);
-        max-width: 320px;
+        min-width: 280px;
         overflow: visible scroll;
 
         &__wrapper {
