@@ -35,13 +35,15 @@
           }
         }
     },
-    "globals" : {
+    "globals": {
         "StringIndexed" : "readonly",
         "Nullable" : "readonly",
         "Indexed" : "readonly",
         "PlainObject" : "readonly",
         "NodeJS" : "readonly",
         "describe" : "readonly",
-        "it" : "readonly"
+        "it" : "readonly",
+        "before" : "readonly",
+        "after" : "readonly"
     }
 }

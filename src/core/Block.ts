@@ -133,7 +133,7 @@ export default class Block<P extends StringIndexed> {
   private _render(): void {
     const fragment = this.render();
     this._removeEvents();
-    const newElement = fragment.firstElementChild as HTMLElement;
+    const newElement = (fragment as unknown as HTMLElement).firstElementChild as HTMLElement;
 
     if (newElement && this._element) {
       this._element.replaceWith(newElement);
@@ -173,8 +173,8 @@ export default class Block<P extends StringIndexed> {
     return temp.content;
   }
 
-  protected render(): DocumentFragment {
-    return new DocumentFragment();
+  protected render(): DocumentFragment|string {
+    return (new DocumentFragment()) || '';
   }
 
   public dispatchComponentDidMount(): void {
