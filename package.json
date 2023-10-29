@@ -7,7 +7,7 @@
     "prebuild": "tsc --noEmit",
     "build": "npm run prebuild && vite build",
     "preview": "vite preview",
-    "start": "npm run build && node server.ts",
+    "start": "npm run build && node server.js",
     "lint": "npx eslint '**/*.{js,ts}' --fix && npx stylelint '**/*.scss' && npx tsc --noEmit",
     "test": "./node_modules/.bin/mocha",
     "prepare": "husky install"
