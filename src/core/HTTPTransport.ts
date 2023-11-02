@@ -5,7 +5,7 @@ import { RequestOptions } from '../types/interfacesAPI';
 
 type HTTPMethod = (path: string, options?: RequestOptions) => Promise<XMLHttpRequest>
 
-enum METHODS {
+export enum METHODS {
     GET = 'GET',
     POST = 'POST',
     PUT = 'PUT',
@@ -29,7 +29,7 @@ export class HTTPTransport {
 
   request = (url: string, options: RequestOptions) => {
     const { method = 'GET', data, headers } = options as RequestOptions;
-    console.warn('REQUEST', url, options);
+    // console.warn('REQUEST', url, options);
 
     return new Promise<XMLHttpRequest>((resolve, reject) => {
       const xhr = new XMLHttpRequest();
@@ -56,6 +56,10 @@ export class HTTPTransport {
 
       xhr.withCredentials = true;
       xhr.responseType = 'json';
+
+      xhr.setRequestHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'");
+      xhr.setRequestHeader('X-XSS-Protection', '1; mode=block');
+      xhr.setRequestHeader('X-Content-Type-Options', 'nosniff');
 
       if (method === METHODS.GET || !data) {
         xhr.send();

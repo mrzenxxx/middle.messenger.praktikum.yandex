@@ -33,6 +33,7 @@ export default class Route {
     if (!this.block) {
       this.block = new this._blockClass({});
     }
+
     render(this._root, this.block! as Block<StringIndexed>);
   }
 }

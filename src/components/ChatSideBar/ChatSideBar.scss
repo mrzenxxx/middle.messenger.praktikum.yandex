@@ -9,11 +9,9 @@
     border-right: 1px solid $base-lines;
     background-color: $base-background;
 
-    // с этим нормальная прокрутка и плитки при наведении
     &__list-wrapper {
         position: relative;
         height: calc(100dvh - 88px);
-        overflow-y: scroll !important;
-        overflow-x: visible !important;
+        overflow: visible scroll;
     }
 }
